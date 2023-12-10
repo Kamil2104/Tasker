@@ -98,8 +98,6 @@ html, body {
 .loginContainer label {
     font-size: 2vh;
 
-    /* padding-bottom: 5vh; */
-
     color: rgba(255, 255, 255, 0.62);
 
     text-decoration: underline;
