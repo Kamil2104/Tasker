@@ -11,9 +11,7 @@ const LoginPage = () => {
       <div className='loginContainerEventComponents'>
         <button id="btnLogin"> Log in </button>
         <p> Forgot password? </p>
-        <div className='loginContainerEventComponentsButtonCreateNewAccount'>
-          <button id="btnCreateNewAccount"> Create new account </button>
-        </div>
+        <button id="btnCreateNewAccount"> Create new account </button>
       </div>
     </div>
   )
