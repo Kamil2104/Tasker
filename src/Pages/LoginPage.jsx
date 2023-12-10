@@ -1,4 +1,5 @@
 import React from 'react'
+import '../Styles/LoginPageStyle.css'
 
 const LoginPage = () => {
   return (
