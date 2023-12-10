@@ -4,44 +4,11 @@ html, body {
 
 .loginPage {
     display: flex;
-    flex-direction: row;
-
-    color: #DDE6ED;
-    background-image: url(../LoginPageBackground.jpg);
-}
-
-.titleSide {
-    display: flex;
-    flex-direction: column;
-
-    height: 100vh;
-    width: 50%;
-}
-
-.loginSide {
-    display: flex;
     justify-content: center;
     align-items: center;
 
     height: 100vh;
-    width: 50%;
-}
 
-.upperTitleSide {
-    height: 50vh;
-    width: 100%;
-}
-
-.lowerTitleSide {
-    height: 50vh;
-    width: 100%;
-}
-
-.loginContainer {
-    height: 50vh;
-    width: 65%;
-    background-color: #9DB2BF;
-
-    border: solid 0.35vh white;
-    border-radius: 2rem;
+    color: #DDE6ED;
+    background-image: url(../LoginPageBackground.jpg);
 }
