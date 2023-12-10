@@ -12,6 +12,7 @@ const LoginPage = () => {
     <div className='loginPage'>
       <div className='loginContainer'>
         <div className='loginContainerContent'>
+          <h1> Log in </h1>
           <input type="text" name="login" id="login" placeholder="Login: " autoComplete="off" /> <br />
           <input type="password" name="password" id="password" placeholder="Password: " /> <br />
           <button id="btnLogin"> Log in </button> <br />

@@ -17,7 +17,7 @@ html, body {
 }
 
 .loginContainer {
-    height: 50vh;
+    height: 65vh;
     width: 27%;
 
     padding-top: 8vh;
@@ -26,6 +26,13 @@ html, body {
     background-color: rgba(233, 233, 233, 0.044);
 
     border-radius: 3.5vh;
+}
+
+.loginContainer h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vh;
+
+    padding-bottom: 2vh;
 }
 
 .loginContainer input {
@@ -125,13 +132,13 @@ html, body {
 
 @media screen and (max-width: 640px) {
     .loginContainer {
-        height: 52.5vh;
+        height: 65vh;
     }
 }
 
 @media screen and (min-width: 384px) and (max-width: 640px) {
     .loginContainer {
-        height: 60vh;
+        height: 75vh;
         padding-top: 6vh;
     }
 
@@ -150,7 +157,7 @@ html, body {
 
 @media screen and (max-width: 384px) {
     .loginContainer {
-        height: 55vh;
+        height: 65vh;
         padding-top: 2vh;
         padding-bottom: 15vh;
     }
