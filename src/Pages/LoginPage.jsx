@@ -1,7 +1,13 @@
-import React from 'react'
-import '../Styles/LoginPageStyle.css'
+import React from 'react';
+import { useEffect } from 'react';
+
+import '../Styles/LoginPageStyle.css';  
 
 const LoginPage = () => {
+  useEffect(() => {
+    document.title = "Tasker - log in";
+  }, []);
+
   return (
     <div className='loginPage'>
       <div className='loginContainer'>
