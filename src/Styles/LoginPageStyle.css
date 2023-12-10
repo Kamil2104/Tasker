@@ -5,6 +5,9 @@ html, body {
 .loginPage {
     display: flex;
     flex-direction: row;
+
+    color: #DDE6ED;
+    background-image: url(../LoginPageBackground.jpg);
 }
 
 .titleSide {
@@ -35,9 +38,10 @@ html, body {
 }
 
 .loginContainer {
-    height: 70vh;
+    height: 50vh;
     width: 65%;
+    background-color: #9DB2BF;
 
-    border: solid 0.35vh black;
+    border: solid 0.35vh white;
     border-radius: 2rem;
 }
