@@ -3,7 +3,21 @@ import '../Styles/LoginPageStyle.css'
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <div className='loginPage'>
+      <div className='titleSide'>
+        <div className='upperTitleSide'>
+
+        </div>
+        <div className='lowerTitleSide'>
+
+        </div>
+      </div>
+      <div className='loginSide'>
+        <div className='loginContainer'>
+
+        </div>
+      </div>
+    </div>
   )
 }
 
