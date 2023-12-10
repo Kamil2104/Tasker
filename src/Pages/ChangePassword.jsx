@@ -1,7 +1,13 @@
 import React from 'react'
+import { useEffect } from 'react';
+
 import '../Styles/ChangePasswordStyle.css'
 
-export const ChangePassword = () => {
+const ChangePassword = () => {
+  useEffect(() => {
+    document.title = "Tasker - change password";
+  }, []);
+
   return (
     <div className='changePasswordPage'>
       <div className='changePasswordContainer'>
