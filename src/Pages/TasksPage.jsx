@@ -1,14 +1,31 @@
 import React from 'react'
+import { useState } from 'react';
+
 import '../Styles/TasksPageStyle.css'
 
 const TasksPage = () => {
+  const [selectedDate, setSelectedDate] = useState(getCurrentDate());
+
+  function getCurrentDate() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+  }
+
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
+  };
+
   return (
     <div className='tasksPage'>
       <div className='addTaskPanel'>
         <h1> Create task: </h1>
         <input type="text" placeholder="Name: " autoComplete="off" /> <br />
         <input type="text" placeholder="Description: " autoComplete="off" /> <br />
-        <input type="date" autoComplete="off" /> <br />
+        <input type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} /> <br />
         <select name="selectPriority" id="selectPriority">
           <option value="low"> low </option>
           <option value="medium"> medium </option>
