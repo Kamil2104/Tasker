@@ -3,5 +3,28 @@ html, body {
 }
 
 .tasksPage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     background-image: url(../TaskerBackground.jpg);
+}
+
+.addTaskPanel {
+    height: 100vh;
+    width: 20%;
+
+    background-color: rgba(70, 131, 180, 0.278);
+}
+
+.showTasksPanel {
+    height: 100vh;
+    width: 60%;
+}
+
+.findTasksPanel {
+    height: 100vh;
+    width: 20%;
+
+    background-color: rgba(70, 131, 180, 0.278);
 }
