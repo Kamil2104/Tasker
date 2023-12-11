@@ -20,7 +20,7 @@ html, body {
     height: 100vh;
     width: 20%;
 
-    background-color: rgba(70, 131, 180, 0.278);
+    background-color: rgba(58, 109, 151, 0.351);
 }
 
 .addTaskPanel h1 {
@@ -62,6 +62,10 @@ html, body {
 
 .addTaskPanel input[type="date"]::-webkit-calendar-picker-indicator { /* Changes calendar icon color to white (from black)*/
     filter: invert(1);
+}
+
+.addTaskPanel input[type="date"]::-webkit-calendar-picker-indicator:hover { 
+    cursor: pointer;
 }
 
 .addTaskPanel select {
@@ -124,4 +128,95 @@ html, body {
     width: 20%;
 
     background-color: rgba(70, 131, 180, 0.278);
+}
+
+.findTasksPanel h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vh;
+
+    padding-bottom: 2vh;
+}
+
+.findTasksPanel input {
+    font-size: 2.25vh;
+    width: 65%;
+    margin-bottom: 3vh;
+    padding: 1vh;
+    outline: none;
+
+    color: rgba(255, 255, 255, 0.579);
+    background-color: rgba(255, 255, 255, 0);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.342);
+    border-radius: 1.5vh;
+}
+
+.findTasksPanel input:hover {
+    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+}
+
+.findTasksPanel input:focus {
+    border: solid 0.25vh white;
+}
+
+.findTasksPanel input[type="date"] { 
+    color: white;
+}
+
+.findTasksPanel input[type="date"]:hover { 
+    cursor: pointer;
+}
+
+.findTasksPanel input[type="date"]::-webkit-calendar-picker-indicator { /* Changes calendar icon color to white (from black)*/
+    filter: invert(1);
+}
+
+.findTasksPanel input[type="date"]::-webkit-calendar-picker-indicator:hover { 
+    cursor: pointer;
+}
+
+.findTasksPanel select {
+    font-size: 2.25vh;
+    width: 65%;
+    margin-bottom: 3vh;
+    padding: 1vh;
+    outline: none;
+
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.342);
+    border-radius: 1.5vh;
+}
+
+.findTasksPanel select:hover {
+    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+    cursor: pointer;
+}
+
+.findTasksPanel select:focus {
+    border: solid 0.25vh white;
+}
+
+.findTasksPanel option {
+    color: black;
+}
+
+.findTasksPanel button {
+    font-size: 2.5vh;
+    width: 35%;
+    
+    padding: 1vh;
+    margin: 5vh 2vh;
+
+    color: white;
+    background-color: rgba(54, 111, 157, 0.518);
+
+    border: solid 0.25vh steelblue;
+}
+
+.findTasksPanel button:hover {
+    cursor: pointer;
+
+    border: solid 0.25vh rgb(109, 187, 250);
 }

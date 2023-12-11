@@ -22,6 +22,7 @@ const TasksPage = () => {
   return (
     <div className='tasksPage'>
       <div className='addTaskPanel'>
+
         <h1> Create task: </h1>
         <input type="text" placeholder="Name: " autoComplete="off" /> <br />
         <input type="text" placeholder="Description: " autoComplete="off" /> <br />
@@ -33,11 +34,24 @@ const TasksPage = () => {
         </select> <br />
         <button id="btnAddTask"> Add </button> 
         <button id="btnClearForm"> Clear </button> 
+
       </div>
       <div className='showTasksPanel'>
 
       </div>
       <div className='findTasksPanel'>
+
+        <h1> Find tasks: </h1>
+        <input type="text" placeholder="Name: " autoComplete="off" /> <br />
+        <input 
+        type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} /> <br />
+          <select name="selectPriority" id="selectPriority">
+            <option value="low"> low </option>
+            <option value="medium"> medium </option>
+            <option value="high"> high </option>
+          </select> <br />
+          <button id="btnFindTasks"> Add </button>
+          <button id="btnClearForm"> Clear </button>  
 
       </div>
     </div>
