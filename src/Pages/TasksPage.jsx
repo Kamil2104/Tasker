@@ -31,7 +31,7 @@ const TasksPage = () => {
           <option value="medium"> medium </option>
           <option value="high"> high </option>
         </select> <br />
-        <button id="btnAddTask"> Add </button> <br />
+        <button id="btnAddTask"> Add </button> 
         <button id="btnClearForm"> Clear </button> 
       </div>
       <div className='showTasksPanel'>

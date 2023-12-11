@@ -5,9 +5,13 @@ html, body {
 .tasksPage {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    text-align: center;
+
+    color: white;
 
     background-image: url(../TaskerBackground.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .addTaskPanel {
@@ -15,6 +19,93 @@ html, body {
     width: 20%;
 
     background-color: rgba(70, 131, 180, 0.278);
+}
+
+.addTaskPanel h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vh;
+
+    padding-bottom: 2vh;
+}
+
+.addTaskPanel input {
+    font-size: 2.25vh;
+    width: 65%;
+    margin-bottom: 3vh;
+    padding: 1vh;
+    outline: none;
+
+    color: rgba(255, 255, 255, 0.579);
+    background-color: rgba(255, 255, 255, 0);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.342);
+    border-radius: 1.5vh;
+}
+
+.addTaskPanel input:hover {
+    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+}
+
+.addTaskPanel input:focus {
+    border: solid 0.25vh white;
+}
+
+.addTaskPanel input[type="date"] { 
+    color: white;
+}
+
+.addTaskPanel input[type="date"]:hover { 
+    cursor: pointer;
+}
+
+.addTaskPanel input[type="date"]::-webkit-calendar-picker-indicator { /* Changes calendar icon color to white (from black)*/
+    filter: invert(1);
+}
+
+.addTaskPanel select {
+    font-size: 2.25vh;
+    width: 65%;
+    margin-bottom: 3vh;
+    padding: 1vh;
+    outline: none;
+
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.342);
+    border-radius: 1.5vh;
+}
+
+.addTaskPanel select:hover {
+    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+    cursor: pointer;
+}
+
+.addTaskPanel select:focus {
+    border: solid 0.25vh white;
+}
+
+.addTaskPanel option {
+    color: black;
+}
+
+.addTaskPanel button {
+    font-size: 2.5vh;
+    width: 35%;
+    
+    padding: 1vh;
+    margin: 5vh 2vh;
+
+    color: white;
+    background-color: rgba(54, 111, 157, 0.767);
+
+    border: solid 0.25vh steelblue;
+}
+
+.addTaskPanel button:hover {
+    cursor: pointer;
+
+    border: solid 0.25vh rgb(109, 187, 250);
 }
 
 .showTasksPanel {
