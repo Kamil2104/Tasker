@@ -14,6 +14,8 @@ html, body {
     background-position: center;
 }
 
+/* addTaskPanel */
+
 .addTaskPanel {
     height: 100vh;
     width: 20%;
@@ -108,10 +110,14 @@ html, body {
     border: solid 0.25vh rgb(109, 187, 250);
 }
 
+/* showTasksPanel */
+
 .showTasksPanel {
     height: 100vh;
     width: 60%;
 }
+
+/* findTasksPanel */
 
 .findTasksPanel {
     height: 100vh;
