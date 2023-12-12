@@ -11,7 +11,7 @@ html, body {
 
     color: #DDE6ED;
 
-    background-image: url(../TaskerBackground.jpg);
+    background-image: url(../backgroundImage.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -77,9 +77,9 @@ html, body {
     padding: 1vh;
 
     color: white;
-    background-color: rgba(54, 111, 157, 0.518);
+    background-color: rgba(39, 41, 43, 0.542);
 
-    border: solid 0.25vh steelblue;
+    border: solid 0.25vh rgba(255, 255, 255, 0.601)
 }
 
 .createAccountContainer button[id="btnCreateAccount"] {
@@ -87,14 +87,12 @@ html, body {
     width: 90%;
 
     margin-bottom: 5vh;
-
-    background-color: rgba(54, 111, 157, 0.655);
 }
 
 .createAccountContainer button:hover {
     cursor: pointer;
 
-    border: solid 0.25vh rgb(109, 187, 250);
+    border: solid 0.25vh white;
 }
 
 @media screen and (max-width: 640px) {
