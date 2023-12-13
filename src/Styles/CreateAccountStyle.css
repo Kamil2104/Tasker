@@ -64,11 +64,11 @@ html, body {
 }
 
 .createAccountContainer input:hover {
-    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+    border: solid 0.25vh white;
 }
 
 .createAccountContainer input:focus {
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
 
 .createAccountContainer input::placeholder {
@@ -94,7 +94,7 @@ html, body {
 .createAccountContainer button:hover {
     cursor: pointer;
 
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
 
 @media screen and (max-width: 640px) {

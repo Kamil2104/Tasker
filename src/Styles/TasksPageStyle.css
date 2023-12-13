@@ -47,11 +47,11 @@ html, body {
 }
 
 .addTaskPanel input:hover {
-    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+    border: solid 0.25vh white;
 }
 
 .addTaskPanel input:focus {
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
 
 .addTaskPanel input[type="date"] { 
@@ -85,12 +85,12 @@ html, body {
 }
 
 .addTaskPanel select:hover {
-    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+    border: solid 0.25vh white;
     cursor: pointer;
 }
 
 .addTaskPanel select:focus {
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
 
 .addTaskPanel option {
@@ -113,7 +113,7 @@ html, body {
 .addTaskPanel button:hover {
     cursor: pointer;
 
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
 
 /* showTasksPanel */
@@ -156,11 +156,11 @@ html, body {
 }
 
 .findTasksPanel input:hover {
-    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+    border: solid 0.25vh white;
 }
 
 .findTasksPanel input:focus {
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
 
 .findTasksPanel input[type="date"] { 
@@ -199,7 +199,7 @@ html, body {
 }
 
 .findTasksPanel select:focus {
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
 
 .findTasksPanel option {
@@ -222,5 +222,5 @@ html, body {
 .findTasksPanel button:hover {
     cursor: pointer;
 
-    border: solid 0.25vh white;
+    border: solid 0.25vh red;
 }
