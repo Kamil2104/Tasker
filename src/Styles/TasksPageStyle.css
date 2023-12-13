@@ -194,7 +194,7 @@ html, body {
 }
 
 .findTasksPanel select:hover {
-    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+    border: solid 0.25vh white;
     cursor: pointer;
 }
 
