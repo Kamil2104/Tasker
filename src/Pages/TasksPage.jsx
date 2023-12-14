@@ -66,7 +66,7 @@ const TasksPage = () => {
           <option value="medium"> medium </option>
           <option value="high"> high </option>
         </select> <br />
-        <button id="btnFindTasks"> Add </button>
+        <button id="btnFindTasks"> Find </button>
         <button id="btnClearForm"> Clear </button>
         <button id="btnShowAllTasks"> Show all tasks </button>
 
