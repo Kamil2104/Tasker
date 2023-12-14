@@ -142,6 +142,12 @@ body {
     background-color: transparent;
 }
 
+.showTasksPanel h1 {
+    padding-top: 40vh;
+
+    color: rgba(255, 255, 255, 0.579);
+}
+
 .showTasksPanel textarea {
     min-height: 15vh;
     height: 15vh;
