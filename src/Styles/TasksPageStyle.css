@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
 }
 
@@ -54,19 +55,20 @@ html, body {
     border: solid 0.25vh red;
 }
 
-.addTaskPanel input[type="date"] { 
+.addTaskPanel input[type="date"] {
     color: white;
 }
 
-.addTaskPanel input[type="date"]:hover { 
+.addTaskPanel input[type="date"]:hover {
     cursor: pointer;
 }
 
-.addTaskPanel input[type="date"]::-webkit-calendar-picker-indicator { /* Changes calendar icon color to white (from black)*/
+.addTaskPanel input[type="date"]::-webkit-calendar-picker-indicator {
+    /* Changes calendar icon color to white (from black)*/
     filter: invert(1);
 }
 
-.addTaskPanel input[type="date"]::-webkit-calendar-picker-indicator:hover { 
+.addTaskPanel input[type="date"]::-webkit-calendar-picker-indicator:hover {
     cursor: pointer;
 }
 
@@ -100,7 +102,7 @@ html, body {
 .addTaskPanel button {
     font-size: 2.5vh;
     width: 35%;
-    
+
     padding: 1vh;
     margin: 5vh 2vh;
 
@@ -119,8 +121,63 @@ html, body {
 /* showTasksPanel */
 
 .showTasksPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     height: 100vh;
     width: 60%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow-y: auto;
+}
+
+.showTasksPanel::-webkit-scrollbar {
+    width: 0.0vw;
+}
+
+.showTasksPanel::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.showTasksPanel textarea {
+    min-height: 15vh;
+    height: 15vh;
+    width: 60%;
+
+    font-size: 2vh;
+    line-height: 2vh;
+
+    margin: 3.75vh 0;
+    padding: 0 2vw;
+    padding-top: 1.5vh;
+
+    color: rgba(255, 255, 255, 0.579);
+    background-color: rgba(39, 41, 43, 0.254);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.168);
+    border-radius: 20vh;
+
+    text-align: center;
+    outline: none;
+    resize: none;
+    caret-color: transparent;
+}
+
+.showTasksPanel textarea:hover {
+    border: solid 0.25vh rgba(255, 255, 255, 0.437);
+
+    cursor: pointer;
+}
+
+.showTasksPanel textarea::-webkit-scrollbar {
+    width: 0.0vw;
+}
+
+.showTasksPanel textarea::-webkit-scrollbar-thumb {
+    background-color: transparent;
 }
 
 /* findTasksPanel */
@@ -163,19 +220,20 @@ html, body {
     border: solid 0.25vh red;
 }
 
-.findTasksPanel input[type="date"] { 
+.findTasksPanel input[type="date"] {
     color: white;
 }
 
-.findTasksPanel input[type="date"]:hover { 
+.findTasksPanel input[type="date"]:hover {
     cursor: pointer;
 }
 
-.findTasksPanel input[type="date"]::-webkit-calendar-picker-indicator { /* Changes calendar icon color to white (from black)*/
+.findTasksPanel input[type="date"]::-webkit-calendar-picker-indicator {
+    /* Changes calendar icon color to white (from black)*/
     filter: invert(1);
 }
 
-.findTasksPanel input[type="date"]::-webkit-calendar-picker-indicator:hover { 
+.findTasksPanel input[type="date"]::-webkit-calendar-picker-indicator:hover {
     cursor: pointer;
 }
 
@@ -209,7 +267,7 @@ html, body {
 .findTasksPanel button {
     font-size: 2.5vh;
     width: 35%;
-    
+
     padding: 1vh;
     margin: 5vh 2vh;
 
