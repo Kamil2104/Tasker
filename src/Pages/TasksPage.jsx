@@ -68,6 +68,7 @@ const TasksPage = () => {
         </select> <br />
         <button id="btnFindTasks"> Add </button>
         <button id="btnClearForm"> Clear </button>
+        <button id="btnShowAllTasks"> Show all tasks </button>
 
       </div>
     </div>

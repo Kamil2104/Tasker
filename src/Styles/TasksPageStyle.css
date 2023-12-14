@@ -269,7 +269,7 @@ body {
     width: 35%;
 
     padding: 1vh;
-    margin: 5vh 2vh;
+    margin: 0vh 2vh;
 
     color: white;
     background-color: rgba(39, 41, 43, 0.351);
@@ -281,4 +281,14 @@ body {
     cursor: pointer;
 
     border: solid 0.25vh red;
+}
+
+.findTasksPanel button[id="btnFindTasks"],
+.findTasksPanel button[id="btnClearForm"] {
+    margin-top: 5vh;
+}
+
+.findTasksPanel button[id="btnShowAllTasks"] {
+    width: 50%;
+    margin-top: 5vh;
 }
