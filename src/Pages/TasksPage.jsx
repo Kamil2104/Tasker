@@ -43,7 +43,8 @@ const TasksPage = () => {
 
         </div>
         <div className='showDatePanel'>
-        
+          <p> {getCurrentDate()} </p>
+          <p>  </p>
         </div>
       </div>
       <div className='centerPanel'>
