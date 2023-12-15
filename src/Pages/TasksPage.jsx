@@ -4,10 +4,10 @@ import { useState } from 'react';
 import '../Styles/TasksPageStyle.css'
 
 const TasksPage = () => {
-  const name = "Ogarnąć mieszkanieaaaaaaaaaaaaaa";
-  const description = "Posprzątać całe mieszkanie i zetrzeć kurze";
-  const date = "14.12.2023";
-  const priority = "High";
+  // const name = "Ogarnąć mieszkanieaaaaaaaaaaaaaa";
+  // const description = "Posprzątać całe mieszkanie i zetrzeć kurze";
+  // const date = "14.12.2023";
+  // const priority = "High";
 
   const [selectedDate, setSelectedDate] = useState(getCurrentDate());
 
@@ -41,7 +41,24 @@ const TasksPage = () => {
         <button id="btnClearForm"> Clear </button>
 
       </div>
-      <div className='showTasksPanel'>
+      <div className='centerPanel'>
+        <div className='orderTasksPanel'>
+
+          <h1> Order by: </h1> <br />
+          <select>
+            <option> Name </option>
+            <option> Description </option>
+            <option> Date </option>
+            <option> Priority </option>
+          </select>
+          <select>
+            <option> ASC </option>
+            <option> DESC </option>
+          </select>
+          <button id="setOrder"> Set </button>
+
+        </div>
+        <div className='showTasksPanel'>
 
           {/* <textarea spellCheck="false" value={`ADKLJKALJDS: ${name}\n\nDescription: ${description}\n\nDate: ${date}\n\nPriority: ${priority}`} />
           <textarea spellCheck="false" value={`Name: ${name}\n\nDescription: ${description}\n\nDate: ${date}\n\nPriority: ${priority}`} />
@@ -52,12 +69,13 @@ const TasksPage = () => {
           <textarea spellCheck="false" value={`Name: ${name}\n\nDescription: ${description}\n\nDate: ${date}\n\nPriority: ${priority}`} />
           <textarea spellCheck="false" value={`Name: ${name}\n\nDescription: ${description}\n\nDate: ${date}\n\nPriority: ${priority}`} />
           <textarea spellCheck="false" value={`Name: ${name}\n\nDescription: ${description}\n\nDate: ${date}\n\nPriority: ${priority}`} />
-          <textarea spellCheck="false" value={`Name: ${name}\n\nDescription: ${description}\n\nDate: ${date}\n\nPriority: ${priority}`} />
+          <textarea spellCheck="false" value={`Name: ${name}\n\nDescription: ${description}\n\nDate: ${date}\n\nPriority: ${priority}`} /> */}
 
-          <h1> No tasks available. </h1> */}
+          {/* <h1> No tasks available. </h1> */}
 
+        </div>
       </div>
-      
+
       <div className='findTasksPanel'>
 
         <h1> Find tasks: </h1>

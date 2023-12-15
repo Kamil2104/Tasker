@@ -118,6 +118,82 @@ body {
     border: solid 0.25vh red;
 }
 
+/* centerPanel */
+
+.centerPanel {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 60%;
+}
+
+/* orderTasksPanel */
+
+.orderTasksPanel {
+    height: 10vh;
+    width: 100%;
+
+    background-color: rgba(39, 41, 43, 0.351);
+}
+
+.orderTasksPanel h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vh;
+
+    color: white;
+
+    margin: 0;
+    padding: 0;
+    padding-top: 1.5vh;
+}
+
+.orderTasksPanel select {
+    font-size: 1.5vh;
+    width: 10%;
+    margin: 0vh 1vw;
+    padding: 0.5vh;
+    outline: none;
+
+    color: white;
+    background-color: rgba(39, 41, 43, 0.351);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.342);
+    border-radius: 1.5vh;
+}
+
+.orderTasksPanel select:hover {
+    border: solid 0.25vh white;
+    cursor: pointer;
+}
+
+.orderTasksPanel select:focus {
+    border: solid 0.25vh red;
+}
+
+.orderTasksPanel option {
+    color: black;
+}
+
+.orderTasksPanel button {
+    font-size: 1.5vh;
+    width: 5%;
+
+    padding: 0.5vh;
+    margin-left: 1vw;
+
+    color: white;
+    background-color: rgba(39, 41, 43, 0.351);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.601);
+}
+
+.orderTasksPanel button:hover {
+    cursor: pointer;
+
+    border: solid 0.25vh red;
+}
+
 /* showTasksPanel */
 
 .showTasksPanel {
@@ -125,8 +201,8 @@ body {
     flex-direction: column;
     align-items: center;
 
-    height: 100vh;
-    width: 60%;
+    height: 90vh;
+    width: 100%;
 
     margin: 0;
     padding: 0;
