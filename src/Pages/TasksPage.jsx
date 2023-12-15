@@ -45,13 +45,13 @@ const TasksPage = () => {
         <div className='orderTasksPanel'>
 
           <h1> Order by: </h1> <br />
-          <select>
+          <select name="selectOrderBy" id="selectOrderBy">
             <option> Name </option>
             <option> Description </option>
             <option> Date </option>
             <option> Priority </option>
           </select>
-          <select>
+          <select name="selectOrderType" id="selectOrderType">
             <option> ASC </option>
             <option> DESC </option>
           </select>
