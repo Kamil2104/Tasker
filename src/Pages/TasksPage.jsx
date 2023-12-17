@@ -9,8 +9,10 @@ const TasksPage = () => {
   // const date = "14.12.2023";
   // const priority = "High";
 
+  // useState's
   const [selectedDate, setSelectedDate] = useState(getCurrentDate());
 
+  // useRef's
   const addTaskPanelNameRef = useRef("");
   const addTaskPanelDescriptionRef = useRef("");
   const addTaskPanelDateRef = useRef(getCurrentDate());
@@ -20,6 +22,7 @@ const TasksPage = () => {
   const findTaskPanelDateRef = useRef(getCurrentDate());
   const findTaskPanelPriorityRef = useRef("low");
 
+  // function's
   function getCurrentDate() {
     const now = new Date();
     const year = now.getFullYear();
@@ -55,13 +58,37 @@ const TasksPage = () => {
         <div className='addTaskPanel'>
 
           <h1> Create task: </h1>
-          <input type="text" id="addTaskPanelInputName" name="addTaskPanelInputName" placeholder="Name: " autoComplete="off" ref={addTaskPanelNameRef} /> <br />
-          <input type="text" id="addTaskPanelInputDescription" name="addTaskPanelInputDescription" placeholder="Description: " autoComplete="off" ref={addTaskPanelDescriptionRef} /> <br />
-          <input type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} ref={addTaskPanelDateRef} /> <br />
-          <select name="addTaskPanelSelectPriority" id="addTaskPanelSelectPriority" ref={addTaskPanelPriorityRef}>
-            <option value="low"> low </option>
-            <option value="medium"> medium </option>
-            <option value="high"> high </option>
+          <input 
+            type="text" 
+            id="addTaskPanelInputName" 
+            name="addTaskPanelInputName" 
+            placeholder="Name: " 
+            autoComplete="off" 
+            ref={addTaskPanelNameRef} 
+          /> <br />
+          <input 
+            type="text" 
+            id="addTaskPanelInputDescription" 
+            name="addTaskPanelInputDescription" 
+            placeholder="Description: " 
+            autoComplete="off" 
+            ref={addTaskPanelDescriptionRef} 
+          /> <br />
+          <input 
+            type="date" 
+            autoComplete="off" 
+            value={selectedDate} 
+            onChange={handleDateChange} 
+            min={getCurrentDate()} 
+            ref={addTaskPanelDateRef} 
+          /> <br />
+          <select 
+            name="addTaskPanelSelectPriority" 
+            id="addTaskPanelSelectPriority" 
+            ref={addTaskPanelPriorityRef} >
+              <option value="low"> low </option>
+              <option value="medium"> medium </option>
+              <option value="high"> high </option>
           </select> <br />
           <button id="btnAddTask"> Add </button>
           <button id="btnAddTaskPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
@@ -72,15 +99,19 @@ const TasksPage = () => {
         <div className='orderTasksPanel'>
 
           <h1> Order by: </h1> <br />
-          <select name="selectOrderBy" id="selectOrderBy">
-            <option> Name </option>
-            <option> Description </option>
-            <option> Date </option>
-            <option> Priority </option>
+          <select 
+            name="selectOrderBy" 
+            id="selectOrderBy">
+              <option> Name </option>
+              <option> Description </option>
+              <option> Date </option>
+              <option> Priority </option>
           </select>
-          <select name="selectOrderType" id="selectOrderType">
-            <option> ASC </option>
-            <option> DESC </option>
+          <select 
+            name="selectOrderType" 
+            id="selectOrderType">
+              <option> ASC </option>
+              <option> DESC </option>
           </select>
           <button id="setOrder"> Set </button>
 
@@ -106,13 +137,29 @@ const TasksPage = () => {
       <div className='findTasksPanel'>
 
         <h1> Find tasks: </h1>
-        <input type="text" id="findTaskPanelInputName" name="findTaskPanelInputName" placeholder="Name: " autoComplete="off" ref={findTaskPanelNameRef} /> <br />
+        <input 
+          type="text" 
+          id="findTaskPanelInputName" 
+          name="findTaskPanelInputName" 
+          placeholder="Name: " 
+          autoComplete="off" 
+          ref={findTaskPanelNameRef} 
+        /> <br />
         <input
-          type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} ref={findTaskPanelDateRef} /> <br />
-        <select name="findTasksPanelSelectPriority" id="findTasksPanelSelectPriority" ref={findTaskPanelPriorityRef} >
-          <option value="low"> low </option>
-          <option value="medium"> medium </option>
-          <option value="high"> high </option>
+            type="date" 
+            autoComplete="off" 
+            value={selectedDate} 
+            onChange={handleDateChange} 
+            min={getCurrentDate()} 
+            ref={findTaskPanelDateRef} 
+          /> <br />
+        <select 
+          name="findTasksPanelSelectPriority" 
+          id="findTasksPanelSelectPriority" 
+          ref={findTaskPanelPriorityRef} >
+            <option value="low"> low </option>
+            <option value="medium"> medium </option>
+            <option value="high"> high </option>
         </select> <br />
         <button id="btnFindTasks"> Find </button>
         <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
