@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
 }
 
@@ -14,12 +15,12 @@ html, body {
     background-image: url(../backgroundImage.jpg);
     background-size: cover;
     background-position: center;
-    
+
     user-zoom: fixed;
 }
 
 .createAccountContainer {
-    height: 50vh;
+    height: 60vh;
     width: 27%;
 
     padding-top: 4vh;
@@ -30,7 +31,11 @@ html, body {
     border-radius: 3.5vh;
 }
 
-.createAccountContainer h1 {
+.createAccountContainerContent {
+    width: 100%;
+}
+
+.createAccountContainerContent h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 4vh;
 
@@ -39,9 +44,9 @@ html, body {
     padding-bottom: 2vh;
 }
 
-.createAccountContainer input {
+.createAccountContainerContent input {
     font-size: 2.75vh;
-    width: 85%;
+    width: 75%;
     margin-bottom: 3vh;
     padding: 1vh;
     outline: none;
@@ -53,32 +58,39 @@ html, body {
     border-radius: 1.5vh;
 }
 
-.createAccountContainer input[id="password"] {
+.createAccountContainerContent input[id="password1"] {
+    transform: translateX(5%);
     margin-bottom: 4vh;
 }
 
-.createAccountContainer input[id="password2"] {
+.createAccountContainerContent input[id="password2"] {
+    transform: translateX(5%);
     margin-bottom: 6vh;
 }
 
-.createAccountContainer input:hover {
+.createAccountContainerContent input:hover {
     cursor: pointer;
 }
 
-.createAccountContainer input:hover {
+.createAccountContainerContent input:hover {
     border: solid 0.25vh white;
 }
 
-.createAccountContainer input:focus {
+.createAccountContainerContent input:focus {
     border: solid 0.25vh red;
 }
 
-.createAccountContainer input::placeholder {
+.createAccountContainerContent input::placeholder {
     color: rgba(255, 255, 255, 0.371);
 }
 
-.createAccountContainer button {
+.createAccountContainerContent button {
+    width: 90%;
+
+    font-size: 2.5vh;
     padding: 1vh;
+
+    margin-bottom: 5vh;
 
     color: white;
     background-color: rgba(39, 41, 43, 0.542);
@@ -86,17 +98,23 @@ html, body {
     border: solid 0.25vh rgba(255, 255, 255, 0.601)
 }
 
-.createAccountContainer button[id="btnCreateAccount"] {
-    font-size: 2.5vh;
-    width: 90%;
-
-    margin-bottom: 5vh;
-}
-
-.createAccountContainer button:hover {
+.createAccountContainerContent button:hover {
     cursor: pointer;
 
     border: solid 0.25vh red;
+}
+
+.passwordVisibilityIcon {
+    height: 2vh;
+    width: 2vw;
+
+    font-size: 2vh;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    transform: translateX(-70%);
+
+    cursor: pointer;
 }
 
 @media screen and (max-width: 640px) {
