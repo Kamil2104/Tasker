@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import '../Styles/TasksPageStyle.css'
 
@@ -11,6 +11,15 @@ const TasksPage = () => {
 
   const [selectedDate, setSelectedDate] = useState(getCurrentDate());
 
+  const addTaskPanelNameRef = useRef("");
+  const addTaskPanelDescriptionRef = useRef("");
+  const addTaskPanelDateRef = useRef(getCurrentDate());
+  const addTaskPanelPriorityRef = useRef("low");
+
+  const findTaskPanelNameRef = useRef("");
+  const findTaskPanelDateRef = useRef(getCurrentDate());
+  const findTaskPanelPriorityRef = useRef("low");
+
   function getCurrentDate() {
     const now = new Date();
     const year = now.getFullYear();
@@ -18,6 +27,22 @@ const TasksPage = () => {
     const day = String(now.getDate()).padStart(2, '0');
 
     return `${year}-${month}-${day}`;
+  }
+
+  const handleInputtedValuesClear = (event) => {
+    const clearButton = event.target;
+    const clearButtonId = clearButton.id;
+
+    if (clearButtonId === "btnAddTaskPanelClearForm") {
+      addTaskPanelNameRef.current.value = "";
+      addTaskPanelDescriptionRef.current.value = "";
+      addTaskPanelDateRef.current.value = getCurrentDate();
+      addTaskPanelPriorityRef.current.value = "low";
+    } else if (clearButtonId === "btnFindTasksPanelClearForm") {
+      findTaskPanelNameRef.current.value = "";
+      findTaskPanelDateRef.current.value = getCurrentDate();
+      findTaskPanelPriorityRef.current.value = "low";
+    }
   }
 
   const handleDateChange = (event) => {
@@ -30,16 +55,16 @@ const TasksPage = () => {
         <div className='addTaskPanel'>
 
           <h1> Create task: </h1>
-          <input type="text" placeholder="Name: " autoComplete="off" /> <br />
-          <input type="text" placeholder="Description: " autoComplete="off" /> <br />
-          <input type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} /> <br />
-          <select name="selectPriority" id="selectPriority">
+          <input type="text" id="addTaskPanelInputName" name="addTaskPanelInputName" placeholder="Name: " autoComplete="off" ref={addTaskPanelNameRef} /> <br />
+          <input type="text" id="addTaskPanelInputDescription" name="addTaskPanelInputDescription" placeholder="Description: " autoComplete="off" ref={addTaskPanelDescriptionRef} /> <br />
+          <input type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} ref={addTaskPanelDateRef} /> <br />
+          <select name="addTaskPanelSelectPriority" id="addTaskPanelSelectPriority" ref={addTaskPanelPriorityRef}>
             <option value="low"> low </option>
             <option value="medium"> medium </option>
             <option value="high"> high </option>
           </select> <br />
           <button id="btnAddTask"> Add </button>
-          <button id="btnClearForm"> Clear </button>
+          <button id="btnAddTaskPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
 
         </div>
       </div>
@@ -81,16 +106,16 @@ const TasksPage = () => {
       <div className='findTasksPanel'>
 
         <h1> Find tasks: </h1>
-        <input type="text" placeholder="Name: " autoComplete="off" /> <br />
+        <input type="text" id="findTaskPanelInputName" name="findTaskPanelInputName" placeholder="Name: " autoComplete="off" ref={findTaskPanelNameRef} /> <br />
         <input
-          type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} /> <br />
-        <select name="selectPriority" id="selectPriority">
+          type="date" autoComplete="off" value={selectedDate} onChange={handleDateChange} min={getCurrentDate()} ref={findTaskPanelDateRef} /> <br />
+        <select name="findTasksPanelSelectPriority" id="findTasksPanelSelectPriority" ref={findTaskPanelPriorityRef} >
           <option value="low"> low </option>
           <option value="medium"> medium </option>
           <option value="high"> high </option>
         </select> <br />
         <button id="btnFindTasks"> Find </button>
-        <button id="btnClearForm"> Clear </button>
+        <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
         <button id="btnShowAllTasks"> Show all tasks </button>
 
       </div>
