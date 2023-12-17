@@ -13,6 +13,8 @@ body {
     background-image: url(../backgroundImage.jpg);
     background-size: cover;
     background-position: center;
+    
+    user-zoom: fixed;
 }
 
 /* addTaskPanel */
