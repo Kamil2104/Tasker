@@ -42,10 +42,6 @@ const TasksPage = () => {
           <button id="btnClearForm"> Clear </button>
 
         </div>
-        <div className='showDatePanel'>
-          <p> {getCurrentDate()} </p>
-          <p>  </p>
-        </div>
       </div>
       <div className='centerPanel'>
         <div className='orderTasksPanel'>
