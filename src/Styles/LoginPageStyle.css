@@ -47,7 +47,6 @@ html, body {
     font-size: 2.75vh;
     width: 75%;
 
-    margin-left: 2.1vw;
     margin-bottom: 3vh;
     padding: 1vh;
     outline: none;
@@ -60,6 +59,7 @@ html, body {
 }
 
 .loginContainerContent input[id="password"] {
+    margin-left: 2.1vw;
     margin-bottom: 4vh;
 }
 

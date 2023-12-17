@@ -8,8 +8,7 @@ import '../Styles/LoginPageStyle.css';
 
 const LoginPage = () => {
   // useState's
-  const [showPassword1, setShowPassword1] = useState(false);
-  const [showPassword2, setShowPassword2] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // useEffect's
   useEffect(() => {
@@ -17,12 +16,8 @@ const LoginPage = () => {
   }, []);
 
     // functions
-    const togglePassword1Visibility = () => {
-      setShowPassword1((prev) => !prev);
-    };
-  
-    const togglePassword2Visibility = () => {
-      setShowPassword2((prev) => !prev);
+    const togglePasswordVisibility = () => {
+      setShowPassword((prev) => !prev);
     };
 
   return (
@@ -36,21 +31,16 @@ const LoginPage = () => {
             id="login"
             placeholder="Login: "
             autoComplete="off"
-          />
-          <FontAwesomeIcon
-            icon={showPassword1 ? faEyeSlash : faEye}
-            onClick={togglePassword1Visibility}
-            className="passwordVisibilityIcon"
-          /><br />
+          /> <br />
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             id="password"
             placeholder="Password: "
           />
           <FontAwesomeIcon
-            icon={showPassword2 ? faEyeSlash : faEye}
-            onClick={togglePassword2Visibility}
+            icon={showPassword ? faEyeSlash : faEye}
+            onClick={togglePasswordVisibility}
             className="passwordVisibilityIcon"
           /><br />
           <button id="btnLogin"> Log in </button> <br />
