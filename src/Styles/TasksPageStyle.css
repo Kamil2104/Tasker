@@ -17,8 +17,6 @@ body {
     user-zoom: fixed;
 }
 
-/* addTaskPanel */
-
 .leftPanel {
     height: 100vh;
     width: 20%;
@@ -27,6 +25,29 @@ body {
 
     background-color: rgba(39, 41, 43, 0.351);
 }
+
+/* centerPanel */
+
+.centerPanel {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 60%;
+}
+
+/* rightPanel */
+
+.rightPanel {
+    height: 100vh;
+    width: 20%;
+
+    color: white;
+
+    background-color: rgba(39, 41, 43, 0.351);
+}
+
+/* addTaskPanel */
 
 .addTaskPanel {
     height: 90vh;
@@ -133,16 +154,6 @@ body {
 .showDatePanel {
     height: 10vh;
     width: 100%;
-}
-
-/* centerPanel */
-
-.centerPanel {
-    display: flex;
-    flex-direction: column;
-
-    height: 100vh;
-    width: 60%;
 }
 
 /* orderTasksPanel */
@@ -280,15 +291,6 @@ body {
 }
 
 /* findTasksPanel */
-
-.findTasksPanel {
-    height: 100vh;
-    width: 20%;
-
-    color: white;
-
-    background-color: rgba(39, 41, 43, 0.351);
-}
 
 .findTasksPanel h1 {
     font-family: Arial, Helvetica, sans-serif;

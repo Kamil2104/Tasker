@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import LoginPage from './/Pages/LoginPage'
+import TasksPage from './/Pages/TasksPage'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <LoginPage />
+    <TasksPage />
 );
 
 reportWebVitals();
