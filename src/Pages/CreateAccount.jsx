@@ -8,6 +8,8 @@ import '../Styles/CreateAccountStyle.css'
 
 export const CreateAccount = () => {
   // useState's
+  const [loginText, setLoginText] = useState("");
+
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
 
@@ -17,6 +19,10 @@ export const CreateAccount = () => {
   }, []);
 
   // functions
+  const handleInputLogin = (event) => {
+    setLoginText(event.target.value);
+  }
+
   const togglePassword1Visibility = () => {
     setShowPassword1((prev) => !prev);
   };
@@ -37,6 +43,7 @@ export const CreateAccount = () => {
               id="login"
               placeholder="Login: "
               autoComplete="off"
+              onChange={handleInputLogin}
             /> <br />
             <input
               type="password"
