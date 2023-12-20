@@ -9,6 +9,8 @@ import '../Styles/LoginPageStyle.css';
 const LoginPage = () => {
   // useState's
   const [loginText, setLoginText] = useState("");
+  const [passwordText, setPasswordText] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
 
   // useEffect's
@@ -19,6 +21,10 @@ const LoginPage = () => {
     // functions
     const handleInputLogin = (event) => {
       setLoginText(event.target.value);
+    }
+
+    const handleInputPassword = (event) => {
+      setPasswordText(event.target.value);
     }
 
     const togglePasswordVisibility = () => {
@@ -44,6 +50,8 @@ const LoginPage = () => {
               name="password"
               id="password"
               placeholder="Password: "
+              autoComplete="off"
+              onChange={handleInputPassword}
             />
             <FontAwesomeIcon
               icon={showPassword ? faEyeSlash : faEye}
