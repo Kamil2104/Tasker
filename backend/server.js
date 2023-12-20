@@ -22,6 +22,3 @@ app.listen(8081, () => {
     console.log("Listening");
 })
 
-app.post('/createAccount', (req, res) => {
-    const sql = "INSERT INTO login ('login', 'password') values (?)";
-})
