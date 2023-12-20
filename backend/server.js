@@ -1,4 +1,4 @@
-// Comments are only in backend, beacuse it's my first time with it and im trying to learn
+// Comments are only in backend, beacuse it's my first time with it and I am trying to learn it
 
 // Import modules
 const express = require("express");
@@ -29,4 +29,12 @@ app.post('/createAccount', (req, res) => {
             req.body.login, // Getting value from input with NAME = "login"
             req.body.password // Getting value from input with NAME = "password"
     ]
+
+    db.query(sql, [values], (err, data) => { // Executing a query to the database AND using callback function '(err, data) =>' to handle the query result
+        if(err) { // If error has occured return "Error" as JSON object
+            return res.json("Error!")
+        }
+
+        return res.json(data); // If error has not occured return data as JSON object 
+    });
 })
