@@ -38,34 +38,35 @@ const FindTasksPanel = () => {
     return (
         <div className='findTasksPanel'>
             <h1> Find tasks: </h1>
-            <input
-                type="text"
-                id="findTaskPanelInputName"
-                name="findTaskPanelInputName"
-                placeholder="Name: "
-                autoComplete="off"
-                ref={findTaskPanelNameRef}
-            /> <br />
-            <input
-                type="date"
-                autoComplete="off"
-                value={selectedDate}
-                onChange={handleDateChange}
-                min={getCurrentDate()}
-                ref={findTaskPanelDateRef}
-            /> <br />
-            <select
-                name="findTasksPanelSelectPriority"
-                id="findTasksPanelSelectPriority"
-                ref={findTaskPanelPriorityRef} >
-                <option value="low"> low </option>
-                <option value="medium"> medium </option>
-                <option value="high"> high </option>
-            </select> <br />
-            <button id="btnFindTasks"> Find </button>
-            <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
-            <button id="btnShowAllTasks"> Show all tasks </button>
-
+            <form method="post" action='/findTasks'>
+                <input
+                    type="text"
+                    id="findTaskPanelInputName"
+                    name="findTaskPanelInputName"
+                    placeholder="Name: "
+                    autoComplete="off"
+                    ref={findTaskPanelNameRef}
+                /> <br />
+                <input
+                    type="date"
+                    autoComplete="off"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    min={getCurrentDate()}
+                    ref={findTaskPanelDateRef}
+                /> <br />
+                <select
+                    name="findTasksPanelSelectPriority"
+                    id="findTasksPanelSelectPriority"
+                    ref={findTaskPanelPriorityRef} >
+                    <option value="low"> low </option>
+                    <option value="medium"> medium </option>
+                    <option value="high"> high </option>
+                </select> <br />
+                <button id="btnFindTasks"> Find </button>
+                <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
+                <button id="btnShowAllTasks"> Show all tasks </button>
+            </form>
         </div>
     )
 }
