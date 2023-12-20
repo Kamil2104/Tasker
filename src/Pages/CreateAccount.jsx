@@ -9,6 +9,8 @@ import '../Styles/CreateAccountStyle.css'
 export const CreateAccount = () => {
   // useState's
   const [loginText, setLoginText] = useState("");
+  const [password1Text, setPassword1Text] = useState("");
+  const [password2Text, setPassword2Text] = useState("");
 
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
@@ -21,6 +23,14 @@ export const CreateAccount = () => {
   // functions
   const handleInputLogin = (event) => {
     setLoginText(event.target.value);
+  }
+
+  const handleInputPassword1 = (event) => {
+    setPassword1Text(event.target.value)
+  }
+
+  const handleInputPassword2 = (event) => {
+    setPassword2Text(event.target.value)
   }
 
   const togglePassword1Visibility = () => {
@@ -50,6 +60,8 @@ export const CreateAccount = () => {
               name="password1"
               id="password1"
               placeholder="Password: "
+              autoComplete="off"
+              onChange={handleInputPassword1}
             />
             <FontAwesomeIcon
               icon={showPassword1 ? faEyeSlash : faEye}
@@ -61,6 +73,8 @@ export const CreateAccount = () => {
               name="password2"
               id="password2"
               placeholder="Password: "
+              autoComplete="off"
+              onChange={handleInputPassword2}
             />
             <FontAwesomeIcon
               icon={showPassword2 ? faEyeSlash : faEye}
