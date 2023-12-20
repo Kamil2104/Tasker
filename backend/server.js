@@ -24,5 +24,9 @@ app.listen(8081, () => {
 
 // Setting post endpoint for user account creation
 app.post('/createAccount', (req, res) => {
-
+    const sql = "INSERT INTO login ('login', 'password') values (?)"; // SQL query definition 
+    const values = [ // Value definition
+            req.body.login, // Getting value from input with NAME = "login"
+            req.body.password // Getting value from input with NAME = "password"
+    ]
 })
