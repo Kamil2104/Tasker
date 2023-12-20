@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
+import { loginValidation } from '../Validation/LoginAndPasswordValidation'
+
 import '../Styles/LoginPageStyle.css';
 
 const LoginPage = () => {
@@ -25,6 +27,16 @@ const LoginPage = () => {
 
     const handleInputPassword = (event) => {
       setPasswordText(event.target.value);
+    }
+
+    const handleButtonLogin = () => {
+      let response = loginValidation(loginText);
+
+      if (response == "") {
+        alert("Logging in went succesfully")
+      } else {
+        alert(response)
+      }
     }
 
     const togglePasswordVisibility = () => {
@@ -58,7 +70,7 @@ const LoginPage = () => {
               onClick={togglePasswordVisibility}
               className="passwordVisibilityIcon"
             /><br />
-            <button id="btnLogin"> Log in </button> <br />
+            <button id="btnLogin" onClick={handleButtonLogin}> Log in </button> <br />
           </form>
           <label> Forgot password? </label> <br />
         </div>

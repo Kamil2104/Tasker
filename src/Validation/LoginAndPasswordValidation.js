@@ -52,3 +52,11 @@ function loginLengthValidator(login) {
         return false
     }
 }
+
+export {
+    loginValidation,
+    newLoginValidation,
+    singlePasswordValidation,
+    doublePasswordValidation,
+    loginLengthValidator,
+}
