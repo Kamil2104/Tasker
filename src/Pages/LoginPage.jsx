@@ -8,6 +8,7 @@ import '../Styles/LoginPageStyle.css';
 
 const LoginPage = () => {
   // useState's
+  const [loginText, setLoginText] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   // useEffect's
@@ -16,6 +17,10 @@ const LoginPage = () => {
   }, []);
 
     // functions
+    const handleInputLogin = (event) => {
+      setLoginText(event.target.value);
+    }
+
     const togglePasswordVisibility = () => {
       setShowPassword((prev) => !prev);
     };
@@ -32,6 +37,7 @@ const LoginPage = () => {
               id="login"
               placeholder="Login: "
               autoComplete="off"
+              onChange={handleInputLogin}
             /> <br />
             <input
               type={showPassword ? "text" : "password"}
