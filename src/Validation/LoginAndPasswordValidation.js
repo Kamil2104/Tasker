@@ -2,6 +2,14 @@ function loginValidation() {
 
 }
 
-function passwordValidation() {
+function newLoginValidation() {
+    
+}
+
+function singlePasswordValidation() {
+
+}
+
+function doublePasswordValidation() {
 
 }
