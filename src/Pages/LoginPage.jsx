@@ -25,25 +25,27 @@ const LoginPage = () => {
       <div className='loginContainer'>
         <div className='loginContainerContent'>
           <h1> Log in </h1>
-          <input
-            type="text"
-            name="login"
-            id="login"
-            placeholder="Login: "
-            autoComplete="off"
-          /> <br />
-          <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            id="password"
-            placeholder="Password: "
-          />
-          <FontAwesomeIcon
-            icon={showPassword ? faEyeSlash : faEye}
-            onClick={togglePasswordVisibility}
-            className="passwordVisibilityIcon"
-          /><br />
-          <button id="btnLogin"> Log in </button> <br />
+          <form method="post" action='/logIn'>
+            <input
+              type="text"
+              name="login"
+              id="login"
+              placeholder="Login: "
+              autoComplete="off"
+            /> <br />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="password"
+              placeholder="Password: "
+            />
+            <FontAwesomeIcon
+              icon={showPassword ? faEyeSlash : faEye}
+              onClick={togglePasswordVisibility}
+              className="passwordVisibilityIcon"
+            /><br />
+            <button id="btnLogin"> Log in </button> <br />
+          </form>
           <label> Forgot password? </label> <br />
         </div>
         <div className='loginContainerButtonCreateNewAccount'>
