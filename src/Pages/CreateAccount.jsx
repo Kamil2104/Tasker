@@ -30,36 +30,38 @@ export const CreateAccount = () => {
       <div className='createAccountContainer'>
         <div className='createAccountContainerContent'>
           <h1> Create account </h1>
-          <input
-            type="text"
-            name="login"
-            id="login"
-            placeholder="Login: "
-            autoComplete="off"
-          /> <br />
-          <input
-            type="password"
-            name="password1"
-            id="password1"
-            placeholder="Password: "
-          />
-          <FontAwesomeIcon
-            icon={showPassword1 ? faEyeSlash : faEye}
-            onClick={togglePassword1Visibility}
-            className="passwordVisibilityIcon"
-          /><br />
-          <input
-            type="password"
-            name="password2"
-            id="password2"
-            placeholder="Password: "
-          />
-          <FontAwesomeIcon
-            icon={showPassword2 ? faEyeSlash : faEye}
-            onClick={togglePassword2Visibility}
-            className="passwordVisibilityIcon"
-          /><br />
-          <button id="btnCreateAccount"> Create account </button> <br />
+          <form method="post" action='/createAccount'>
+            <input
+              type="text"
+              name="login"
+              id="login"
+              placeholder="Login: "
+              autoComplete="off"
+            /> <br />
+            <input
+              type="password"
+              name="password1"
+              id="password1"
+              placeholder="Password: "
+            />
+            <FontAwesomeIcon
+              icon={showPassword1 ? faEyeSlash : faEye}
+              onClick={togglePassword1Visibility}
+              className="passwordVisibilityIcon"
+            /><br />
+            <input
+              type="password"
+              name="password2"
+              id="password2"
+              placeholder="Password: "
+            />
+            <FontAwesomeIcon
+              icon={showPassword2 ? faEyeSlash : faEye}
+              onClick={togglePassword2Visibility}
+              className="passwordVisibilityIcon"
+            /><br />
+            <button id="btnCreateAccount"> Create account </button> <br />
+          </form>
         </div>
       </div>
     </div>
