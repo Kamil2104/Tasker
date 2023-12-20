@@ -1,13 +1,26 @@
 const errorMsg = ""
+const loginPattern = "^[a-zA-Z0-9]+$"
 
 // LOGIN VALIDATIONS
 
 function loginValidation(login) {
-    
+    if (login != "") {
+        return ""
+    } else {
+        return "Login can't be empty."
+    }
 }
 
-function newLoginValidation() {
-
+function newLoginValidation(login) {
+    if (loginLengthValidator(login)) {
+        if (loginPattern.test(login)) {
+            return ""
+        } else {
+            return "The login contains illegal characters. Please use only letters and numbers."
+        }
+    } else {
+        return errorMsg
+    }
 }
 
 // PASSWORD VALIDATIONS
@@ -27,15 +40,15 @@ function loginLengthValidator(login) {
             if (login.length() <= 20) {
                 return true
             } else {
-                errorMsg = "Login is to long!"
+                errorMsg = "Login is too long."
                 return false
             }
         } else {
-            errorMsg = "Login is to short!"
+            errorMsg = "Login is too short."
             return false
         }
     } else {
-        errorMsg = "Login can't be empty!"
+        errorMsg = "Login can't be empty."
         return false
     }
 }
