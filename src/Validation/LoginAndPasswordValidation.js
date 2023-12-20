@@ -3,7 +3,7 @@ const loginPattern = "^[a-zA-Z0-9]+$"
 
 // LOGIN VALIDATIONS
 
-function loginValidation(login) {
+function validateLogin(login) {
     if (login != "") {
         return ""
     } else {
@@ -11,7 +11,7 @@ function loginValidation(login) {
     }
 }
 
-function newLoginValidation(login) {
+function validateNewLogin(login) {
     if (loginLengthValidator(login)) {
         if (loginPattern.test(login)) {
             return ""
@@ -25,16 +25,16 @@ function newLoginValidation(login) {
 
 // PASSWORD VALIDATIONS
 
-function singlePasswordValidation() {
+function validateSinglePassword() {
 
 }
 
-function doublePasswordValidation() {
+function validateDoublePassword() {
 
 }
 
 // OTHER VALIDATIONS
-function loginLengthValidator(login) {
+function validateLoginLength(login) {
     if (login != "") {
         if (login.length() >= 5) {
             if (login.length() <= 20) {
@@ -54,9 +54,9 @@ function loginLengthValidator(login) {
 }
 
 export {
-    loginValidation,
-    newLoginValidation,
-    singlePasswordValidation,
-    doublePasswordValidation,
-    loginLengthValidator,
+    validateLogin,
+    validateNewLogin,
+    validateSinglePassword,
+    validateDoublePassword,
+    validateLoginLength,
 }

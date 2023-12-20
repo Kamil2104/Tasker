@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { loginValidation } from '../Validation/LoginAndPasswordValidation'
+import { validateLogin } from '../Validation/LoginAndPasswordValidation'
 
 import '../Styles/LoginPageStyle.css';
 
@@ -30,10 +30,10 @@ const LoginPage = () => {
     }
 
     const handleButtonLogin = () => {
-      let response = loginValidation(loginText);
+      let response = validateLogin(loginText);
 
       if (response == "") {
-        alert("Logging in went succesfully")
+        // CODE USING DATABASE
       } else {
         alert(response)
       }
