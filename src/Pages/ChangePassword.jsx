@@ -8,6 +8,8 @@ import '../Styles/ChangePasswordStyle.css'
 
 const ChangePassword = () => {
   // useState's
+  const [loginText, setLoginText] = useState("");
+
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
 
@@ -17,6 +19,10 @@ const ChangePassword = () => {
   }, []);
 
   // functions
+  const handleInputLogin = (event) => {
+    setLoginText(event.target.value);
+  }
+
   const togglePassword1Visibility = () => {
     setShowPassword1((prev) => !prev);
   };
@@ -37,6 +43,7 @@ const ChangePassword = () => {
               id="login"
               placeholder="Login: "
               autoComplete="off"
+              onChange={handleInputLogin}
             /> <br />
             <input
               type={showPassword1 ? 'text' : 'password'}
