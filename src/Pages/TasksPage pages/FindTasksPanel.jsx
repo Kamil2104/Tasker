@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 
-const FindTasksPanel = ({validateFindingTasks}) => {
+const FindTasksPanel = ({ validateFindingTasks }) => {
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
 
@@ -18,6 +18,18 @@ const FindTasksPanel = ({validateFindingTasks}) => {
         const day = String(now.getDate()).padStart(2, '0');
 
         return `${year}-${month}-${day}`;
+    }
+
+    const handleButtonFindTasks = () => {
+        const inputNameCurrentValue = findTaskPanelNameRef.current.value
+
+        let findingResponse = validateFindingTasks(inputNameCurrentValue);
+
+        if (findingResponse === "") {
+            // CODE USING DATABASE
+        } else {
+            alert(findingResponse)
+        }
     }
 
     const handleInputtedValuesClear = (event) => {
@@ -62,7 +74,7 @@ const FindTasksPanel = ({validateFindingTasks}) => {
                 <option value="medium"> medium </option>
                 <option value="high"> high </option>
             </select> <br />
-            <button id="btnFindTasks"> Find </button>
+            <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>
             <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
             <button id="btnShowAllTasks"> Show all tasks </button>
         </div>
