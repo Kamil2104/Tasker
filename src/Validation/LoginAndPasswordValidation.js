@@ -3,14 +3,6 @@ const loginPattern = "^[a-zA-Z0-9]+$"
 
 // LOGIN VALIDATIONS
 
-function validateLogin(login) {
-    if (login !== "") {
-        return ""
-    } else {
-        return "Login can't be empty."
-    }
-}
-
 function validateNewLogin(login) {
     if (validateLoginLength(login)) {
         if (loginPattern.test(login)) {
