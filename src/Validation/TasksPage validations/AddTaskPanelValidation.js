@@ -1,3 +1,5 @@
+// ADD TASK PANEL VALIDATIONS
+
 function validateAddingTask(name, description) {
     if (!isEmpty(name)) {
         if (!isEmpty(description)) {
@@ -8,6 +10,16 @@ function validateAddingTask(name, description) {
     } else {
         return "Name can't be empty."
     }
+}
+
+// OTHER VALIDATIONS
+
+function nameLength(name) {
+
+}
+
+function descriptionLength(description) {
+
 }
 
 function isEmpty(input) {
