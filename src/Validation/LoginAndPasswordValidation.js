@@ -97,7 +97,5 @@ export {
     validateLogin,
     validateLoginPagePassword,
     validateCreateAccountPasswords,
-    validateChangePasswordPasswords,
-    validateLoginLength,
-    validatePasswordLength
+    validateChangePasswordPasswords
 }
