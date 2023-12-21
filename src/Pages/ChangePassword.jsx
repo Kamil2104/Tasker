@@ -46,7 +46,6 @@ const ChangePassword = () => {
       <div className='changePasswordContainer'>
         <div className='changePasswordContainerContent'>
           <h1> Change password </h1>
-          <form method="post" action='/changePassword'> 
             <input
               type="text"
               name="login"
@@ -82,7 +81,6 @@ const ChangePassword = () => {
               className="passwordVisibilityIcon"
             /><br />
             <button id="btnChangePassword"> Change password </button> <br />
-          </form>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import CreateAccount from './Pages/CreateAccount';
+import ChangePassword from './Pages/ChangePassword';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <CreateAccount />
+    <ChangePassword />
 );
 
 reportWebVitals();
