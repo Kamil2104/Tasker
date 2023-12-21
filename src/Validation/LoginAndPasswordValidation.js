@@ -17,7 +17,7 @@ function validateLogin(login) {
 
 // PASSWORD VALIDATIONS
 
-function validateSinglePassword(password) {
+function validatePassword(password) {
     if (validatePasswordLength(password)) {
         return "";
     } else {
@@ -27,7 +27,7 @@ function validateSinglePassword(password) {
 
 function validateCreateAccountPasswords(password1, password2) {
     if (password1 === password2) {
-        return validateSinglePassword(password1);
+        return validatePassword(password1);
     } else {
         return "Passwords are not the same."
     }
@@ -74,7 +74,7 @@ function validatePasswordLength(password) {
 
 export {
     validateLogin,
-    validateSinglePassword,
+    validatePassword,
     validateCreateAccountPasswords,
     validateLoginLength,
     validatePasswordLength
