@@ -4,14 +4,18 @@ const loginPattern = /^[a-zA-Z0-9]+$/;
 // LOGIN VALIDATIONS
 
 function validateLogin(login) {
-    if (validateLoginLength(login)) {
-        if (loginPattern.test(login)) {
-            return "";
+    if (!isLoginEmpty(login)) {
+        if (validateLoginLength(login)) {
+            if (loginPattern.test(login)) {
+                return "";
+            } else {
+                return "The login contains illegal characters. Please use only letters and numbers.";
+            }
         } else {
-            return "The login contains illegal characters. Please use only letters and numbers.";
+            return errorMsg;
         }
     } else {
-        return errorMsg;
+        return "Login can't be empty";
     }
 }
 
@@ -84,6 +88,14 @@ function validatePasswordLength(password) {
         }
     } else {
         errorMsg = "Password is too short."
+        return false
+    }
+}
+
+function isLoginEmpty(login) {
+    if (login === "") {
+        return true
+    } else {
         return false
     }
 }
