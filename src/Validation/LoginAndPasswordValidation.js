@@ -37,6 +37,14 @@ function validateDoublePassword(password1, password2) {
     }
 }
 
+function validateCreateAccountPasswords(password1, password2) {
+    if (password1 === password2) {
+        return validateDoublePassword(password1, password2);
+    } else {
+        return "Passwords are not the same."
+    }
+}
+
 // OTHER VALIDATIONS
 function validateLoginLength(login) {
     if (login !== "") {
