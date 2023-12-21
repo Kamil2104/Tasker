@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 
-import { validateAddingTask } from '../Validation/TasksPageValidations/AddTaskPanelValidation'
+import { validateAddingTask } from '../Validation/AddTaskPanelValidation'
 
 const AddTaskPanel = () => {
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
 
-    // useRef's
+    // useRef's`
     const addTaskPanelNameRef = useRef("");
     const addTaskPanelDescriptionRef = useRef("");
     const addTaskPanelDateRef = useRef(getCurrentDate());
