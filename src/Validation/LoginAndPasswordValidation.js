@@ -3,7 +3,7 @@ const loginPattern = "^[a-zA-Z0-9]+$"
 
 // LOGIN VALIDATIONS
 
-function validateNewLogin(login) {
+function validateLogin(login) {
     if (validateLoginLength(login)) {
         if (loginPattern.test(login)) {
             return ""
@@ -47,7 +47,6 @@ function validateLoginLength(login) {
 
 export {
     validateLogin,
-    validateNewLogin,
     validateSinglePassword,
     validateDoublePassword,
     validateLoginLength,
