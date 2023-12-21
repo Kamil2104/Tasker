@@ -18,10 +18,14 @@ function validateLogin(login) {
 // PASSWORD VALIDATIONS
 
 function validatePassword(password) {
-    if (validatePasswordLength(password)) {
-        return "";
+    if (!isPasswordEmpty(password)) {
+        if (validatePasswordLength(password)) {
+            return "";
+        } else {
+            return errorMsg;
+        }
     } else {
-        return errorMsg;
+        return "Password can't be empty."
     }
 }
 
