@@ -59,3 +59,5 @@ function isEmpty(input) {
         return false
     }
 }
+
+export { validateAddingTask }
