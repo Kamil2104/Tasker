@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
+import { validateLogin, validateDoublePassword } from '../Validation/LoginAndPasswordValidation'
+
 import '../Styles/CreateAccountStyle.css'
 
 export const CreateAccount = () => {
@@ -33,6 +35,10 @@ export const CreateAccount = () => {
     setPassword2Text(event.target.value)
   }
 
+  const handleButtonCreateAccount = () => {
+
+  }
+
   const togglePassword1Visibility = () => {
     setShowPassword1((prev) => !prev);
   };
@@ -46,7 +52,6 @@ export const CreateAccount = () => {
       <div className='createAccountContainer'>
         <div className='createAccountContainerContent'>
           <h1> Create account </h1>
-          <form method="post" action='/createAccount'>
             <input
               type="text"
               name="login"
@@ -81,8 +86,7 @@ export const CreateAccount = () => {
               onClick={togglePassword2Visibility}
               className="passwordVisibilityIcon"
             /><br />
-            <button id="btnCreateAccount"> Create account </button> <br />
-          </form>
+            <button id="btnCreateAccount" onClick={handleButtonCreateAccount}> Create account </button> <br />
         </div>
       </div>
     </div>
