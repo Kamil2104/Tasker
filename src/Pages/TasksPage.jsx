@@ -5,13 +5,15 @@ import OrderTasksPanel from './TasksPage pages/OrderTasksPanel';
 import ShowTasksPanel from './TasksPage pages/ShowTasksPanel';
 import FindTasksPanel from './TasksPage pages/FindTasksPanel';
 
+import { validateAddingTask } from '../Validation/AddTaskPanelValidation'
+
 import '../Styles/TasksPageStyle.css';
 
 const TasksPage = () => {
   return (
     <div className='tasksPage'>
       <div className='leftPanel'>
-        <AddTaskPanel />
+        <AddTaskPanel validateAddingTask={validateAddingTask}/>
       </div>
       <div className='centerPanel'>
         <OrderTasksPanel />

@@ -1,9 +1,7 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 
-import { validateAddingTask } from '../Validation/AddTaskPanelValidation'
-
-const AddTaskPanel = () => {
+const AddTaskPanel = ({ validateAddingTask }) => {
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
 
