@@ -11,11 +11,11 @@ import '../Styles/ChangePasswordStyle.css'
 const ChangePassword = () => {
   // useState's
   const [loginText, setLoginText] = useState("");
-  const [password1Text, setPassword1Text] = useState("");
-  const [password2Text, setPassword2Text] = useState("");
+  const [oldPasswordText, setOldPasswordText] = useState("");
+  const [newPasswordText, setNewPasswordText] = useState("");
 
-  const [showPassword1, setShowPassword1] = useState(false);
-  const [showPassword2, setShowPassword2] = useState(false);
+  const [showOldPassword, setShowOldPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
 
   // useEffect's
   useEffect(() => {
@@ -28,11 +28,11 @@ const ChangePassword = () => {
   }
 
   const handleInputPassword1 = (event) => {
-    setPassword1Text(event.target.value)
+    setOldPasswordText(event.target.value)
   }
 
   const handleInputPassword2 = (event) => {
-    setPassword2Text(event.target.value)
+    setNewPasswordText(event.target.value)
   }
 
   const handleButtonChangePassword = () => {
@@ -40,11 +40,11 @@ const ChangePassword = () => {
   }
 
   const togglePassword1Visibility = () => {
-    setShowPassword1((prev) => !prev);
+    setShowOldPassword((prev) => !prev);
   };
 
   const togglePassword2Visibility = () => {
-    setShowPassword2((prev) => !prev);
+    setShowNewPassword((prev) => !prev);
   };
 
   return (
@@ -61,7 +61,7 @@ const ChangePassword = () => {
             onChange={handleInputLogin}
           /> <br />
           <input
-            type={showPassword1 ? 'text' : 'password'}
+            type={showOldPassword ? 'text' : 'password'}
             name="password1"
             id="password1"
             placeholder="Password: "
@@ -69,12 +69,12 @@ const ChangePassword = () => {
             onChange={handleInputPassword1}
           />
           <FontAwesomeIcon
-            icon={showPassword1 ? faEyeSlash : faEye}
+            icon={showOldPassword ? faEyeSlash : faEye}
             onClick={togglePassword1Visibility}
             className="passwordVisibilityIcon"
           /><br />
           <input
-            type={showPassword2 ? 'text' : 'password'}
+            type={showNewPassword ? 'text' : 'password'}
             name="password2"
             id="password2"
             placeholder="Password:"
@@ -82,7 +82,7 @@ const ChangePassword = () => {
             onChange={handleInputPassword2}
           />
           <FontAwesomeIcon
-            icon={showPassword2 ? faEyeSlash : faEye}
+            icon={showNewPassword ? faEyeSlash : faEye}
             onClick={togglePassword2Visibility}
             className="passwordVisibilityIcon"
           /><br />
