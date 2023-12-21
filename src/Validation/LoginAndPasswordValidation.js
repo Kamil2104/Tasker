@@ -73,4 +73,5 @@ export {
     validateSinglePassword,
     validateDoublePassword,
     validateLoginLength,
+    validatePasswordLength
 }
