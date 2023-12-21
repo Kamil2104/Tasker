@@ -26,10 +26,14 @@ function validatePassword(password) {
 }
 
 function validateCreateAccountPasswords(password1, password2) {
-    if (password1 === password2) {
-        return validatePassword(password1);
+    if (!isPasswordEmpty(password1) && !isPasswordEmpty(password2)) {
+        if (password1 === password2) {
+            return validatePassword(password1);
+        } else {
+            return "Passwords are not the same."
+        }
     } else {
-        return "Passwords are not the same."
+        return "Passwords can't be empty."
     }
 }
 
