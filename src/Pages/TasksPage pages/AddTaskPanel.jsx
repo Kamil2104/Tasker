@@ -40,42 +40,40 @@ const AddTaskPanel = () => {
     return (
         <div className='addTaskPanel'>
             <h1> Create task: </h1>
-            <form method="post" action='/addTask'>
-                <input
-                    type="text"
-                    id="addTaskPanelInputName"
-                    name="addTaskPanelInputName"
-                    placeholder="Name: "
-                    autoComplete="off"
-                    ref={addTaskPanelNameRef}
-                /> <br />
-                <input
-                    type="text"
-                    id="addTaskPanelInputDescription"
-                    name="addTaskPanelInputDescription"
-                    placeholder="Description: "
-                    autoComplete="off"
-                    ref={addTaskPanelDescriptionRef}
-                /> <br />
-                <input
-                    type="date"
-                    autoComplete="off"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    min={getCurrentDate()}
-                    ref={addTaskPanelDateRef}
-                /> <br />
-                <select
-                    name="addTaskPanelSelectPriority"
-                    id="addTaskPanelSelectPriority"
-                    ref={addTaskPanelPriorityRef} >
-                    <option value="low"> low </option>
-                    <option value="medium"> medium </option>
-                    <option value="high"> high </option>
-                </select> <br />
-                <button id="btnAddTask"> Add </button>
-                <button id="btnAddTaskPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
-            </form>
+            <input
+                type="text"
+                id="addTaskPanelInputName"
+                name="addTaskPanelInputName"
+                placeholder="Name: "
+                autoComplete="off"
+                ref={addTaskPanelNameRef}
+            /> <br />
+            <input
+                type="text"
+                id="addTaskPanelInputDescription"
+                name="addTaskPanelInputDescription"
+                placeholder="Description: "
+                autoComplete="off"
+                ref={addTaskPanelDescriptionRef}
+            /> <br />
+            <input
+                type="date"
+                autoComplete="off"
+                value={selectedDate}
+                onChange={handleDateChange}
+                min={getCurrentDate()}
+                ref={addTaskPanelDateRef}
+            /> <br />
+            <select
+                name="addTaskPanelSelectPriority"
+                id="addTaskPanelSelectPriority"
+                ref={addTaskPanelPriorityRef} >
+                <option value="low"> low </option>
+                <option value="medium"> medium </option>
+                <option value="high"> high </option>
+            </select> <br />
+            <button id="btnAddTask"> Add </button>
+            <button id="btnAddTaskPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
         </div>
     )
 }
