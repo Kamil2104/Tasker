@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
+import { validateLogin, validateCreateAccountPasswords } from '../Validation/LoginAndPasswordValidation'
+
 import '../Styles/ChangePasswordStyle.css'
 
 const ChangePassword = () => {
@@ -31,6 +33,10 @@ const ChangePassword = () => {
 
   const handleInputPassword2 = (event) => {
     setPassword2Text(event.target.value)
+  }
+
+  const handleButtonChangePassword = () => {
+
   }
 
   const togglePassword1Visibility = () => {
@@ -80,7 +86,7 @@ const ChangePassword = () => {
             onClick={togglePassword2Visibility}
             className="passwordVisibilityIcon"
           /><br />
-          <button id="btnChangePassword"> Change password </button> <br />
+          <button id="btnChangePassword" onClick={handleButtonChangePassword}> Change password </button> <br />
         </div>
       </div>
     </div>
