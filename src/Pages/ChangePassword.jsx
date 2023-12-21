@@ -39,11 +39,11 @@ const ChangePassword = () => {
 
   }
 
-  const togglePassword1Visibility = () => {
+  const toggleOldPasswordVisibility = () => {
     setShowOldPassword((prev) => !prev);
   };
 
-  const togglePassword2Visibility = () => {
+  const toggleNewPasswordVisibility = () => {
     setShowNewPassword((prev) => !prev);
   };
 
@@ -70,7 +70,7 @@ const ChangePassword = () => {
           />
           <FontAwesomeIcon
             icon={showOldPassword ? faEyeSlash : faEye}
-            onClick={togglePassword1Visibility}
+            onClick={toggleOldPasswordVisibility}
             className="passwordVisibilityIcon"
           /><br />
           <input
@@ -83,7 +83,7 @@ const ChangePassword = () => {
           />
           <FontAwesomeIcon
             icon={showNewPassword ? faEyeSlash : faEye}
-            onClick={togglePassword2Visibility}
+            onClick={toggleNewPasswordVisibility}
             className="passwordVisibilityIcon"
           /><br />
           <button id="btnChangePassword" onClick={handleButtonChangePassword}> Change password </button> <br />
