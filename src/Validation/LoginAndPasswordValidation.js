@@ -17,8 +17,12 @@ function validateLogin(login) {
 
 // PASSWORD VALIDATIONS
 
-function validateSinglePassword() {
-
+function validateSinglePassword(password) {
+    if (validatePasswordLength(password)) {
+        return "";
+    } else {
+        return errorMsg;
+    }
 }
 
 function validateDoublePassword() {
@@ -41,6 +45,25 @@ function validateLoginLength(login) {
         }
     } else {
         errorMsg = "Login can't be empty."
+        return false
+    }
+}
+
+function validatePasswordLength(password) {
+    if (password !== "") {
+        if (password.length >= 5) {
+            if (password.length <= 25) {
+                return true
+            } else {
+                errorMsg = "Password is too long."
+                return false
+            }
+        } else {
+            errorMsg = "Password is too short."
+            return false
+        }
+    } else {
+        errorMsg = "Password can't be empty."
         return false
     }
 }
