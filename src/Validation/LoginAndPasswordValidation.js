@@ -75,20 +75,15 @@ function validateLoginLength(login) {
 }
 
 function validatePasswordLength(password) {
-    if (password !== "") {
-        if (password.length >= 5) {
-            if (password.length <= 25) {
-                return true
-            } else {
-                errorMsg = "Password is too long."
-                return false
-            }
+    if (password.length >= 5) {
+        if (password.length <= 25) {
+            return true
         } else {
-            errorMsg = "Password is too short."
+            errorMsg = "Password is too long."
             return false
         }
     } else {
-        errorMsg = "Password can't be empty."
+        errorMsg = "Password is too short."
         return false
     }
 }
