@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { validateLogin } from '../Validation/LoginAndPasswordValidation'
+import { validateLogin, validateSinglePassword } from '../Validation/LoginAndPasswordValidation'
 
 import '../Styles/LoginPageStyle.css';
 
@@ -30,12 +30,17 @@ const LoginPage = () => {
     }
 
     const handleButtonLogin = () => {
-      let response = validateLogin(loginText);
+      let loginResponse = validateLogin(loginText);
+      let passwordResponse = validateSinglePassword(passwordText);
 
-      if (response === "") {
-        // CODE USING DATABASE
+      if (loginResponse === "") {
+        if (passwordResponse === "") {
+          // CODE USING DATABASE
+        } else {
+          alert (passwordResponse)
+        }
       } else {
-        alert(response)
+        alert(loginResponse);
       }
     }
 
