@@ -1,10 +1,10 @@
-const errorMsg = ""
+let errorMsg = ""
 const loginPattern = "^[a-zA-Z0-9]+$"
 
 // LOGIN VALIDATIONS
 
 function validateLogin(login) {
-    if (login != "") {
+    if (login !== "") {
         return ""
     } else {
         return "Login can't be empty."
@@ -12,7 +12,7 @@ function validateLogin(login) {
 }
 
 function validateNewLogin(login) {
-    if (loginLengthValidator(login)) {
+    if (validateLoginLength(login)) {
         if (loginPattern.test(login)) {
             return ""
         } else {
@@ -35,7 +35,7 @@ function validateDoublePassword() {
 
 // OTHER VALIDATIONS
 function validateLoginLength(login) {
-    if (login != "") {
+    if (login !== "") {
         if (login.length() >= 5) {
             if (login.length() <= 20) {
                 return true

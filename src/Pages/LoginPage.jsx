@@ -32,7 +32,7 @@ const LoginPage = () => {
     const handleButtonLogin = () => {
       let response = validateLogin(loginText);
 
-      if (response == "") {
+      if (response === "") {
         // CODE USING DATABASE
       } else {
         alert(response)
