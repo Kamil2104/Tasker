@@ -33,9 +33,9 @@ function validateCreateAccountPasswords(password1, password2) {
     }
 }
 
-function validateChangePasswordPasswords() {
-    if (password1 !== password2) {
-        return validatePassword(password1);
+function validateChangePasswordPasswords(oldPassword, newPassword) {
+    if (oldPassword !== newPassword) {
+        return validatePassword(oldPassword);
     } else {
         return "Passwords are the same."
     }
