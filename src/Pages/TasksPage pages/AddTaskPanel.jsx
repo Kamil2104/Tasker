@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 
-import { validateAddingTask } from '../Validation/TasksPage validations/AddTaskPanelValidation'
+import { validateAddingTask } from '../Validation/TasksPageValidations/AddTaskPanelValidation'
 
 const AddTaskPanel = () => {
     // useState's
