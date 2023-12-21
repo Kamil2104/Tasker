@@ -34,10 +34,14 @@ function validateCreateAccountPasswords(password1, password2) {
 }
 
 function validateChangePasswordPasswords(oldPassword, newPassword) {
-    if (oldPassword !== newPassword) {
-        return validatePassword(oldPassword);
+    if (!isPasswordEmpty) {
+        if (oldPassword !== newPassword) {
+            return validatePassword(oldPassword);
+        } else {
+            return "Passwords are the same."
+        }
     } else {
-        return "Passwords are the same."
+        return "Passwords can't be empty."
     }
 }
 
@@ -76,6 +80,14 @@ function validatePasswordLength(password) {
         }
     } else {
         errorMsg = "Password can't be empty."
+        return false
+    }
+}
+
+function isPasswordEmpty(password) {
+    if (password === "") {
+        return true
+    } else {
         return false
     }
 }
