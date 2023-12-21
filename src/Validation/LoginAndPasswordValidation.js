@@ -17,7 +17,7 @@ function validateLogin(login) {
 
 // PASSWORD VALIDATIONS
 
-function validatePassword(password) {
+function validateLoginPagePassword(password) {
     if (validatePasswordLength(password)) {
         return "";
     } else {
@@ -46,6 +46,7 @@ function validateChangePasswordPasswords(oldPassword, newPassword) {
 }
 
 // OTHER VALIDATIONS
+
 function validateLoginLength(login) {
     if (login !== "") {
         if (login.length >= 5) {
@@ -94,7 +95,7 @@ function isPasswordEmpty(password) {
 
 export {
     validateLogin,
-    validatePassword,
+    validateLoginPagePassword,
     validateCreateAccountPasswords,
     validateChangePasswordPasswords,
     validateLoginLength,
