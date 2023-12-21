@@ -33,6 +33,14 @@ function validateCreateAccountPasswords(password1, password2) {
     }
 }
 
+function validateChangePasswordPasswords() {
+    if (password1 !== password2) {
+        return validatePassword(password1);
+    } else {
+        return "Passwords are the same."
+    }
+}
+
 // OTHER VALIDATIONS
 function validateLoginLength(login) {
     if (login !== "") {
@@ -76,6 +84,7 @@ export {
     validateLogin,
     validatePassword,
     validateCreateAccountPasswords,
+    validateChangePasswordPasswords,
     validateLoginLength,
     validatePasswordLength
 }
