@@ -48,7 +48,6 @@ const LoginPage = () => {
       <div className='loginContainer'>
         <div className='loginContainerContent'>
           <h1> Log in </h1>
-          <form method="post" action='/logIn'>
             <input
               type="text"
               name="login"
@@ -71,7 +70,6 @@ const LoginPage = () => {
               className="passwordVisibilityIcon"
             /><br />
             <button id="btnLogin" onClick={handleButtonLogin}> Log in </button> <br />
-          </form>
           <label> Forgot password? </label> <br />
         </div>
         <div className='loginContainerButtonCreateNewAccount'>

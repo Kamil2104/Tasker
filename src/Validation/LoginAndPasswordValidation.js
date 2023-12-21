@@ -1,17 +1,17 @@
-let errorMsg = ""
-const loginPattern = "^[a-zA-Z0-9]+$"
+let errorMsg = "";
+const loginPattern = /^[a-zA-Z0-9]+$/;
 
 // LOGIN VALIDATIONS
 
 function validateLogin(login) {
     if (validateLoginLength(login)) {
         if (loginPattern.test(login)) {
-            return ""
+            return "";
         } else {
-            return "The login contains illegal characters. Please use only letters and numbers."
+            return "The login contains illegal characters. Please use only letters and numbers.";
         }
     } else {
-        return errorMsg
+        return errorMsg;
     }
 }
 
@@ -28,8 +28,8 @@ function validateDoublePassword() {
 // OTHER VALIDATIONS
 function validateLoginLength(login) {
     if (login !== "") {
-        if (login.length() >= 5) {
-            if (login.length() <= 20) {
+        if (login.length >= 5) {
+            if (login.length <= 20) {
                 return true
             } else {
                 errorMsg = "Login is too long."
