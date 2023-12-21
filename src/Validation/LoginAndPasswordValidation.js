@@ -34,7 +34,7 @@ function validateCreateAccountPasswords(password1, password2) {
 }
 
 function validateChangePasswordPasswords(oldPassword, newPassword) {
-    if (!isPasswordEmpty) {
+    if (!isPasswordEmpty(oldPassword) && !isPasswordEmpty(newPassword)) {
         if (oldPassword !== newPassword) {
             return validatePassword(oldPassword);
         } else {
