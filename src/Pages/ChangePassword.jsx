@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { validateLogin, validateCreateAccountPasswords } from '../Validation/LoginAndPasswordValidation'
+import { validateLogin, validateChangePasswordPasswords } from '../Validation/LoginAndPasswordValidation'
 
 import '../Styles/ChangePasswordStyle.css'
 
@@ -36,7 +36,18 @@ const ChangePassword = () => {
   }
 
   const handleButtonChangePassword = () => {
+    let loginResponse = validateLogin(loginText);
+    let passwordResponse = validateChangePasswordPasswords(oldPasswordText, newPasswordText);
 
+    if (loginResponse === "") {
+      if (passwordResponse === "") {
+        // CODE USING DATABASE
+      } else {
+        alert(passwordResponse);
+      }
+    } else {
+      alert(loginResponse);
+    }
   }
 
   const toggleOldPasswordVisibility = () => {
