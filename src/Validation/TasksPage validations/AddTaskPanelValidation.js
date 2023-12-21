@@ -6,7 +6,11 @@ function validateAddingTask(name, description) {
     if (!isEmpty(name)) {
         if (!isEmpty(description)) {
             if (nameLength(name)) {
-
+                if (descriptionLength(description)) {
+                    return ""
+                } else {
+                    return errorMsg
+                }
             } else {
                 return errorMsg
             }
@@ -35,7 +39,17 @@ function nameLength(name) {
 }
 
 function descriptionLength(description) {
-
+    if (description.length >= 5) {
+        if (description.length <= 20) {
+            return true
+        } else {
+            errorMsg = "Description is too long."
+            return false
+        }
+    } else {
+        errorMsg = "Description is too short."
+        return false
+    }
 }
 
 function isEmpty(input) {
