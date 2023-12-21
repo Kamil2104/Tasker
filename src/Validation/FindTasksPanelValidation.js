@@ -1,4 +1,4 @@
-errorMsg = ""
+let errorMsg = ""
 
 // FIND TASKS PANEL VALIDATIONS
 
