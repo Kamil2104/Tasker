@@ -64,7 +64,7 @@ const ChangePassword = () => {
             type={showOldPassword ? 'text' : 'password'}
             name="password1"
             id="password1"
-            placeholder="Password: "
+            placeholder="Old password: "
             autoComplete="off"
             onChange={handleInputPassword1}
           />
@@ -77,7 +77,7 @@ const ChangePassword = () => {
             type={showNewPassword ? 'text' : 'password'}
             name="password2"
             id="password2"
-            placeholder="Password:"
+            placeholder="New password:"
             autoComplete="off"
             onChange={handleInputPassword2}
           />
