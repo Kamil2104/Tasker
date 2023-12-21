@@ -25,8 +25,16 @@ function validateSinglePassword(password) {
     }
 }
 
-function validateDoublePassword() {
-
+function validateDoublePassword(password1, password2) {
+    if (validatePasswordLength(password1)) {
+        if (validatePasswordLength(password2)) {
+            return "";
+        } else {
+            return errorMsg + "(in second password)";
+        }
+    } else {
+        return errorMsg + "(in first password)";
+    }
 }
 
 // OTHER VALIDATIONS

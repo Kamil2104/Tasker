@@ -36,7 +36,18 @@ export const CreateAccount = () => {
   }
 
   const handleButtonCreateAccount = () => {
+    let loginResponse = validateLogin(loginText);
+    let passwordResponse = validateDoublePassword(password1Text, password2Text);
 
+    if (loginResponse === "") {
+      if (passwordResponse === "") {
+        // CODE USING DATABASE
+      } else {
+        alert(passwordResponse)
+      }
+    } else {
+      alert(loginResponse);
+    }
   }
 
   const togglePassword1Visibility = () => {
@@ -52,41 +63,41 @@ export const CreateAccount = () => {
       <div className='createAccountContainer'>
         <div className='createAccountContainerContent'>
           <h1> Create account </h1>
-            <input
-              type="text"
-              name="login"
-              id="login"
-              placeholder="Login: "
-              autoComplete="off"
-              onChange={handleInputLogin}
-            /> <br />
-            <input
-              type="password"
-              name="password1"
-              id="password1"
-              placeholder="Password: "
-              autoComplete="off"
-              onChange={handleInputPassword1}
-            />
-            <FontAwesomeIcon
-              icon={showPassword1 ? faEyeSlash : faEye}
-              onClick={togglePassword1Visibility}
-              className="passwordVisibilityIcon"
-            /><br />
-            <input
-              type="password"
-              name="password2"
-              id="password2"
-              placeholder="Password: "
-              autoComplete="off"
-              onChange={handleInputPassword2}
-            />
-            <FontAwesomeIcon
-              icon={showPassword2 ? faEyeSlash : faEye}
-              onClick={togglePassword2Visibility}
-              className="passwordVisibilityIcon"
-            /><br />
-            <button id="btnCreateAccount" onClick={handleButtonCreateAccount}> Create account </button> <br />
+          <input
+            type="text"
+            name="login"
+            id="login"
+            placeholder="Login: "
+            autoComplete="off"
+            onChange={handleInputLogin}
+          /> <br />
+          <input
+            type="password"
+            name="password1"
+            id="password1"
+            placeholder="Password: "
+            autoComplete="off"
+            onChange={handleInputPassword1}
+          />
+          <FontAwesomeIcon
+            icon={showPassword1 ? faEyeSlash : faEye}
+            onClick={togglePassword1Visibility}
+            className="passwordVisibilityIcon"
+          /><br />
+          <input
+            type="password"
+            name="password2"
+            id="password2"
+            placeholder="Password: "
+            autoComplete="off"
+            onChange={handleInputPassword2}
+          />
+          <FontAwesomeIcon
+            icon={showPassword2 ? faEyeSlash : faEye}
+            onClick={togglePassword2Visibility}
+            className="passwordVisibilityIcon"
+          /><br />
+          <button id="btnCreateAccount" onClick={handleButtonCreateAccount}> Create account </button> <br />
         </div>
       </div>
     </div>
