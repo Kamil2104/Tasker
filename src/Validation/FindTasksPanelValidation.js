@@ -37,3 +37,5 @@ function isEmpty(name) {
         return false
     }
 }
+
+export { validateFindingTasks }
