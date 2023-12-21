@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { validateLogin, validateDoublePassword } from '../Validation/LoginAndPasswordValidation'
+import { validateLogin, validateCreateAccountPasswords } from '../Validation/LoginAndPasswordValidation'
 
 import '../Styles/CreateAccountStyle.css'
 
@@ -37,7 +37,7 @@ export const CreateAccount = () => {
 
   const handleButtonCreateAccount = () => {
     let loginResponse = validateLogin(loginText);
-    let passwordResponse = validateDoublePassword(password1Text, password2Text);
+    let passwordResponse = validateCreateAccountPasswords(password1Text, password2Text);
 
     if (loginResponse === "") {
       if (passwordResponse === "") {
