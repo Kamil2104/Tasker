@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 
+import { validateAddingTask } from '../Validation/TasksPage validations/AddTaskPanelValidation'
+
 const AddTaskPanel = () => {
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
@@ -19,6 +21,19 @@ const AddTaskPanel = () => {
         const day = String(now.getDate()).padStart(2, '0');
 
         return `${year}-${month}-${day}`;
+    }
+
+    const handleButtonAddTaskButton = () => {
+        const inputNameCurrentValue = addTaskPanelNameRef.current.value
+        const inputDescriptionCurrentValue = addTaskPanelDescriptionRef.current.value
+    
+        let addingResponse = validateAddingTask(inputNameCurrentValue, inputDescriptionCurrentValue);
+
+        if (addingResponse === "") {
+            // CODE USING DATABASE
+        } else {
+            alert (addingResponse)
+        }
     }
 
     const handleInputtedValuesClear = (event) => {
@@ -72,7 +87,7 @@ const AddTaskPanel = () => {
                 <option value="medium"> medium </option>
                 <option value="high"> high </option>
             </select> <br />
-            <button id="btnAddTask"> Add </button>
+            <button id="btnAddTask" onClick={handleButtonAddTaskButton}> Add </button>
             <button id="btnAddTaskPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
         </div>
     )
