@@ -27,11 +27,11 @@ const ChangePassword = () => {
     setLoginText(event.target.value);
   }
 
-  const handleInputPassword1 = (event) => {
+  const handleInputOldPassword = (event) => {
     setOldPasswordText(event.target.value)
   }
 
-  const handleInputPassword2 = (event) => {
+  const handleInputNewPassword = (event) => {
     setNewPasswordText(event.target.value)
   }
 
@@ -66,7 +66,7 @@ const ChangePassword = () => {
             id="password1"
             placeholder="Old password: "
             autoComplete="off"
-            onChange={handleInputPassword1}
+            onChange={handleInputOldPassword}
           />
           <FontAwesomeIcon
             icon={showOldPassword ? faEyeSlash : faEye}
@@ -79,7 +79,7 @@ const ChangePassword = () => {
             id="password2"
             placeholder="New password:"
             autoComplete="off"
-            onChange={handleInputPassword2}
+            onChange={handleInputNewPassword}
           />
           <FontAwesomeIcon
             icon={showNewPassword ? faEyeSlash : faEye}
