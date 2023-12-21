@@ -4,18 +4,18 @@ let errorMsg = ""
 
 function validateAddingTask(name, description) {
     if (!isEmpty(name)) {
-        if (!isEmpty(description)) {
-            if (nameLength(name)) {
+        if (nameLength(name)) {
+            if (!isEmpty(description)) {
                 if (descriptionLength(description)) {
                     return ""
                 } else {
                     return errorMsg
                 }
             } else {
-                return errorMsg
+                return "Description can't be empty."
             }
         } else {
-            return "Description can't be empty."
+            return errorMsg
         }
     } else {
         return "Name can't be empty."
