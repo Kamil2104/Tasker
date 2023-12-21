@@ -6,6 +6,7 @@ import ShowTasksPanel from './TasksPage pages/ShowTasksPanel';
 import FindTasksPanel from './TasksPage pages/FindTasksPanel';
 
 import { validateAddingTask } from '../Validation/AddTaskPanelValidation'
+import { validateFindingTasks } from '../Validation/FindTasksPanelValidation'
 
 import '../Styles/TasksPageStyle.css';
 
@@ -20,7 +21,7 @@ const TasksPage = () => {
         <ShowTasksPanel />
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel />
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} />
       </div>
     </div>
   )
