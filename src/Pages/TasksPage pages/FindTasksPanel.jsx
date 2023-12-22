@@ -4,11 +4,16 @@ import { useState, useRef } from 'react';
 const FindTasksPanel = ({ validateFindingTasks }) => {
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
+    const [selectedRadioButton, selSelectedRadioButton] = useState("")
 
     // useRef's
     const findTaskPanelNameRef = useRef("");
     const findTaskPanelDateRef = useRef(getCurrentDate());
     const findTaskPanelPriorityRef = useRef("low");
+
+    const radioButtonNameRef = useState(false)
+    const radioButtonDateRef = useState(false)
+    const radioButtonPriorityRef = useState(false)
 
     // function's
     function getCurrentDate() {
@@ -23,12 +28,22 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
     const handleButtonFindTasks = () => {
         const inputNameCurrentValue = findTaskPanelNameRef.current.value
 
-        let findingResponse = validateFindingTasks(inputNameCurrentValue);
+        if (selectedRadioButton !== "") {
+            if (selectedRadioButton === "findingByName") {
+                let findingResponse = validateFindingTasks(inputNameCurrentValue);
 
-        if (findingResponse === "") {
-            // CODE USING DATABASE
+                if (findingResponse !== "") {
+                    alert(findingResponse)
+                } else {
+                    console.log("NAME")
+                }
+            } else if (selectedRadioButton === "findingByDate") {
+                console.log("DATE")
+            } else if (selectedRadioButton === "findingByPriority") {
+                console.log("PRIORITY")
+            }
         } else {
-            alert(findingResponse)
+            alert("You need to select a search option.")
         }
     }
 
@@ -47,6 +62,16 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
         setSelectedDate(event.target.value);
     };
 
+    const handleRadioButtonChange = () => {
+        if (radioButtonNameRef.current.checked) {
+            selSelectedRadioButton("findingByName")
+        } else if (radioButtonDateRef.current.checked) {
+            selSelectedRadioButton("findingByDate")
+        } else if (radioButtonPriorityRef.current.checked) {
+            selSelectedRadioButton("findingByPriority")
+        }
+    }
+
     return (
         <div className='findTasksPanel'>
             <h1> Find tasks: </h1>
@@ -56,6 +81,8 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                         type="radio"
                         id="radioName"
                         name="radioFindBy"
+                        onChange={handleRadioButtonChange}
+                        ref={(el) => (radioButtonNameRef.current = el)}
                     />
                     <input
                         type="text"
@@ -71,6 +98,8 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                         type="radio"
                         id="radioDate"
                         name="radioFindBy"
+                        onChange={handleRadioButtonChange}
+                        ref={(el) => (radioButtonDateRef.current = el)}
                     />
                     <input
                         type="date"
@@ -86,6 +115,8 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                         type="radio"
                         id="radioPriority"
                         name="radioFindBy"
+                        onChange={handleRadioButtonChange}
+                        ref={(el) => (radioButtonPriorityRef.current = el)}
                     />
                     <select
                         name="findTasksPanelSelectPriority"
