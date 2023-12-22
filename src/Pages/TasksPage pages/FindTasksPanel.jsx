@@ -51,45 +51,51 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
         <div className='findTasksPanel'>
             <h1> Find tasks: </h1>
             <div className='findTasksCriteriaContainer'>
-                <input
-                    type="radio"
-                    id="radioName"
-                    name="radioFindBy"
-                />
-                <input
-                    type="text"
-                    id="findTaskPanelInputName"
-                    name="findTaskPanelInputName"
-                    placeholder="Name: "
-                    autoComplete="off"
-                    ref={findTaskPanelNameRef}
-                /> <br />
-                <input
-                    type="radio"
-                    id="radioDate"
-                    name="radioFindBy"
-                />
-                <input
-                    type="date"
-                    autoComplete="off"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    min={getCurrentDate()}
-                    ref={findTaskPanelDateRef}
-                /> <br />
-                <input
-                    type="radio"
-                    id="radioPriority"
-                    name="radioFindBy"
-                />
-                <select
-                    name="findTasksPanelSelectPriority"
-                    id="findTasksPanelSelectPriority"
-                    ref={findTaskPanelPriorityRef} >
-                    <option value="low"> low </option>
-                    <option value="medium"> medium </option>
-                    <option value="high"> high </option>
-                </select> <br />
+                <div className='findTasksNameCriteria'>
+                    <input
+                        type="radio"
+                        id="radioName"
+                        name="radioFindBy"
+                    />
+                    <input
+                        type="text"
+                        id="findTaskPanelInputName"
+                        name="findTaskPanelInputName"
+                        placeholder="Name: "
+                        autoComplete="off"
+                        ref={findTaskPanelNameRef}
+                    /> <br />
+                </div>
+                <div className='findTasksDateCriteria'>
+                    <input
+                        type="radio"
+                        id="radioDate"
+                        name="radioFindBy"
+                    />
+                    <input
+                        type="date"
+                        autoComplete="off"
+                        value={selectedDate}
+                        onChange={handleDateChange}
+                        min={getCurrentDate()}
+                        ref={findTaskPanelDateRef}
+                    /> <br />
+                </div>
+                <div className='findTasksPriorityCriteria'>
+                    <input
+                        type="radio"
+                        id="radioPriority"
+                        name="radioFindBy"
+                    />
+                    <select
+                        name="findTasksPanelSelectPriority"
+                        id="findTasksPanelSelectPriority"
+                        ref={findTaskPanelPriorityRef} >
+                        <option value="low"> low </option>
+                        <option value="medium"> medium </option>
+                        <option value="high"> high </option>
+                    </select> <br />
+                </div>
             </div>
             <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>
             <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
