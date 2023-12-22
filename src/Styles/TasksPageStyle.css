@@ -328,7 +328,7 @@ body {
 }
 
 .findTasksPanel input[type="radio"] {
-    
+    width: 20%;
 }
 
 .findTasksPanel input[type="date"]:hover {
