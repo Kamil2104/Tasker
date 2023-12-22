@@ -55,6 +55,10 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
             findTaskPanelNameRef.current.value = "";
             findTaskPanelDateRef.current.value = getCurrentDate();
             findTaskPanelPriorityRef.current.value = "low";
+
+            if(radioButtonNameRef.current) radioButtonNameRef.current.checked = false;
+            if(radioButtonDateRef.current) radioButtonDateRef.current.checked = false;
+            if(radioButtonPriorityRef.current) radioButtonPriorityRef.current.checked = false;
         }
     }
 
