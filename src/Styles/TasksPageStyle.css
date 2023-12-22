@@ -327,6 +327,10 @@ body {
     color: white;
 }
 
+.findTasksPanel input[type="radio"] {
+    
+}
+
 .findTasksPanel input[type="date"]:hover {
     cursor: pointer;
 }

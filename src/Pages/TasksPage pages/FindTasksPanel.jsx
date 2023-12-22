@@ -51,6 +51,11 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
         <div className='findTasksPanel'>
             <h1> Find tasks: </h1>
             <input
+                type="radio"
+                id="radioName"
+                name="radioFindBy"
+            />
+            <input
                 type="text"
                 id="findTaskPanelInputName"
                 name="findTaskPanelInputName"
@@ -59,6 +64,11 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                 ref={findTaskPanelNameRef}
             /> <br />
             <input
+                type="radio"
+                id="radioDate"
+                name="radioFindBy"
+            />
+            <input
                 type="date"
                 autoComplete="off"
                 value={selectedDate}
@@ -66,6 +76,11 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                 min={getCurrentDate()}
                 ref={findTaskPanelDateRef}
             /> <br />
+            <input
+                type="radio"
+                id="radioPriority"
+                name="radioFindBy"
+            />
             <select
                 name="findTasksPanelSelectPriority"
                 id="findTasksPanelSelectPriority"
