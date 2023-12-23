@@ -56,6 +56,8 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
             findTaskPanelDateRef.current.value = getCurrentDate();
             findTaskPanelPriorityRef.current.value = "low";
 
+            selSelectedRadioButton("")
+
             if(radioButtonNameRef.current) radioButtonNameRef.current.checked = false;
             if(radioButtonDateRef.current) radioButtonDateRef.current.checked = false;
             if(radioButtonPriorityRef.current) radioButtonPriorityRef.current.checked = false;
