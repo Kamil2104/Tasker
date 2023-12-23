@@ -47,7 +47,20 @@ const ChangePassword = () => {
 
     if (loginResponse === "") {
       if (passwordResponse === "") {
-        navigate('/')
+        const values = {
+          login: loginText,
+          oldPassword: oldPasswordText,
+          newPassword: newPasswordText
+        }
+
+        axios.post('http://localhost:8081/changePassword', values)
+        .then(res => {
+          if (res.data === "Success") {
+            navigate('/')
+          } else {
+            alert("Incorrect login or password.")
+          }
+        })
       } else {
         alert(passwordResponse);
       }

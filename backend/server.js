@@ -70,7 +70,8 @@ app.post('/changePassword', (req, res) => {
     const sql = "SELECT * FROM users WHERE `login` = ? AND `password` = ?"
     const values = [
         req.body.login,
-        req.body.oldPassword
+        req.body.oldPassword,
+        req.body.newPassword
     ]
 
     db.query(sql, values, (err, data) => {
@@ -79,20 +80,20 @@ app.post('/changePassword', (req, res) => {
         }
 
         if (data.length > 0) {
-            app.post((req, res) => {
-                const sql = "UPDATE users SET `password` = ? WHERE `login` = ?"
-                const newPassword = [
-                    req.body.login,
-                    req.body.newPassword
-                ]
+            const updateSql = "UPDATE users SET `password` = ? WHERE `login` = ?"
+            const newPasswordValues = [
+                req.body.newPassword,
+                req.body.login
+            ]
 
-                db.query(sql, newPassword, (err, data) => {
-                    if (err) {
-                        return res.json("Error!")
-                    }
+            console.log(newPasswordValues)
 
-                    return res.json("Success")
-                })
+            db.query(updateSql, newPasswordValues, (err) => {
+                if (err) {
+                    return res.json("Error!")
+                }
+
+                return res.json("Success")
             })
         } else {
             return res.json("Incorrect login or old password.")
