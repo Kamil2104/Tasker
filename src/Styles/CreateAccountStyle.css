@@ -112,7 +112,7 @@ body {
 
     color: rgba(255, 255, 255, 0.6);
 
-    transform: translateX(-70%);
+    transform: translateX(-70%) !important;
 
     cursor: pointer;
 }
