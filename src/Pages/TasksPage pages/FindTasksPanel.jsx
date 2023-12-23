@@ -64,6 +64,10 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
         }
     }
 
+    const handleButtonShowAllTasks = () => {
+        console.log("ALL TASKS")
+    }
+
     const handleDateChange = (event) => {
         setSelectedDate(event.target.value);
     };
@@ -136,7 +140,7 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
             </div>
             <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>
             <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
-            <button id="btnShowAllTasks"> Show all tasks </button>
+            <button id="btnShowAllTasks" onClick={handleButtonShowAllTasks}> Show all tasks </button>
         </div>
     )
 }
