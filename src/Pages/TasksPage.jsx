@@ -14,19 +14,19 @@ import '../Styles/TasksPageStyle.css';
 
 const TasksPage = () => {
   const location = useLocation();
-  const loginText = location?.state?.loginText;
+  const userLogin = location?.state?.loginText;
 
   return (
     <div className='tasksPage'>
       <div className='leftPanel'>
-        <AddTaskPanel validateAddingTask={validateAddingTask}/>
+        <AddTaskPanel validateAddingTask={validateAddingTask} login={userLogin} />
       </div>
       <div className='centerPanel'>
-        <OrderTasksPanel />
-        <ShowTasksPanel />
+        <OrderTasksPanel login={userLogin} />
+        <ShowTasksPanel login={userLogin} />
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} />
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin}/>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShowTasksPanel = () => {
+const ShowTasksPanel = ({ login }) => {
     // const name = "Ogarnąć mieszkanieaaaaaaaaaaaaaa";
     // const description = "Posprzątać całe mieszkanie i zetrzeć kurze";
     // const date = "14.12.2023";

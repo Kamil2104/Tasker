@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 
-const FindTasksPanel = ({ validateFindingTasks }) => {
+const FindTasksPanel = ({ validateFindingTasks, login }) => {
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
     const [selectedRadioButton, selSelectedRadioButton] = useState("")

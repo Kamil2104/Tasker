@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OrderTasksPanel = () => {
+const OrderTasksPanel = ({ login }) => {
     return (
         <div className='orderTasksPanel'>
             <h1> Order by: </h1>
