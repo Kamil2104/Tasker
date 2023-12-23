@@ -50,7 +50,7 @@ export const CreateAccount = () => {
         let values = [loginText, password1Text]
         axios.post('http://localhost:8081/createAccount', values)
         .then(res => {
-          navigate('/login')
+          navigate('/')
         })
         .catch(err => console.log(err))
       } else {

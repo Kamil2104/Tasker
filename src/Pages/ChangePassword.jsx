@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +25,9 @@ const ChangePassword = () => {
     document.title = "Tasker - change password";
   }, []);
 
+  // useNavigate()
+  const navigate = useNavigate();
+
   // functions
   const handleInputLogin = (event) => {
     setLoginText(event.target.value);
@@ -41,7 +47,7 @@ const ChangePassword = () => {
 
     if (loginResponse === "") {
       if (passwordResponse === "") {
-        // CODE USING DATABASE
+        navigate('/')
       } else {
         alert(passwordResponse);
       }
