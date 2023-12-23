@@ -104,7 +104,7 @@ body {
     border: solid 0.25vh red;
 }
 
-.passwordVisibilityIcon {
+.createAccountContainerContent .passwordVisibilityIcon {
     height: 2vh;
     width: 2vw;
 
