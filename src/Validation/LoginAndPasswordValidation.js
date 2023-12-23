@@ -15,7 +15,7 @@ function validateLogin(login) {
             return errorMsg;
         }
     } else {
-        return "Login can't be empty";
+        return "Login can't be empty.";
     }
 }
 
@@ -65,11 +65,11 @@ function validateLoginLength(login) {
             if (login.length <= 20) {
                 return true
             } else {
-                errorMsg = "Login is too long."
+                errorMsg = "Login is too long (maximum login length is 20)."
                 return false
             }
         } else {
-            errorMsg = "Login is too short."
+            errorMsg = "Login is too short (minimum login length is 5)."
             return false
         }
     } else {
@@ -83,11 +83,11 @@ function validatePasswordLength(password) {
         if (password.length <= 25) {
             return true
         } else {
-            errorMsg = "Password is too long."
+            errorMsg = "Password is too long (maximum password length is 25)."
             return false
         }
     } else {
-        errorMsg = "Password is too short."
+        errorMsg = "Password is too short (minimum password length is 5)."
         return false
     }
 }
