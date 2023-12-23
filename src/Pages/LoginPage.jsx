@@ -44,7 +44,7 @@ const LoginPage = () => {
         let values = [loginText, passwordText]
         axios.post('http://localhost:8081/createAccount', values)
         .then(res => {
-          navigate('/TasksPage')
+          navigate('/tasksPage')
         })
         .catch(err => console.log(err))
       } else {
@@ -53,6 +53,14 @@ const LoginPage = () => {
     } else {
       alert(loginResponse);
     }
+  }
+
+  const handleButtonChangePassword = () => {
+    navigate('/changePassword')
+  }
+
+  const handleButtonCreateNewAccount = () => {
+    navigate('/createNewAccount')
   }
 
   const togglePasswordVisibility = () => {
@@ -86,10 +94,10 @@ const LoginPage = () => {
             className="passwordVisibilityIcon"
           /><br />
           <button id="btnLogin" onClick={handleButtonLogin}> Log in </button> <br />
-          <label> Forgot password? </label> <br />
+          <label onClick={handleButtonChangePassword}> Forgot password? </label> <br />
         </div>
         <div className='loginContainerButtonCreateNewAccount'>
-          <button id="btnCreateNewAccount"> Create new account </button>
+          <button id="btnCreateNewAccount" onClick={handleButtonCreateNewAccount}> Create new account </button>
         </div>
       </div>
     </div>
