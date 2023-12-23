@@ -3,9 +3,7 @@ import React from 'react'
 const OrderTasksPanel = () => {
     return (
         <div className='orderTasksPanel'>
-            <div className='orderTasksPanelHeader'>
-                <h1> Order by: </h1> <br />
-            </div>
+            <h1> Order by: </h1>
             <div className='orderTasksPanelCriterias'>
                 <select
                     name="selectOrderBy"

@@ -163,7 +163,6 @@ body {
     flex-direction: column;
     align-items: center;
 
-    height: 12.5vh;
     width: 100%;
 
     background-color: rgba(39, 41, 43, 0.351);
@@ -227,18 +226,6 @@ body {
     cursor: pointer;
 
     border: solid 0.25vh red;
-}
-
-.orderTasksPanelHeader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    height: 4.5vh;
-    width: 100%;
-
-    margin: 0;
 }
 
 .orderTasksPanelCriterias {
