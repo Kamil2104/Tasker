@@ -1,5 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +23,9 @@ const LoginPage = () => {
     document.title = "Tasker - log in";
   }, []);
 
+  // useNavigate
+  const navigate = useNavigate();
+
   // functions
   const handleInputLogin = (event) => {
     setLoginText(event.target.value);
@@ -35,7 +41,12 @@ const LoginPage = () => {
 
     if (loginResponse === "") {
       if (passwordResponse === "") {
-        // CODE USING DATABASE
+        let values = [loginText, passwordText]
+        axios.post('http://localhost:8081/createAccount', values)
+        .then(res => {
+          navigate('/TasksPage')
+        })
+        .catch(err => console.log(err))
       } else {
         alert(passwordResponse)
       }
