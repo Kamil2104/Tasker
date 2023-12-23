@@ -37,7 +37,7 @@ app.post('/createAccount', (req, res) => {
         if (err) { // If error has occured return "Error" as JSON object
             return res.json("Error")
         } else {
-            return res.json("Success"); 
+            return res.json("Success");
         }
     });
 })
@@ -67,14 +67,35 @@ app.post('/login', (req, res) => {
 // CHANGE PASSWORD
 
 app.post('/changePassword', (req, res) => {
-    const sql = ""
+    const sql = "SELECT * FROM users WHERE `login` = ? AND `password` = ?"
     const values = [
         req.body.login,
-        req.body.oldPassword,
-        req.body.newPassword
+        req.body.oldPassword
     ]
 
     db.query(sql, values, (err, data) => {
+        if (err) {
+            return res.json("Error!")
+        }
 
+        if (data.length > 0) {
+            app.post((req, res) => {
+                const sql = "UPDATE users SET `password` = ? WHERE `login` = ?"
+                const newPassword = [
+                    req.body.login,
+                    req.body.newPassword
+                ]
+
+                db.query(sql, newPassword, (err, data) => {
+                    if (err) {
+                        return res.json("Error!")
+                    }
+
+                    return res.json("Success")
+                })
+            })
+        } else {
+            return res.json("Incorrect login or old password.")
+        }
     })
 })
