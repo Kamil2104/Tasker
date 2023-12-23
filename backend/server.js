@@ -8,6 +8,7 @@ const cors = require("cors");
 // Initializing the Express application
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 // Configuring the connection to the MySQL database
 const db = mysql.createConnection({

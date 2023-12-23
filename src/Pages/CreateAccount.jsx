@@ -1,5 +1,7 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useNavigate } from 'react';
+
+import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +24,9 @@ export const CreateAccount = () => {
     document.title = "Tasker - create account";
   }, []);
 
+  // useNavigate()
+  const navigate = useNavigate();
+
   // functions
   const handleInputLogin = (event) => {
     setLoginText(event.target.value);
@@ -41,7 +46,12 @@ export const CreateAccount = () => {
 
     if (loginResponse === "") {
       if (passwordResponse === "") {
-        // CODE USING DATABASE
+        let values = [loginText, password1Text]
+        axios.post('http://localhost:8081/createAccount', values)
+        .then(res => {
+          
+        })
+        .catch(err => console.log(err))
       } else {
         alert(passwordResponse)
       }

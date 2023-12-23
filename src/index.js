@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import TasksPage from './Pages/TasksPage';
+import CreateAccount from './Pages/CreateAccount';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <TasksPage />
+    <CreateAccount />
 );
 
 reportWebVitals();
