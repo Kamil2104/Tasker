@@ -159,7 +159,7 @@ body {
 /* orderTasksPanel */
 
 .orderTasksPanel {
-    height: 10vh;
+    height: 12.5vh;
     width: 100%;
 
     background-color: rgba(39, 41, 43, 0.351);
@@ -173,14 +173,15 @@ body {
 
     margin: 0;
     padding: 0;
-    padding-top: 1.5vh;
+    padding-top: 2.5vh;
 }
 
 .orderTasksPanel select {
-    font-size: 1.5vh;
+    font-size: 1.75vh;
     width: 10%;
     margin: 0vh 1vw;
     padding: 0.5vh;
+    padding-left: 0.5vw;
     outline: none;
 
     color: white;
@@ -188,6 +189,8 @@ body {
 
     border: solid 0.25vh rgba(255, 255, 255, 0.342);
     border-radius: 1.5vh;
+
+    appearance: none;
 }
 
 .orderTasksPanel select:hover {
@@ -204,7 +207,7 @@ body {
 }
 
 .orderTasksPanel button {
-    font-size: 1.5vh;
+    font-size: 1.75vh;
     width: 5%;
 
     padding: 0.5vh;
