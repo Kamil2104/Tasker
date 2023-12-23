@@ -8,9 +8,16 @@ import ChangePassword from './Pages/ChangePassword';
 import TasksPage from './Pages/CreateAccount';
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/login' element={ <LoginPage />} > </Route>
+                <Route path='/createNewAccount' element={ <CreateAccount />} > </Route>
+                <Route path='/changePassword' element={ <ChangePassword />} > </Route>
+                <Route path='/tasksPage' element={ <TasksPage />} > </Route>
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App
