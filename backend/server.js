@@ -33,8 +33,6 @@ app.post('/createAccount', (req, res) => {
         req.body.password // Getting value from input with NAME = "password"
     ]
 
-    console.log(values)
-
     db.query(sql, values, (err) => { // Executing a query to the database AND using callback function '(err, data) =>' to handle the query result
         if (err) { // If error has occured return "Error" as JSON object
             return res.json("Error")
@@ -64,4 +62,19 @@ app.post('/login', (req, res) => {
             return res.json("Fail")
         }
     });
+})
+
+// CHANGE PASSWORD
+
+app.post('/changePassword', (req, res) => {
+    const sql = ""
+    const values = [
+        req.body.login,
+        req.body.oldPassword,
+        req.body.newPassword
+    ]
+
+    db.query(sql, values, (err, data) => {
+
+    })
 })
