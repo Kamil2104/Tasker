@@ -80,15 +80,13 @@ app.post('/changePassword', (req, res) => {
         }
 
         if (data.length > 0) {
-            const updateSql = "UPDATE users SET `password` = ? WHERE `login` = ?"
+            const sql = "UPDATE users SET `password` = ? WHERE `login` = ?"
             const newPasswordValues = [
                 req.body.newPassword,
                 req.body.login
             ]
 
-            console.log(newPasswordValues)
-
-            db.query(updateSql, newPasswordValues, (err) => {
+            db.query(sql, newPasswordValues, (err) => {
                 if (err) {
                     return res.json("Error!")
                 }
