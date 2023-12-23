@@ -45,7 +45,7 @@ const LoginPage = () => {
           login: loginText,
           password: passwordText
         }
-        console.log(values)
+
         axios.post('http://localhost:8081/login', values)
         .then(res => {
           if (res.data === "Success") {

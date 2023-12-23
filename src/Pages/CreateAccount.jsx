@@ -47,12 +47,20 @@ export const CreateAccount = () => {
 
     if (loginResponse === "") {
       if (passwordResponse === "") {
-        let values = [loginText, password1Text]
+        const values = {
+          login: loginText,
+          password: password1Text
+        }
+
         axios.post('http://localhost:8081/createAccount', values)
-        .then(res => {
-          navigate('/')
-        })
-        .catch(err => console.log(err))
+          .then(res => {
+            if (res.data === "Success") {
+              navigate('/')
+            } else {
+              alert ("Something went wrong. Try again.")
+            }
+          })
+          .catch(err => console.log(err))
       } else {
         alert(passwordResponse)
       }
