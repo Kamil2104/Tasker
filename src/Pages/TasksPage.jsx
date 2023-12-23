@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useLocation } from 'react-router-dom';
+
 import AddTaskPanel from './TasksPage pages/AddTaskPanel';
 import OrderTasksPanel from './TasksPage pages/OrderTasksPanel';
 import ShowTasksPanel from './TasksPage pages/ShowTasksPanel';
@@ -11,6 +13,9 @@ import { validateFindingTasks } from '../Validation/FindTasksPanelValidation'
 import '../Styles/TasksPageStyle.css';
 
 const TasksPage = () => {
+  const location = useLocation();
+  const loginText = location?.state?.loginText;
+
   return (
     <div className='tasksPage'>
       <div className='leftPanel'>
