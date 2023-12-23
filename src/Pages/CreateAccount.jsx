@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState, useEffect, useNavigate } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -49,7 +50,7 @@ export const CreateAccount = () => {
         let values = [loginText, password1Text]
         axios.post('http://localhost:8081/createAccount', values)
         .then(res => {
-          
+          navigate('/login')
         })
         .catch(err => console.log(err))
       } else {
