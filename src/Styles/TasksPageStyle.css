@@ -159,6 +159,10 @@ body {
 /* orderTasksPanel */
 
 .orderTasksPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     height: 12.5vh;
     width: 100%;
 
@@ -223,6 +227,30 @@ body {
     cursor: pointer;
 
     border: solid 0.25vh red;
+}
+
+.orderTasksPanelHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 4.5vh;
+    width: 100%;
+
+    margin: 0;
+}
+
+.orderTasksPanelCriterias {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 8vh;
+    width: 100%;
+
+    margin: 0;
 }
 
 /* showTasksPanel */
