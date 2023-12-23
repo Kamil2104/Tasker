@@ -91,7 +91,7 @@ export const CreateAccount = () => {
             onChange={handleInputLogin}
           /> <br />
           <input
-            type="password"
+            type={showPassword1 ? "text" : "password"}
             name="password1"
             id="password1"
             placeholder="Password: "
@@ -104,7 +104,7 @@ export const CreateAccount = () => {
             className="passwordVisibilityIcon"
           /><br />
           <input
-            type="password"
+            type={showPassword2 ? "text" : "password"}
             name="password2"
             id="password2"
             placeholder="Password: "
