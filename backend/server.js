@@ -39,7 +39,7 @@ app.post('/createAccount', (req, res) => {
         if (err) { // If error has occured return "Error" as JSON object
             return res.json("Error")
         } else {
-            return res.json("Success"); // If error has not occured return data as JSON object 
+            return res.json("Success"); 
         }
     });
 })
