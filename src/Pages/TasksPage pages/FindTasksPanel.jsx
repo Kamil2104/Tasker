@@ -101,7 +101,7 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                         placeholder="Name: "
                         autoComplete="off"
                         ref={findTaskPanelNameRef}
-                    /> <br />
+                    /> 
                 </div>
                 <div className='findTasksDateCriteria'>
                     <input
@@ -118,7 +118,7 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                         onChange={handleDateChange}
                         min={getCurrentDate()}
                         ref={findTaskPanelDateRef}
-                    /> <br />
+                    /> 
                 </div>
                 <div className='findTasksPriorityCriteria'>
                     <input
@@ -135,7 +135,7 @@ const FindTasksPanel = ({ validateFindingTasks }) => {
                         <option value="low"> low </option>
                         <option value="medium"> medium </option>
                         <option value="high"> high </option>
-                    </select> <br />
+                    </select> 
                 </div>
             </div>
             <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>

@@ -60,7 +60,7 @@ const AddTaskPanel = ({ validateAddingTask }) => {
                 placeholder="Name: "
                 autoComplete="off"
                 ref={addTaskPanelNameRef}
-            /> <br />
+            /> 
             <input
                 type="text"
                 id="addTaskPanelInputDescription"
@@ -68,7 +68,7 @@ const AddTaskPanel = ({ validateAddingTask }) => {
                 placeholder="Description: "
                 autoComplete="off"
                 ref={addTaskPanelDescriptionRef}
-            /> <br />
+            /> 
             <input
                 type="date"
                 autoComplete="off"
@@ -76,7 +76,7 @@ const AddTaskPanel = ({ validateAddingTask }) => {
                 onChange={handleDateChange}
                 min={getCurrentDate()}
                 ref={addTaskPanelDateRef}
-            /> <br />
+            /> 
             <select
                 name="addTaskPanelSelectPriority"
                 id="addTaskPanelSelectPriority"
@@ -84,7 +84,7 @@ const AddTaskPanel = ({ validateAddingTask }) => {
                 <option value="low"> low </option>
                 <option value="medium"> medium </option>
                 <option value="high"> high </option>
-            </select> <br />
+            </select> 
             <button id="btnAddTask" onClick={handleButtonAddTaskButton}> Add </button>
             <button id="btnAddTaskPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
         </div>
