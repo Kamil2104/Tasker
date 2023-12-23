@@ -21,11 +21,11 @@ function nameLength(name) {
         if (name.length <= 20) {
             return true
         } else {
-            errorMsg = "Name is too long."
+            errorMsg = "Name is too long (maximum name length is 20)."
             return false
         }
     } else {
-        errorMsg = "Name is too short."
+        errorMsg = "Name is too short (minimum name length is 5)."
         return false
     }
 }
