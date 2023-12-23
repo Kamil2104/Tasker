@@ -41,10 +41,18 @@ const LoginPage = () => {
 
     if (loginResponse === "") {
       if (passwordResponse === "") {
-        let values = [loginText, passwordText]
-        axios.post('http://localhost:8081/createAccount', values)
+        const values = {
+          login: loginText,
+          password: passwordText
+        }
+        console.log(values)
+        axios.post('http://localhost:8081/login', values)
         .then(res => {
-          navigate('/tasksPage')
+          if (res.data === "Success") {
+            navigate('/tasksPage')
+          } else {
+            alert ("Incorrect login or password.")
+          }
         })
         .catch(err => console.log(err))
       } else {
