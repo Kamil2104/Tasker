@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const ShowTasksPanel = ({ login }) => {
     // const name = "Ogarnąć mieszkanieaaaaaaaaaaaaaa";
     // const description = "Posprzątać całe mieszkanie i zetrzeć kurze";
     // const date = "14.12.2023";
     // const priority = "High";
+
+    useEffect(() => {
+        
+    }, [])
 
     return (
         <div className='showTasksPanel'>

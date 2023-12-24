@@ -99,6 +99,8 @@ app.post('/changePassword', (req, res) => {
     })
 })
 
+// ADD TASK
+
 app.post('/addTask', (req, res) => {
     const sql = "INSERT INTO tasks (user, name, description, date, priority) values (?, ?, ?, ?, ?)"
     const values = [
@@ -116,4 +118,10 @@ app.post('/addTask', (req, res) => {
 
         return res.json("Success")
     })
+})
+
+// SHOW TASKS
+
+app.post('/showTasks', (req, res) => {
+
 })
