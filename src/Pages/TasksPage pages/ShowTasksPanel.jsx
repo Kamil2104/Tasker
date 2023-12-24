@@ -24,7 +24,7 @@ const ShowTasksPanel = ({ login }) => {
                 } else {
                     const formattedTasks = res.data.map(task => (
                         Object.entries(task).map(([key, value]) => (
-                            key === 'date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
+                            key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
                         )).join('\n')
                     ));
 
