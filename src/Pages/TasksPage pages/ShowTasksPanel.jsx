@@ -40,9 +40,38 @@ const ShowTasksPanel = ({ login }) => {
             .catch(err => console.log(err));
     }, [login]);
 
-    const handleButtonDeleteTask = () => {
-        alert("Function for deleting tasks")
-        window.location.reload();
+    const handleButtonDeleteTask = (event) => {
+        const textareaIndex = event.target.id;
+        const textareaContent = tasks[textareaIndex];
+
+        try {
+            const taskObject = parseTaskContent(textareaContent);
+
+            const values = {
+                user: login,
+                name: taskObject.Name,
+                description: taskObject.Description,
+                date: taskObject.Date,
+                priority: taskObject.Priority 
+            }
+            
+            console.log(values)
+            
+        } catch (error) {
+            console.error("Error parsing task content:", error);
+        }
+    }
+
+    // Function to transform the task content into a JSON object
+    const parseTaskContent = (content) => {
+        const lines = content.split('\n');
+        const taskObject = {};
+        lines.forEach(line => {
+            const [key, value] = line.split(':');
+            taskObject[key.trim()] = value.trim();
+        });
+
+        return taskObject;
     }
 
     const handleButtonLogOut = () => {
