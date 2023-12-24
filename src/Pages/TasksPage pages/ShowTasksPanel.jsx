@@ -55,7 +55,14 @@ const ShowTasksPanel = ({ login }) => {
                 priority: taskObject.Priority 
             }
             
-            console.log(values)
+            axios.post('http://localhost:8081/deleteTask', values)
+            .then (res => {
+                if (res.data !== "Success") {
+                    alert ("Something went wrong. Try again.")
+                } else {
+                    window.location.reload();
+                }
+            })
             
         } catch (error) {
             console.error("Error parsing task content:", error);

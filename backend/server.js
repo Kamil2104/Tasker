@@ -155,9 +155,9 @@ app.post('/deleteTask', (req,res) => {
 
     db.query(sql, values, (err) => {
         if (err) {
-            return "Error!"
+            return res.json("Error!")
         } else {
-            return "Success"
+            return res.json("Success")
         }
     })
 })
