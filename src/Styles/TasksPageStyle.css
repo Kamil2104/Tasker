@@ -273,16 +273,15 @@ body {
 }
 
 .showTasksPanel textarea {
-    min-height: 15vh;
-    height: 15vh;
+    min-height: 5vh;
+    height: 16vh;
     width: 60%;
 
     font-size: 2vh;
-    line-height: 2vh;
+    line-height: 4vh;
 
     margin: 3.75vh 0;
-    padding: 0 2vw;
-    padding-top: 1.5vh;
+    padding: 1.5vh 2vw;
 
     color: rgba(255, 255, 255, 0.579);
     background-color: rgba(39, 41, 43, 0.254);
