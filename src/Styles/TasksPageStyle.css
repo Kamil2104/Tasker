@@ -309,6 +309,33 @@ body {
     background-color: transparent;
 }
 
+.showTasksPanelMain {
+    width: 100%;
+}
+
+.showTasksPanelLogOutButton {
+    width: 100%;
+}
+
+.showTasksPanelLogOutButton button {
+    font-size: 2vh;
+    width: 10%;
+
+    padding: 1vh;
+    margin: 0vh 2vh;
+
+    color: rgba(255, 255, 255, 0.702);
+    background-color: rgba(39, 41, 43, 0.351);
+
+    border: solid 0.25vh rgba(255, 255, 255, 0.527);
+}
+
+.showTasksPanelLogOutButton button:hover {
+    cursor: pointer;
+
+    border: solid 0.25vh red;
+}
+
 /* findTasksPanel */
 
 .findTasksPanel h1 {

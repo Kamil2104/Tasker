@@ -32,18 +32,23 @@ const ShowTasksPanel = ({ login }) => {
 
     return (
         <div className='showTasksPanel'>
-            {tasks.length === 1 && tasks[0] === noTasksHeader ? (
-                <h1>{noTasksHeader}</h1>
-            ) : (
-                tasks.map((task, index) => (
-                    <textarea
-                        key={index}
-                        spellCheck="false"
-                        value={task}
-                        readOnly
-                    />
-                ))
-            )}
+            <div className='showTasksPanelMain'>
+                {tasks.length === 1 && tasks[0] === noTasksHeader ? (
+                    <h1>{noTasksHeader}</h1>
+                ) : (
+                    tasks.map((task, index) => (
+                        <textarea
+                            key={index}
+                            spellCheck="false"
+                            value={task}
+                            readOnly
+                        />
+                    ))
+                )}
+            </div>
+            <div className='showTasksPanelLogOutButton'>
+                <button id="btnLogOut"> Log out </button>
+            </div>
         </div>
     );
 };
