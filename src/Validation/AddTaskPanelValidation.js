@@ -40,7 +40,7 @@ function nameLength(name) {
 
 function descriptionLength(description) {
     if (description.length >= 5) {
-        if (description.length <= 50) {
+        if (description.length <= 150) {
             return true
         } else {
             errorMsg = "Description is too long (maximum description length is 50)."

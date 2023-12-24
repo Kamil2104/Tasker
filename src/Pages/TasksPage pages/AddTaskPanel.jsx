@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 
+import axios from 'axios';
+
 const AddTaskPanel = ({ validateAddingTask, login }) => {
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
@@ -24,13 +26,27 @@ const AddTaskPanel = ({ validateAddingTask, login }) => {
     const handleButtonAddTaskButton = () => {
         const inputNameCurrentValue = addTaskPanelNameRef.current.value
         const inputDescriptionCurrentValue = addTaskPanelDescriptionRef.current.value
-    
+
         let addingResponse = validateAddingTask(inputNameCurrentValue, inputDescriptionCurrentValue);
 
         if (addingResponse === "") {
-            // CODE USING DATABASE
+            const values = {
+                user: login,
+                name: addTaskPanelNameRef.current.value,
+                description: addTaskPanelDescriptionRef.current.value,
+                date: addTaskPanelDateRef.current.value,
+                priority: addTaskPanelPriorityRef.current.value
+            }
+
+            axios.post('http://localhost:8081/addTask', values)
+            .then(res => {
+                if (res.data !== "Success") {
+                    alert("Something went wrong. Try again.")
+                } 
+            })
+            .catch(err => console.log(err))
         } else {
-            alert (addingResponse)
+            alert(addingResponse)
         }
     }
 
@@ -60,7 +76,7 @@ const AddTaskPanel = ({ validateAddingTask, login }) => {
                 placeholder="Name: "
                 autoComplete="off"
                 ref={addTaskPanelNameRef}
-            /> 
+            />
             <input
                 type="text"
                 id="addTaskPanelInputDescription"
@@ -68,7 +84,7 @@ const AddTaskPanel = ({ validateAddingTask, login }) => {
                 placeholder="Description: "
                 autoComplete="off"
                 ref={addTaskPanelDescriptionRef}
-            /> 
+            />
             <input
                 type="date"
                 autoComplete="off"
@@ -76,7 +92,7 @@ const AddTaskPanel = ({ validateAddingTask, login }) => {
                 onChange={handleDateChange}
                 min={getCurrentDate()}
                 ref={addTaskPanelDateRef}
-            /> 
+            />
             <select
                 name="addTaskPanelSelectPriority"
                 id="addTaskPanelSelectPriority"
@@ -84,7 +100,7 @@ const AddTaskPanel = ({ validateAddingTask, login }) => {
                 <option value="low"> low </option>
                 <option value="medium"> medium </option>
                 <option value="high"> high </option>
-            </select> 
+            </select>
             <button id="btnAddTask" onClick={handleButtonAddTaskButton}> Add </button>
             <button id="btnAddTaskPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
         </div>
