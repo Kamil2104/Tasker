@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 import moment from 'moment';
 
 const ShowTasksPanel = ({ login }) => {
     const noTasksHeader = "No tasks available.";
     const [tasks, setTasks] = useState([]);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const values = {
@@ -30,6 +34,10 @@ const ShowTasksPanel = ({ login }) => {
             .catch(err => console.log(err));
     }, [login]);
 
+    const handleButtonLogOut = () => {
+        navigate('/')
+    }
+
     return (
         <div className='showTasksPanel'>
             <div className='showTasksPanelMain'>
@@ -47,7 +55,7 @@ const ShowTasksPanel = ({ login }) => {
                 )}
             </div>
             <div className='showTasksPanelLogOutButton'>
-                <button id="btnLogOut"> Log out </button>
+                <button id="btnLogOut" onClick={handleButtonLogOut}> Log out </button>
             </div>
         </div>
     );
