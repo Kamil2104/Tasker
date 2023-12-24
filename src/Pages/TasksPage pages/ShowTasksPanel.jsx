@@ -34,6 +34,10 @@ const ShowTasksPanel = ({ login }) => {
             .catch(err => console.log(err));
     }, [login]);
 
+    const handleButtonDeleteTask = () => {
+        alert("Function for deleting tasks")
+    }
+
     const handleButtonLogOut = () => {
         navigate('/')
     }
@@ -53,6 +57,9 @@ const ShowTasksPanel = ({ login }) => {
                         />
                     ))
                 )}
+            </div>
+            <div className='showTasksPanelDeleteButton'>
+                <button id="btnDeleteTask" onClick={handleButtonDeleteTask}> Delete </button>
             </div>
             <div className='showTasksPanelLogOutButton'>
                 <button id="btnLogOut" onClick={handleButtonLogOut}> Log out </button>

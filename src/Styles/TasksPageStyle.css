@@ -309,15 +309,7 @@ body {
     background-color: transparent;
 }
 
-.showTasksPanelMain {
-    width: 100%;
-}
-
-.showTasksPanelLogOutButton {
-    width: 100%;
-}
-
-.showTasksPanelLogOutButton button {
+.showTasksPanel button {
     font-size: 2vh;
     width: 10%;
 
@@ -330,10 +322,26 @@ body {
     border: solid 0.25vh rgba(255, 255, 255, 0.527);
 }
 
-.showTasksPanelLogOutButton button:hover {
+.showTasksPanel button:hover {
     cursor: pointer;
 
     border: solid 0.25vh red;
+}
+
+.showTasksPanelMain {
+    width: 100%;
+}
+
+.showTasksPanelDeleteButton {
+    width: 100%;
+}
+
+.showTasksPanelLogOutButton {
+    width: 100%;
+}
+
+.showTasksPanelLogOutButton button {
+    margin-top: 5vh;
 }
 
 /* findTasksPanel */
