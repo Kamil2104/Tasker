@@ -13,7 +13,7 @@ body {
     background-image: url(../backgroundImage.jpg);
     background-size: cover;
     background-position: center;
-    
+
     user-zoom: fixed;
 }
 
@@ -59,7 +59,7 @@ body {
     font-size: 4vh;
 
     margin: 0;
-    
+
     padding-top: 3vh;
     padding-bottom: 5vh;
 

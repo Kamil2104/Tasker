@@ -54,13 +54,13 @@ const ChangePassword = () => {
         }
 
         axios.post('http://localhost:8081/changePassword', values)
-        .then(res => {
-          if (res.data === "Success") {
-            navigate('/')
-          } else {
-            alert("Incorrect login or password.")
-          }
-        })
+          .then(res => {
+            if (res.data === "Success") {
+              navigate('/')
+            } else {
+              alert("Incorrect login or password.")
+            }
+          })
       } else {
         alert(passwordResponse);
       }

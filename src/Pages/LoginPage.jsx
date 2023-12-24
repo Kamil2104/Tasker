@@ -47,14 +47,14 @@ const LoginPage = () => {
         }
 
         axios.post('http://localhost:8081/login', values)
-        .then(res => {
-          if (res.data === "Success") {
-            navigate('/tasksPage', { state: { loginText } })
-          } else {
-            alert ("Incorrect login or password.")
-          }
-        })
-        .catch(err => console.log(err))
+          .then(res => {
+            if (res.data === "Success") {
+              navigate('/tasksPage', { state: { loginText } })
+            } else {
+              alert("Incorrect login or password.")
+            }
+          })
+          .catch(err => console.log(err))
       } else {
         alert(passwordResponse)
       }

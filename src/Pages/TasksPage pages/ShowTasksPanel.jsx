@@ -11,7 +11,7 @@ const ShowTasksPanel = ({ login }) => {
     const navigate = useNavigate()
 
     let tasksRes = {
-        
+
     }
 
     useEffect(() => {
@@ -52,18 +52,18 @@ const ShowTasksPanel = ({ login }) => {
                 name: taskObject.Name,
                 description: taskObject.Description,
                 date: taskObject.Date,
-                priority: taskObject.Priority 
+                priority: taskObject.Priority
             }
-            
+
             axios.post('http://localhost:8081/deleteTask', values)
-            .then (res => {
-                if (res.data !== "Success") {
-                    alert ("Something went wrong. Try again.")
-                } else {
-                    window.location.reload();
-                }
-            })
-            
+                .then(res => {
+                    if (res.data !== "Success") {
+                        alert("Something went wrong. Try again.")
+                    } else {
+                        window.location.reload();
+                    }
+                })
+
         } catch (error) {
             console.error("Error parsing task content:", error);
         }

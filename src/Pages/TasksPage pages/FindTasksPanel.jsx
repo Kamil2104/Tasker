@@ -58,9 +58,9 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
 
             selSelectedRadioButton("")
 
-            if(radioButtonNameRef.current) radioButtonNameRef.current.checked = false;
-            if(radioButtonDateRef.current) radioButtonDateRef.current.checked = false;
-            if(radioButtonPriorityRef.current) radioButtonPriorityRef.current.checked = false;
+            if (radioButtonNameRef.current) radioButtonNameRef.current.checked = false;
+            if (radioButtonDateRef.current) radioButtonDateRef.current.checked = false;
+            if (radioButtonPriorityRef.current) radioButtonPriorityRef.current.checked = false;
         }
     }
 
@@ -101,7 +101,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                         placeholder="Name: "
                         autoComplete="off"
                         ref={findTaskPanelNameRef}
-                    /> 
+                    />
                 </div>
                 <div className='findTasksDateCriteria'>
                     <input
@@ -118,7 +118,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                         onChange={handleDateChange}
                         min={getCurrentDate()}
                         ref={findTaskPanelDateRef}
-                    /> 
+                    />
                 </div>
                 <div className='findTasksPriorityCriteria'>
                     <input
@@ -135,7 +135,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                         <option value="low"> low </option>
                         <option value="medium"> medium </option>
                         <option value="high"> high </option>
-                    </select> 
+                    </select>
                 </div>
             </div>
             <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>

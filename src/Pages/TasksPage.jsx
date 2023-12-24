@@ -26,7 +26,7 @@ const TasksPage = () => {
         <ShowTasksPanel login={userLogin} />
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin}/>
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} />
       </div>
     </div>
   )

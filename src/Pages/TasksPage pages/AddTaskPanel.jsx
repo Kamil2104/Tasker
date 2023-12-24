@@ -39,14 +39,14 @@ const AddTaskPanel = ({ validateAddingTask, login }) => {
             }
 
             axios.post('http://localhost:8081/addTask', values)
-            .then(res => {
-                if (res.data === "Success") {
-                    window.location.reload();
-                } else {
-                    alert("Something went wrong. Try again.")
-                }
-            })
-            .catch(err => console.log(err))
+                .then(res => {
+                    if (res.data === "Success") {
+                        window.location.reload();
+                    } else {
+                        alert("Something went wrong. Try again.")
+                    }
+                })
+                .catch(err => console.log(err))
         } else {
             alert(addingResponse)
         }

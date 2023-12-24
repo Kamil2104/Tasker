@@ -57,7 +57,7 @@ export const CreateAccount = () => {
             if (res.data === "Success") {
               navigate('/')
             } else {
-              alert ("Account with this login already exists.")
+              alert("Account with this login already exists.")
             }
           })
           .catch(err => console.log(err))
