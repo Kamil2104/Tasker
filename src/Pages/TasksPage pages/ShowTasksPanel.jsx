@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 const ShowTasksPanel = ({ login }) => {
     const noTasksHeader = "No tasks available.";
@@ -17,11 +18,13 @@ const ShowTasksPanel = ({ login }) => {
                 } else if (res.data === "Error!") {
                     alert("Something went wrong with showing the tasks.");
                 } else {
-                    const flatObject = res.data.map(task => (
-                        Object.entries(task).map(([key, value]) => `${key}: ${value}`).join('\n')
+                    const formattedTasks = res.data.map(task => (
+                        Object.entries(task).map(([key, value]) => (
+                            key === 'date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
+                        )).join('\n')
                     ));
 
-                    setTasks(flatObject);
+                    setTasks(formattedTasks);
                 }
             })
             .catch(err => console.log(err));
