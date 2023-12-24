@@ -315,6 +315,7 @@ body {
 
     padding: 1vh;
     margin: 0vh 2vh;
+    margin-bottom: 5vh;
 
     color: rgba(255, 255, 255, 0.702);
     background-color: rgba(39, 41, 43, 0.351);
@@ -334,10 +335,6 @@ body {
     align-items: center;
 
     width: 100%;
-}
-
-.showTasksPanelMain button {
-    margin-bottom: 5vh;
 }
 
 .showTasksPanelDeleteButton {
