@@ -36,6 +36,7 @@ const ShowTasksPanel = ({ login }) => {
 
     const handleButtonDeleteTask = () => {
         alert("Function for deleting tasks")
+        window.location.reload();
     }
 
     const handleButtonLogOut = () => {
