@@ -49,22 +49,23 @@ const ShowTasksPanel = ({ login }) => {
                     <h1>{noTasksHeader}</h1>
                 ) : (
                     tasks.map((task, index) => (
-                        <textarea
-                            key={index}
-                            spellCheck="false"
-                            value={task}
-                            readOnly
-                        />
+                        <>
+                            <textarea
+                                key={index}
+                                spellCheck="false"
+                                value={task}
+                                readOnly
+                            />
+                            <button id={index} onClick={handleButtonDeleteTask}> Delete </button>
+                        </>
                     ))
                 )}
-            </div>
-            <div className='showTasksPanelDeleteButton'>
-                <button id="btnDeleteTask" onClick={handleButtonDeleteTask}> Delete </button>
+
             </div>
             <div className='showTasksPanelLogOutButton'>
                 <button id="btnLogOut" onClick={handleButtonLogOut}> Log out </button>
             </div>
-        </div>
+        </div >
     );
 };
 
