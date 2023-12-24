@@ -7,8 +7,8 @@ const cors = require("cors");
 
 // Initializing the Express application
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
 // Configuring the connection to the MySQL database
 const db = mysql.createConnection({
@@ -27,7 +27,7 @@ app.listen(8081, () => {
 
 // Setting post endpoint for user account creation
 app.post('/createAccount', (req, res) => {
-    const sql = "INSERT INTO users (`login`, `password`) values (?, ?)"; // SQL query definition 
+    const sql = "INSERT INTO users (`Login`, `Password`) values (?, ?)"; // SQL query definition 
     const values = [ // Value definition (these are comming from JavaScript object named 'values' (it's passed in CreateAccount.jsx next to link))
         req.body.login, // Getting value from input with NAME = "login"
         req.body.password // Getting value from input with NAME = "password"
@@ -45,7 +45,7 @@ app.post('/createAccount', (req, res) => {
 // LOGGING IN
 
 app.post('/login', (req, res) => {
-    const sql = "SELECT * FROM users WHERE `login` = ? AND `password` = ?";
+    const sql = "SELECT * FROM users WHERE `Login` = ? AND `Password` = ?";
     const values = [
         req.body.login,
         req.body.password
@@ -67,7 +67,7 @@ app.post('/login', (req, res) => {
 // CHANGE PASSWORD
 
 app.post('/changePassword', (req, res) => {
-    const sql = "SELECT * FROM users WHERE `login` = ? AND `password` = ?"
+    const sql = "SELECT * FROM users WHERE `Login` = ? AND `Password` = ?"
     const values = [
         req.body.login,
         req.body.oldPassword,
@@ -80,7 +80,7 @@ app.post('/changePassword', (req, res) => {
         }
 
         if (data.length > 0) {
-            const sql = "UPDATE users SET `password` = ? WHERE `login` = ?"
+            const sql = "UPDATE users SET `Password` = ? WHERE `Login` = ?"
             const newPasswordValues = [
                 req.body.newPassword,
                 req.body.login
@@ -102,7 +102,7 @@ app.post('/changePassword', (req, res) => {
 // ADD TASK
 
 app.post('/addTask', (req, res) => {
-    const sql = "INSERT INTO tasks (user, name, description, date, priority) values (?, ?, ?, ?, ?)"
+    const sql = "INSERT INTO tasks (User, Name, Description, Date, Priority) values (?, ?, ?, ?, ?)"
     const values = [
         req.body.user,
         req.body.name,
@@ -123,7 +123,7 @@ app.post('/addTask', (req, res) => {
 // SHOW TASKS
 
 app.post('/showTasks', (req, res) => {
-    const sql = "SELECT name, description, date, priority FROM tasks WHERE `user` = ? ORDER BY Name ASC"
+    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? ORDER BY Name ASC"
     const values = [
         req.body.user
     ]
