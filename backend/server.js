@@ -140,3 +140,24 @@ app.post('/showTasks', (req, res) => {
         }
     })
 })
+
+// DELETE TASK
+
+app.post('/deleteTask', (req,res) => {
+    const sql = "DELETE FROM tasks WHERE `User` = ? AND `Name` = ? AND `Description` = ? AND `Date` = ? AND `Priority` = ?"
+    const values = [
+        req.body.user,
+        req.body.name,
+        req.body.description,
+        req.body.date,
+        req.body.priority
+    ]
+
+    db.query(sql, values, (err) => {
+        if (err) {
+            return "Error!"
+        } else {
+            return "Success"
+        }
+    })
+})
