@@ -123,7 +123,7 @@ app.post('/addTask', (req, res) => {
 // SHOW TASKS
 
 app.post('/showTasks', (req, res) => {
-    const sql = "SELECT name, description, date, priority FROM tasks WHERE `user` = ?"
+    const sql = "SELECT name, description, date, priority FROM tasks WHERE `user` = ? ORDER BY Name ASC"
     const values = [
         req.body.user
     ]

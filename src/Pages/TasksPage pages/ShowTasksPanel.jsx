@@ -17,7 +17,6 @@ const ShowTasksPanel = ({ login }) => {
                 } else if (res.data === "Error!") {
                     alert("Something went wrong with showing the tasks.");
                 } else {
-                    // Przekształć obiekt i utrzymanie tablicy
                     const flatObject = res.data.map(task => (
                         Object.entries(task).map(([key, value]) => `${key}: ${value}`).join('\n')
                     ));
