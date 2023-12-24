@@ -98,3 +98,22 @@ app.post('/changePassword', (req, res) => {
         }
     })
 })
+
+app.post('/addTask', (req, res) => {
+    const sql = "INSERT INTO tasks (user, name, description, date, priority) values (?, ?, ?, ?, ?)"
+    const values = [
+        req.body.user,
+        req.body.name,
+        req.body.description,
+        req.body.date,
+        req.body.priority
+    ]
+
+    db.query(sql, values, (err) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        return res.json("Success")
+    })
+})
