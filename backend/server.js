@@ -123,5 +123,20 @@ app.post('/addTask', (req, res) => {
 // SHOW TASKS
 
 app.post('/showTasks', (req, res) => {
+    const sql = "SELECT * FROM tasks WHERE `user` = ?"
+    const values = [
+        req.body.user
+    ]
 
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        if (data.length > 0) {
+            return res.json(data)
+        } else {
+            return res.json("No tasks")
+        }
+    })
 })
