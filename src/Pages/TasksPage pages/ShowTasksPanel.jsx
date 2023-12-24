@@ -10,6 +10,10 @@ const ShowTasksPanel = ({ login }) => {
 
     const navigate = useNavigate()
 
+    let tasksRes = {
+        
+    }
+
     useEffect(() => {
         const values = {
             user: login
@@ -22,7 +26,9 @@ const ShowTasksPanel = ({ login }) => {
                 } else if (res.data === "Error!") {
                     alert("Something went wrong with showing the tasks.");
                 } else {
-                    const formattedTasks = res.data.map(task => (
+                    tasksRes = res.data
+
+                    const formattedTasks = tasksRes.map(task => (
                         Object.entries(task).map(([key, value]) => (
                             key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
                         )).join('\n')
