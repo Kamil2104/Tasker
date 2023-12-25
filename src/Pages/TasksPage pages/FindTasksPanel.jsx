@@ -31,7 +31,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
         return `${year}-${month}-${day}`;
     }
 
-    const handleButthandleFindTasks = () => {
+    const handleButtonFindTasks = () => {
         const inputNameCurrentValue = findTaskPanelNameRef.current.value
 
         if (selectedRadioButton !== "") {
@@ -43,7 +43,9 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
                 } else {
                     const values = {
                         user: login,
-                        name: findTaskPanelNameRef.current.value
+                        name: findTaskPanelNameRef.current.value,
+                        orderBy: actualOrderBy,
+                        orderType: actualOrderType
                     }
 
                     axios.post('http://localhost:8081/findTaskByName', values)
@@ -59,7 +61,9 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
             } else if (selectedRadioButton === "findingByDate") {
                 const values = {
                     user: login,
-                    date: findTaskPanelDateRef.current.value
+                    date: findTaskPanelDateRef.current.value,
+                    orderBy: actualOrderBy,
+                    orderType: actualOrderType
                 }
 
                 axios.post('http://localhost:8081/findTaskByDate', values)
@@ -75,7 +79,9 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
             } else if (selectedRadioButton === "findingByPriority") {
                 const values = {
                     user: login,
-                    priority: findTaskPanelPriorityRef.current.value
+                    priority: findTaskPanelPriorityRef.current.value,
+                    orderBy: actualOrderBy,
+                    orderType: actualOrderType
                 }
                 axios.post('http://localhost:8081/findTaskByPriority', values)
                     .then(res => {
@@ -201,7 +207,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
                     </select>
                 </div>
                 <div className='rowDisplayedButtons'>
-                    <button id="btnFindTasks" onClick={handleButthandleFindTasks}> Find </button>
+                    <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>
                     <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
                 </div>
                 <button id="btnShowAllTasks" onClick={handleButtonShowAllTasks}> Show all tasks </button>

@@ -165,10 +165,12 @@ app.post('/deleteTask', (req,res) => {
 // FIND TASKS
 
 app.post('/findTaskByName', (req, res) => {
-    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Name` = ? ORDER BY Name ASC"
+    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Name` = ? ORDER BY ? ?"
     const values = [
         req.body.user,
-        req.body.name
+        req.body.name,
+        req.body.orderBy,
+        req.body.orderType
     ]
 
     db.query(sql, values, (err, data) => {
@@ -185,10 +187,12 @@ app.post('/findTaskByName', (req, res) => {
 })
 
 app.post('/findTaskByDate', (req, res) => {
-    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Date` = ? ORDER BY Name ASC"
+    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Date` = ? ORDER BY ? ?"
     const values = [
         req.body.user,
-        req.body.date
+        req.body.date,
+        req.body.orderBy,
+        req.body.orderType
     ]
 
     db.query(sql, values, (err, data) => {
@@ -205,10 +209,12 @@ app.post('/findTaskByDate', (req, res) => {
 })
 
 app.post('/findTaskByPriority', (req, res) => {
-    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Priority` = ? ORDER BY Name ASC"
+    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Priority` = ? ORDER BY ? ?"
     const values = [
         req.body.user,
-        req.body.priority
+        req.body.priority,
+        req.body.orderBy,
+        req.body.orderType
     ]
 
     db.query(sql, values, (err, data) => {
