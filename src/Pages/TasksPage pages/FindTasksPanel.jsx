@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
+const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualOrderBy, actualOrderType }) => {
 
     const navigate = useNavigate()
 
