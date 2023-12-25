@@ -341,14 +341,6 @@ body {
     width: 100%;
 }
 
-.showTasksPanelLogOutButton {
-    width: 100%;
-}
-
-.showTasksPanelLogOutButton button {
-    margin-top: 5vh;
-}
-
 /* findTasksPanel */
 
 .findTasksPanel h1 {
@@ -457,14 +449,13 @@ body {
     border: solid 0.25vh red;
 }
 
-.findTasksPanel button[id="btnFindTasks"],
-.findTasksPanel button[id="btnClearForm"] {
-    margin-top: 5vh;
-}
-
 .findTasksPanel button[id="btnShowAllTasks"] {
     width: 50%;
     margin-top: 5vh;
+}
+
+.findTasksPanelHeaderContainer {
+    height: 13vh;
 }
 
 /* findTasksCriteriaContainer */
@@ -473,6 +464,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    height: 75vh;
 }
 
 /* findTasksNameCriteria */
@@ -491,5 +484,22 @@ body {
 /* findTasksPriorityCriteria */
 
 .findTasksPriorityCriteria {
+    width: 100%;
+}
+
+.rowDisplayedButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.rowDisplayedButtons button {
+    margin-top: 5vh;
+}
+
+.logOutButtonContainer {
+    height: 12vh;
     width: 100%;
 }

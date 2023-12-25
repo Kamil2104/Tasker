@@ -1,7 +1,11 @@
 import React from 'react'
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const FindTasksPanel = ({ validateFindingTasks, login }) => {
+
+    const navigate = useNavigate()
+
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
     const [selectedRadioButton, selSelectedRadioButton] = useState("")
@@ -82,9 +86,15 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
         }
     }
 
+    const handleButtonLogOut = () => {
+        navigate('/')
+    }
+
     return (
         <div className='findTasksPanel'>
-            <h1> Find tasks: </h1>
+            <div className='findTasksPanelHeaderContainer'>
+                <h1> Find tasks: </h1>
+            </div>
             <div className='findTasksCriteriaContainer'>
                 <div className='findTasksNameCriteria'>
                     <input
@@ -137,10 +147,15 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                         <option value="high"> high </option>
                     </select>
                 </div>
+                <div className='rowDisplayedButtons'>
+                    <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>
+                    <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
+                </div>
+                <button id="btnShowAllTasks" onClick={handleButtonShowAllTasks}> Show all tasks </button>
             </div>
-            <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>
-            <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
-            <button id="btnShowAllTasks" onClick={handleButtonShowAllTasks}> Show all tasks </button>
+            <div className='logOutButtonContainer'>
+                <button id="btnLogOut" onClick={handleButtonLogOut}> Log out </button>
+            </div>
         </div>
     )
 }
