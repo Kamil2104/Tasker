@@ -35,7 +35,13 @@ const ShowTasksPanel = ({ login, foundTasks }) => {
 
     useEffect(() => {
         if (foundTasks.length > 0) {
-            console.log(foundTasks)
+            const formattedFoundTasks = foundTasks.map(task => (
+                Object.entries(task).map(([key, value]) => (
+                    key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
+                )).join('\n')
+            ));
+
+            setTasks(formattedFoundTasks);
         }
     }, [foundTasks])
 
