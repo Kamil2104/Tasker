@@ -17,10 +17,10 @@ const TasksPage = () => {
   const location = useLocation();
   const userLogin = location?.state?.loginText;
 
-  const [foundTasks, setFoundTasks] = useState([]);
+  const [actualTask, setActualTask] = useState([]);
 
-  const handleFindTasks = (foundTasks) => {
-    setFoundTasks(foundTasks);
+  const handleActualTask = (actualTask) => {
+    setActualTask(actualTask);
   };
 
   return (
@@ -30,10 +30,10 @@ const TasksPage = () => {
       </div>
       <div className='centerPanel'>
         <OrderTasksPanel login={userLogin} />
-        <ShowTasksPanel login={userLogin} foundTasks={foundTasks} />
+        <ShowTasksPanel login={userLogin} actualTask={actualTask} />
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleFindTasks={handleFindTasks} />
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} />
       </div>
     </div>
   )

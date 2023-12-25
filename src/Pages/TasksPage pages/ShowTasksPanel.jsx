@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-const ShowTasksPanel = ({ login, foundTasks }) => {
+const ShowTasksPanel = ({ login, actualTask }) => {
     const noTasksHeader = "No tasks available.";
     const [tasks, setTasks] = useState([]);
 
@@ -34,16 +34,16 @@ const ShowTasksPanel = ({ login, foundTasks }) => {
     }, [login]);
 
     useEffect(() => {
-        if (foundTasks.length > 0) {
-            const formattedFoundTasks = foundTasks.map(task => (
+        if (actualTask.length > 0) {
+            const formattedActualTask = actualTask.map(task => (
                 Object.entries(task).map(([key, value]) => (
                     key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
                 )).join('\n')
             ));
 
-            setTasks(formattedFoundTasks);
+            setTasks(formattedActualTask);
         }
-    }, [foundTasks])
+    }, [actualTask])
 
     const handleButtonDeleteTask = (event) => {
         const textareaIndex = event.target.id;

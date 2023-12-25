@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-const FindTasksPanel = ({ validateFindingTasks, login, handleFindTasks }) => {
+const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
 
     const navigate = useNavigate()
 
@@ -51,7 +51,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleFindTasks }) => {
                             if (res.data === "No tasks found") {
                                 alert("No tasks found")
                             } else {
-                                handleFindTasks(res.data);
+                                handleActualTask(res.data);
                             }
                         })
                         .catch(err => console.log(err))
@@ -67,7 +67,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleFindTasks }) => {
                         if (res.data === "No tasks found") {
                             alert("No tasks found")
                         } else {
-                            handleFindTasks(res.data);
+                            handleActualTask(res.data);
                         }
                     })
                     .catch(err => console.log(err))
@@ -82,7 +82,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleFindTasks }) => {
                         if (res.data === "No tasks found") {
                             alert("No tasks found")
                         } else {
-                            handleFindTasks(res.data);
+                            handleActualTask(res.data);
                         }
                     })
                     .catch(err => console.log(err))
@@ -115,16 +115,14 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleFindTasks }) => {
         }
 
         axios.post('http://localhost:8081/showTasks', values)
-        .then(res => {
-            if (res.data === "No tasks") {
-                handleFindTasks(["No tasks available."]);
-            } else if (res.data === "Error!") {
-                alert("Something went wrong with showing the tasks.");
-            } else {
-                handleFindTasks(res.data);
-            }
-        })
-        .catch(err => console.log(err))
+            .then(res => {
+                if (res.data === "Error!") {
+                    alert("Something went wrong with showing the tasks.");
+                } else {
+                    handleActualTask(res.data);
+                }
+            })
+            .catch(err => console.log(err))
     }
 
     const handleDateChange = (event) => {
