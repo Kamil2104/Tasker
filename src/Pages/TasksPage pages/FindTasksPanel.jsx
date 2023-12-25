@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import axios from 'axios';
+
 const FindTasksPanel = ({ validateFindingTasks, login }) => {
 
     const navigate = useNavigate()
@@ -39,12 +41,51 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                 if (findingResponse !== "") {
                     alert(findingResponse)
                 } else {
-                    console.log("NAME")
+                    const values = {
+                        user: login,
+                        name: findTaskPanelNameRef.current.value
+                    }
+
+                    axios.post('http://localhost:8081/findTaskByName', values)
+                        .then(res => {
+                            if (res.data === "No tasks found") {
+                                alert("No tasks found")
+                            } else {
+                                console.log(res.data)
+                            }
+                        })
+                        .catch(err => console.log(err))
                 }
             } else if (selectedRadioButton === "findingByDate") {
-                console.log("DATE")
+                const values = {
+                    user: login,
+                    date: findTaskPanelDateRef.current.value
+                }
+
+                axios.post('http://localhost:8081/findTaskByDate', values)
+                    .then(res => {
+                        if (res.data === "No tasks found") {
+                            alert("No tasks found")
+                        } else {
+                            console.log(res.data)
+                        }
+                    })
+                    .catch(err => console.log(err))
+
             } else if (selectedRadioButton === "findingByPriority") {
-                console.log("PRIORITY")
+                const values = {
+                    user: login,
+                    priority: findTaskPanelPriorityRef.current.value
+                }
+                axios.post('http://localhost:8081/findTaskByPriority', values)
+                    .then(res => {
+                        if (res.data === "No tasks found") {
+                            alert("No tasks found")
+                        } else {
+                            console.log(res.data)
+                        }
+                    })
+                    .catch(err => console.log(err))
             }
         } else {
             alert("You need to select a search option.")

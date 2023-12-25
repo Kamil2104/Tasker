@@ -161,3 +161,65 @@ app.post('/deleteTask', (req,res) => {
         }
     })
 })
+
+// FIND TASKS
+
+app.post('/findTaskByName', (req, res) => {
+    const sql = "SELECT * FROM tasks WHERE `User` = ? AND `Name` = ?"
+    const values = [
+        req.body.user,
+        req.body.name
+    ]
+
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        if (data.length > 0) {
+            return res.json(data)
+        } else {
+            return res.json("No tasks found")
+        }
+    })
+})
+
+app.post('/findTaskByDate', (req, res) => {
+    const sql = "SELECT * FROM tasks WHERE `User` = ? AND `Date` = ?"
+    const values = [
+        req.body.user,
+        req.body.date
+    ]
+
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        if (data.length > 0) {
+            return res.json(data)
+        } else {
+            return res.json("No tasks found")
+        }
+    })
+})
+
+app.post('/findTaskByPriority', (req, res) => {
+    const sql = "SELECT * FROM tasks WHERE `User` = ? AND `Priority` = ?"
+    const values = [
+        req.body.user,
+        req.body.priority
+    ]
+
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        if (data.length > 0) {
+            return res.json(data)
+        } else {
+            return res.json("No tasks found")
+        }
+    })
+})
