@@ -19,8 +19,8 @@ const TasksPage = () => {
 
   const [actualTask, setActualTask] = useState([]);
 
-  const handleActualTask = (actualTask) => {
-    setActualTask(actualTask);
+  const handleActualTask = (actualTaskParam) => {
+    setActualTask(actualTaskParam);
   };
 
   return (
