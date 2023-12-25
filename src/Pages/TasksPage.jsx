@@ -29,7 +29,7 @@ const TasksPage = () => {
         <AddTaskPanel validateAddingTask={validateAddingTask} login={userLogin} />
       </div>
       <div className='centerPanel'>
-        <OrderTasksPanel login={userLogin} />
+        <OrderTasksPanel />
         <ShowTasksPanel login={userLogin} actualTask={actualTask} />
       </div>
       <div className='rightPanel'>
