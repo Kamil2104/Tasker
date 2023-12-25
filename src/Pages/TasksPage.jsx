@@ -28,10 +28,12 @@ const TasksPage = () => {
 
   const handleActualOrderBy = (actualOrderByParam) => {
     setActualOrderBy(actualOrderByParam)
+    console.log(actualOrderByParam) // po kliknięciu SET zwraca undefined
   }
 
   const handleActualOrderType = (actualOrderTypeParam) => {
     setActualOrderType(actualOrderTypeParam)
+    console.log(actualOrderTypeParam) // po kliknięciu SET zwraca undefined
   }
 
   return (
