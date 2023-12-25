@@ -81,15 +81,14 @@ const ShowTasksPanel = ({ login }) => {
                     <h1>{noTasksHeader}</h1>
                 ) : (
                     tasks.map((task, index) => (
-                        <>
+                        <div className='task' key={index}>
                             <textarea
-                                key={index}
                                 spellCheck="false"
                                 value={task}
                                 readOnly
                             />
                             <button id={index} onClick={handleButtonDeleteTask}> Delete </button>
-                        </>
+                        </div>
                     ))
                 )}
 
