@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) => {
+const ShowTasksPanel = ({ login, actualTask }) => {
     const noTasksHeader = "No tasks available.";
     const [tasks, setTasks] = useState([]);
 
