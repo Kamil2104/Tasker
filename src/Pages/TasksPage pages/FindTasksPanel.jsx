@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-const FindTasksPanel = ({ validateFindingTasks, login }) => {
+const FindTasksPanel = ({ validateFindingTasks, login, handleFindTasks }) => {
 
     const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
         return `${year}-${month}-${day}`;
     }
 
-    const handleButtonFindTasks = () => {
+    const handleButthandleFindTasks = () => {
         const inputNameCurrentValue = findTaskPanelNameRef.current.value
 
         if (selectedRadioButton !== "") {
@@ -52,6 +52,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                                 alert("No tasks found")
                             } else {
                                 console.log(res.data)
+                                handleFindTasks(res.data);
                             }
                         })
                         .catch(err => console.log(err))
@@ -68,6 +69,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                             alert("No tasks found")
                         } else {
                             console.log(res.data)
+                            handleFindTasks(res.data);
                         }
                     })
                     .catch(err => console.log(err))
@@ -83,6 +85,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                             alert("No tasks found")
                         } else {
                             console.log(res.data)
+                            handleFindTasks(res.data);
                         }
                     })
                     .catch(err => console.log(err))
@@ -189,7 +192,7 @@ const FindTasksPanel = ({ validateFindingTasks, login }) => {
                     </select>
                 </div>
                 <div className='rowDisplayedButtons'>
-                    <button id="btnFindTasks" onClick={handleButtonFindTasks}> Find </button>
+                    <button id="btnFindTasks" onClick={handleButthandleFindTasks}> Find </button>
                     <button id="btnFindTasksPanelClearForm" onClick={handleInputtedValuesClear}> Clear </button>
                 </div>
                 <button id="btnShowAllTasks" onClick={handleButtonShowAllTasks}> Show all tasks </button>

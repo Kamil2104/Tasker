@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import AddTaskPanel from './TasksPage pages/AddTaskPanel';
@@ -16,6 +17,12 @@ const TasksPage = () => {
   const location = useLocation();
   const userLogin = location?.state?.loginText;
 
+  const [foundTasks, setFoundTasks] = useState([]);
+
+  const handleFindTasks = (foundTasks) => {
+    setFoundTasks(foundTasks);
+  };
+
   return (
     <div className='tasksPage'>
       <div className='leftPanel'>
@@ -23,10 +30,10 @@ const TasksPage = () => {
       </div>
       <div className='centerPanel'>
         <OrderTasksPanel login={userLogin} />
-        <ShowTasksPanel login={userLogin} />
+        <ShowTasksPanel login={userLogin} foundTasks={foundTasks} />
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} />
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleFindTasks={handleFindTasks} />
       </div>
     </div>
   )

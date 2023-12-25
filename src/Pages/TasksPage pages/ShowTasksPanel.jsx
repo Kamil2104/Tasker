@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-const ShowTasksPanel = ({ login }) => {
+const ShowTasksPanel = ({ login, foundTasks }) => {
     const noTasksHeader = "No tasks available.";
     const [tasks, setTasks] = useState([]);
 
@@ -32,6 +32,12 @@ const ShowTasksPanel = ({ login }) => {
             })
             .catch(err => console.log(err));
     }, [login]);
+
+    useEffect(() => {
+        if (foundTasks.length > 0) {
+            console.log(foundTasks)
+        }
+    }, [foundTasks])
 
     const handleButtonDeleteTask = (event) => {
         const textareaIndex = event.target.id;
