@@ -18,10 +18,10 @@ function validateFindingTasks(name) {
 
 function nameLength(name) {
     if (name.length >= 5) {
-        if (name.length <= 50) {
+        if (name.length <= 100) {
             return true
         } else {
-            errorMsg = "Name is too long (maximum name length is 50)."
+            errorMsg = "Name is too long (maximum name length is 100)."
             return false
         }
     } else {

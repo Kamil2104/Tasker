@@ -26,10 +26,10 @@ function validateAddingTask(name, description) {
 
 function nameLength(name) {
     if (name.length >= 5) {
-        if (name.length <= 50) {
+        if (name.length <= 100) {
             return true
         } else {
-            errorMsg = "Name is too long (maximum name length is 50)."
+            errorMsg = "Name is too long (maximum name length is 100)."
             return false
         }
     } else {
@@ -40,10 +40,10 @@ function nameLength(name) {
 
 function descriptionLength(description) {
     if (description.length >= 5) {
-        if (description.length <= 150) {
+        if (description.length <= 300) {
             return true
         } else {
-            errorMsg = "Description is too long (maximum description length is 150)."
+            errorMsg = "Description is too long (maximum description length is 300)."
             return false
         }
     } else {
