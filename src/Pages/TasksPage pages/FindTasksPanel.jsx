@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
+const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualOrderBy, actualOrderType }) => {
 
     const navigate = useNavigate()
 
@@ -43,7 +43,9 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
                 } else {
                     const values = {
                         user: login,
-                        name: findTaskPanelNameRef.current.value
+                        name: findTaskPanelNameRef.current.value,
+                        orderBy: actualOrderBy,
+                        orderType: actualOrderType
                     }
 
                     axios.post('http://localhost:8081/findTaskByName', values)
@@ -59,7 +61,9 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
             } else if (selectedRadioButton === "findingByDate") {
                 const values = {
                     user: login,
-                    date: findTaskPanelDateRef.current.value
+                    date: findTaskPanelDateRef.current.value,
+                    orderBy: actualOrderBy,
+                    orderType: actualOrderType
                 }
 
                 axios.post('http://localhost:8081/findTaskByDate', values)
@@ -75,7 +79,9 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
             } else if (selectedRadioButton === "findingByPriority") {
                 const values = {
                     user: login,
-                    priority: findTaskPanelPriorityRef.current.value
+                    priority: findTaskPanelPriorityRef.current.value,
+                    orderBy: actualOrderBy,
+                    orderType: actualOrderType
                 }
                 axios.post('http://localhost:8081/findTaskByPriority', values)
                     .then(res => {
@@ -111,7 +117,9 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
 
     const handleButtonShowAllTasks = () => {
         const values = {
-            user: login
+            user: login,
+            orderBy: actualOrderBy,
+            orderType: actualOrderType
         }
 
         axios.post('http://localhost:8081/showTasks', values)

@@ -155,7 +155,7 @@ app.post('/showTasks', (req, res) => {
 
 // DELETE TASK
 
-app.post('/deleteTask', (req,res) => {
+app.post('/deleteTask', (req, res) => {
     const sql = "DELETE FROM tasks WHERE `User` = ? AND `Name` = ? AND `Description` = ? AND `Date` = ? AND `Priority` = ?"
     const values = [
         req.body.user,
@@ -177,11 +177,15 @@ app.post('/deleteTask', (req,res) => {
 // FIND TASKS
 
 app.post('/findTaskByName', (req, res) => {
-    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Name` = ? ORDER BY Name ASC"
+    let sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Name` = ?"
     const values = [
         req.body.user,
         req.body.name
     ]
+
+    if (req.body.orderBy && req.body.orderType) {
+        sql += ` ORDER BY ${req.body.orderBy} ${req.body.orderType}`;
+    }
 
     db.query(sql, values, (err, data) => {
         if (err) {
@@ -197,11 +201,15 @@ app.post('/findTaskByName', (req, res) => {
 })
 
 app.post('/findTaskByDate', (req, res) => {
-    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Date` = ? ORDER BY Name ASC"
+    let sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Date` = ?"
     const values = [
         req.body.user,
         req.body.date
     ]
+
+    if (req.body.orderBy && req.body.orderType) {
+        sql += ` ORDER BY ${req.body.orderBy} ${req.body.orderType}`;
+    }
 
     db.query(sql, values, (err, data) => {
         if (err) {
@@ -217,11 +225,15 @@ app.post('/findTaskByDate', (req, res) => {
 })
 
 app.post('/findTaskByPriority', (req, res) => {
-    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Priority` = ? ORDER BY Name ASC"
+    let sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? AND `Priority` = ?"
     const values = [
         req.body.user,
         req.body.priority
     ]
+
+    if (req.body.orderBy && req.body.orderType) {
+        sql += ` ORDER BY ${req.body.orderBy} ${req.body.orderType}`;
+    }
 
     db.query(sql, values, (err, data) => {
         if (err) {

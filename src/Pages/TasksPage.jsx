@@ -44,7 +44,7 @@ const TasksPage = () => {
         <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType}/>
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} />
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType}/>
       </div>
     </div>
   )
