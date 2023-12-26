@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualOrderBy, actualOrderType }) => {
+const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask }) => {
 
     const navigate = useNavigate()
 
@@ -43,9 +43,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
                 } else {
                     const values = {
                         user: login,
-                        name: findTaskPanelNameRef.current.value,
-                        orderBy: actualOrderBy,
-                        orderType: actualOrderType
+                        name: findTaskPanelNameRef.current.value
                     }
 
                     axios.post('http://localhost:8081/findTaskByName', values)
@@ -61,9 +59,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
             } else if (selectedRadioButton === "findingByDate") {
                 const values = {
                     user: login,
-                    date: findTaskPanelDateRef.current.value,
-                    orderBy: actualOrderBy,
-                    orderType: actualOrderType
+                    date: findTaskPanelDateRef.current.value
                 }
 
                 axios.post('http://localhost:8081/findTaskByDate', values)
@@ -79,9 +75,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
             } else if (selectedRadioButton === "findingByPriority") {
                 const values = {
                     user: login,
-                    priority: findTaskPanelPriorityRef.current.value,
-                    orderBy: actualOrderBy,
-                    orderType: actualOrderType
+                    priority: findTaskPanelPriorityRef.current.value
                 }
                 axios.post('http://localhost:8081/findTaskByPriority', values)
                     .then(res => {

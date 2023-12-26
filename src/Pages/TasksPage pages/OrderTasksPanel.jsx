@@ -1,17 +1,11 @@
 import React from 'react'
 import { useRef } from 'react'
 
-const OrderTasksPanel = ( {handleActualOrderBy, handleActualOrderType} ) => {
-    
+const OrderTasksPanel = () => {
+
     // useRef's
     const selectOrderByRef = useRef("Name")
     const selectOrderTypeRef = useRef("ASC")
-
-    // function's
-    const handleButtonSetOrder = () => {
-        handleActualOrderBy(selectOrderByRef.current.value)
-        handleActualOrderType(selectOrderTypeRef.current.value)
-    }
 
     return (
         <div className='orderTasksPanel'>
@@ -19,7 +13,8 @@ const OrderTasksPanel = ( {handleActualOrderBy, handleActualOrderType} ) => {
             <div className='orderTasksPanelCriterias'>
                 <select
                     name="selectOrderBy"
-                    id="selectOrderBy">
+                    id="selectOrderBy"
+                    ref={selectOrderByRef}>
                     <option> Name </option>
                     <option> Description </option>
                     <option> Date </option>
@@ -27,11 +22,12 @@ const OrderTasksPanel = ( {handleActualOrderBy, handleActualOrderType} ) => {
                 </select>
                 <select
                     name="selectOrderType"
-                    id="selectOrderType">
+                    id="selectOrderType"
+                    ref={selectOrderTypeRef}>
                     <option> ASC </option>
                     <option> DESC </option>
                 </select>
-                <button id="setOrder" onClick={handleButtonSetOrder}> Set </button>
+                <button id="setOrder"> Set </button>
             </div>
         </div>
     )
