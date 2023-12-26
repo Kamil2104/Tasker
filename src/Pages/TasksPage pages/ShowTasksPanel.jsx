@@ -3,13 +3,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-const ShowTasksPanel = ({ login, actualTask }) => {
+const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) => {
     const noTasksHeader = "No tasks available.";
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
         const values = {
-            user: login
+            user: login,
+            orderBy: "Name",
+            orderType: "ASC"
         };
 
         axios.post('http://localhost:8081/showTasks', values)
@@ -44,6 +46,36 @@ const ShowTasksPanel = ({ login, actualTask }) => {
             setTasks(formattedActualTask);
         }
     }, [actualTask])
+
+    useEffect(() => {
+        if (actualTask.length <= 0) {
+            const values = {
+                user: login,
+                orderBy: actualOrderBy,
+                orderType: actualOrderType
+            }
+
+            axios.post('http://localhost:8081/showTasks', values)
+            .then(res => {
+                if (res.data === "No tasks") {
+                    setTasks([noTasksHeader]);
+                } else if (res.data === "Error!") {
+                    alert("Something went wrong with showing the tasks.");
+                } else {
+                    let tasksRes = res.data
+
+                    const formattedTasks = tasksRes.map(task => (
+                        Object.entries(task).map(([key, value]) => (
+                            key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
+                        )).join('\n')
+                    ));
+
+                    setTasks(formattedTasks);
+                }
+            })
+            .catch(err => console.log(err))
+        }
+    }, [actualOrderBy, actualOrderType, actualTask, login])
 
     const handleButtonDeleteTask = (event) => {
         const textareaIndex = event.target.id;

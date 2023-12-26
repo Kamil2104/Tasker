@@ -19,9 +19,20 @@ const TasksPage = () => {
 
   const [actualTask, setActualTask] = useState([]);
 
+  const[actualOrderBy, setActualOrderBy] = useState("Name")
+  const[actualOrderType, setActualOrderType] = useState("ASC")
+
   const handleActualTask = (actualTaskParam) => {
     setActualTask(actualTaskParam);
   };
+
+  const handleActualOrderBy = (actualOrderByParam) => {
+    setActualOrderBy(actualOrderByParam)
+  }
+
+  const handleActualOrderType = (actualOrderTypeParam) => {
+    setActualOrderType(actualOrderTypeParam)
+  }
 
   return (
     <div className='tasksPage'>
@@ -29,8 +40,8 @@ const TasksPage = () => {
         <AddTaskPanel validateAddingTask={validateAddingTask} login={userLogin} />
       </div>
       <div className='centerPanel'>
-        <OrderTasksPanel />
-        <ShowTasksPanel login={userLogin} actualTask={actualTask} />
+        <OrderTasksPanel handleActualOrderBy={handleActualOrderBy} handleActualOrderType={handleActualOrderType}/>
+        <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType}/>
       </div>
       <div className='rightPanel'>
         <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} />

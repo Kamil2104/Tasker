@@ -123,23 +123,35 @@ app.post('/addTask', (req, res) => {
 // SHOW TASKS
 
 app.post('/showTasks', (req, res) => {
-    const sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ? ORDER BY Name ASC"
+    let sql = "SELECT Name, Description, Date, Priority FROM tasks WHERE `User` = ?";
+
     const values = [
         req.body.user
     ]
 
+    /* 
+    You cannot dynamically provide a column name or sort direction as a parameter in an SQL query. 
+    You must build the entire SQL query, including both the column name and sort direction, before passing it to the query function.
+    */
+
+    // Check if orderBy and orderType are available
+    if (req.body.orderBy && req.body.orderType) {
+        // Add ORDER BY to your query with the appropriate values
+        sql += ` ORDER BY ${req.body.orderBy} ${req.body.orderType}`;
+    }
+
     db.query(sql, values, (err, data) => {
         if (err) {
-            return res.json("Error!")
+            return res.json("Error!");
         }
 
         if (data.length > 0) {
-            return res.json(data)
+            return res.json(data);
         } else {
-            return res.json("No tasks")
+            return res.json("No tasks");
         }
-    })
-})
+    });
+});
 
 // DELETE TASK
 

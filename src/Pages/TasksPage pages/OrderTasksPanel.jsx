@@ -1,11 +1,16 @@
 import React from 'react'
 import { useRef } from 'react'
 
-const OrderTasksPanel = () => {
+const OrderTasksPanel = ({ handleActualOrderBy, handleActualOrderType }) => {
 
     // useRef's
     const selectOrderByRef = useRef("Name")
     const selectOrderTypeRef = useRef("ASC")
+
+    const handleButtonSetOrder = () => {
+        handleActualOrderBy(selectOrderByRef.current.value)
+        handleActualOrderType(selectOrderTypeRef.current.value)
+    }
 
     return (
         <div className='orderTasksPanel'>
@@ -27,7 +32,7 @@ const OrderTasksPanel = () => {
                     <option> ASC </option>
                     <option> DESC </option>
                 </select>
-                <button id="setOrder"> Set </button>
+                <button id="setOrder" onClick={handleButtonSetOrder}> Set </button>
             </div>
         </div>
     )
