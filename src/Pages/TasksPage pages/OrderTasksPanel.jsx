@@ -8,8 +8,11 @@ const OrderTasksPanel = ({ handleActualOrderBy, handleActualOrderType }) => {
     const selectOrderTypeRef = useRef("ASC")
 
     const handleButtonSetOrder = () => {
-        handleActualOrderBy(selectOrderByRef.current.value)
-        handleActualOrderType(selectOrderTypeRef.current.value)
+        const orderBy = selectOrderByRef.current.value;
+        const orderType = selectOrderTypeRef.current.value;
+        
+        handleActualOrderBy(orderBy, orderType);
+        handleActualOrderType(orderType);
     }
 
     return (

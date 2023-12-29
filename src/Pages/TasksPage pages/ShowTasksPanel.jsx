@@ -58,26 +58,68 @@ const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) =
             }
 
             axios.post('http://localhost:8081/showTasks', values)
-            .then(res => {
-                if (res.data === "No tasks") {
-                    setTasks([noTasksHeader]);
-                } else if (res.data === "Error!") {
-                    alert("Something went wrong with showing the tasks.");
-                } else {
-                    let tasksRes = res.data
+                .then(res => {
+                    if (res.data === "No tasks") {
+                        setTasks([noTasksHeader]);
+                    } else if (res.data === "Error!") {
+                        alert("Something went wrong with showing the tasks.");
+                    } else {
+                        let tasksRes = res.data
 
-                    const formattedTasks = tasksRes.map(task => (
-                        Object.entries(task).map(([key, value]) => (
-                            key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
-                        )).join('\n')
-                    ));
+                        const formattedTasks = tasksRes.map(task => (
+                            Object.entries(task).map(([key, value]) => (
+                                key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
+                            )).join('\n')
+                        ));
 
-                    setTasks(formattedTasks);
-                }
-            })
-            .catch(err => console.log(err))
+                        setTasks(formattedTasks);
+                    }
+                })
+                .catch(err => console.log(err))
         }
     }, [actualOrderBy, actualOrderType, actualTask, login])
+
+    useEffect(() => {
+        if (actualTask.length > 0) {
+            const sortedTasks = [...actualTask].sort((task1, task2) => {
+                if (actualOrderBy === 'Name') {
+                    if (actualOrderType === 'ASC') {
+                        return parseTaskContent(task1.Name.localeCompare(task2.Name));
+                    } else {
+                        return parseTaskContent(task2.Name.localeCompare(task1.Name));
+                    }
+                }
+
+                if (actualOrderBy === 'Description') {
+                    if (actualOrderType === 'ASC') {
+                        return parseTaskContent(task1.Description.localeCompare(task2.Description));
+                    } else {
+                        return parseTaskContent(task2.Description.localeCompare(task1.Description));
+                    }
+                }
+
+                if (actualOrderBy === 'Date') {
+                    if (actualOrderType === 'ASC') {
+                        return parseTaskContent(task1.Date.localeCompare(task2.Date));
+                    } else {
+                        return parseTaskContent(task2.Date.localeCompare(task1.Date));
+                    }
+                }
+
+                if (actualOrderBy === 'Priority') {
+                    if (actualOrderType === 'ASC') {
+                        return parseTaskContent(task1.Priority.localeCompare(task2.Priority));
+                    } else {
+                        return parseTaskContent(task2.Priority.localeCompare(task1.Priority));
+                    }
+                }
+                
+                return "Something went wrong"
+            });
+
+             setTasks(sortedTasks);
+        }
+    }, [actualTask, actualOrderBy, actualOrderType]);
 
     const handleButtonDeleteTask = (event) => {
         const textareaIndex = event.target.id;
