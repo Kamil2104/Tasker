@@ -6,7 +6,6 @@ import moment from 'moment';
 const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) => {
     const noTasksHeader = "No tasks available.";
     const [tasks, setTasks] = useState([]);
-    console.log(tasks)
 
     useEffect(() => {
         const values = {
@@ -79,7 +78,13 @@ const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) =
                 }
             });
     
-            setTasks(sortedTasks);
+            const formattedSortedActualTask = sortedTasks.map(task => (
+                Object.entries(task).map(([key, value]) => (
+                    key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
+                )).join('\n')
+            ));
+
+            setTasks(formattedSortedActualTask);
         }
     }, [actualTask, actualOrderBy, actualOrderType]);
 
@@ -111,18 +116,6 @@ const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) =
             console.error("Error parsing task content:", error);
         }
     }
-
-    useEffect(() => {
-        if (actualTask.length > 0) {
-            const formattedActualTask = actualTask.map(task => (
-                Object.entries(task).map(([key, value]) => (
-                    key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
-                )).join('\n')
-            ));
-
-            setTasks(formattedActualTask);
-        }
-    }, [actualTask])
 
     // Function to transform the task content into a JSON object
     const parseTaskContent = (content) => {
