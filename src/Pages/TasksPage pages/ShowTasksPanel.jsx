@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-import { parseTaskContent } from './/Validation/ShowTasksPanelParser';
-
 const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) => {
     const noTasksHeader = "No tasks available.";
     const [tasks, setTasks] = useState([]);
@@ -113,11 +111,11 @@ const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) =
                         return parseTaskContent(task2.Priority.localeCompare(task1.Priority));
                     }
                 }
-                
+
                 return "Something went wrong"
             });
 
-             setTasks(sortedTasks);
+            setTasks(sortedTasks);
         }
     }, [actualTask, actualOrderBy, actualOrderType]);
 
@@ -148,6 +146,18 @@ const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) =
         } catch (error) {
             console.error("Error parsing task content:", error);
         }
+    }
+
+    // Function to transform the task content into a JSON object
+    const parseTaskContent = (content) => {
+        const lines = content.split('\n');
+        const taskObject = {};
+        lines.forEach(line => {
+            const [key, value] = line.split(':');
+            taskObject[key.trim()] = value.trim();
+        });
+
+        return taskObject;
     }
 
     return (
