@@ -23,8 +23,6 @@ const TasksPage = () => {
   const[actualOrderBy, setActualOrderBy] = useState("Name")
   const[actualOrderType, setActualOrderType] = useState("ASC")
 
-  console.log(isUserLoggedIn)
-
   const handleActualTask = (actualTaskParam) => {
     setActualTask(actualTaskParam);
   };
@@ -47,7 +45,7 @@ const TasksPage = () => {
         <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType}/>
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType}/>
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} isUserLoggedIn={isUserLoggedIn}/>
       </div>
     </div>
   )
