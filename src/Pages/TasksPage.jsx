@@ -16,11 +16,14 @@ import '../Styles/TasksPageStyle.css';
 const TasksPage = () => {
   const location = useLocation();
   const userLogin = location?.state?.loginText;
+  const isUserLoggedIn = location?.state?.isLoggedIn;
 
   const [actualTask, setActualTask] = useState([]);
 
   const[actualOrderBy, setActualOrderBy] = useState("Name")
   const[actualOrderType, setActualOrderType] = useState("ASC")
+
+  console.log(isUserLoggedIn)
 
   const handleActualTask = (actualTaskParam) => {
     setActualTask(actualTaskParam);
