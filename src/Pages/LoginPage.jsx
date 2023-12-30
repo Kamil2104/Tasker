@@ -12,6 +12,7 @@ import { validateLogin, validatePassword } from '../Validation/LoginAndPasswordV
 import '../Styles/LoginPageStyle.css';
 
 const LoginPage = () => {
+
   // useNavigate
   const navigate = useNavigate();
 
@@ -26,15 +27,19 @@ const LoginPage = () => {
   // useEffect's
   useEffect(() => {
     document.title = "Tasker - log in";
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/tasksPage', { state: { loginText, isLoggedIn } })
+      navigate('/tasksPage', { state: { loginText } })
     }
   }, [isLoggedIn, loginText, navigate])
 
   // functions
+  const handleIsLoggedIn = (loggedIn) => {
+    setIsLoggedIn(loggedIn)
+  }
+
   const handleInputLogin = (event) => {
     setLoginText(event.target.value);
   }
@@ -57,7 +62,7 @@ const LoginPage = () => {
         axios.post('http://localhost:8081/login', values)
           .then(res => {
             if (res.data === "Success") {
-              setIsLoggedIn(true);
+              handleIsLoggedIn(true)
             } else {
               alert("Incorrect login or password.")
             }

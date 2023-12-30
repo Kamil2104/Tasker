@@ -16,7 +16,6 @@ import '../Styles/TasksPageStyle.css';
 const TasksPage = () => {
   const location = useLocation();
   const userLogin = location?.state?.loginText;
-  const isUserLoggedIn = location?.state?.isLoggedIn;
 
   const [actualTask, setActualTask] = useState([]);
 
@@ -45,7 +44,7 @@ const TasksPage = () => {
         <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType}/>
       </div>
       <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} isUserLoggedIn={isUserLoggedIn}/>
+        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} />
       </div>
     </div>
   )
