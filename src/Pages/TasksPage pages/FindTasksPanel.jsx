@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { handleIsLoggedIn } from '../LoginPage'
+// import { handleIsLoggedIn } from '../LoginPage'
 
 import axios from 'axios';
 
@@ -150,7 +150,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
     }
 
     const handleButtonLogOut = () => {
-        handleIsLoggedIn(false)
+        // handleIsLoggedIn(false)
         navigate('/')
     }
 
