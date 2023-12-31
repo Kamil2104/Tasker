@@ -22,10 +22,18 @@ const LoginPage = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   // useEffect's
   useEffect(() => {
     document.title = "Tasker - log in";
   }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/tasksPage', { state: { loginText, isLoggedIn, setIsLoggedIn } });
+    }
+  }, [isLoggedIn, loginText, navigate])
 
   // functions
 
@@ -51,7 +59,7 @@ const LoginPage = () => {
         axios.post('http://localhost:8081/login', values)
           .then(res => {
             if (res.data === "Success") {
-              navigate('/tasksPage', { state: { loginText } })
+              setIsLoggedIn(true)
             } else {
               alert("Incorrect login or password.")
             }
