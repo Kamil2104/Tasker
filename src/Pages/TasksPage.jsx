@@ -47,14 +47,14 @@ const TasksPage = () => {
     }
 
     axios.post('http://localhost:8081/userIsLoggedIn', values)
-    .then(res => {
-      if (res.data === "Success") {
-        setIsLoggedIn(true)
-      } else if (res.data === "Logged out") {
-        setIsLoggedIn(false)
-      }
-    })
-    .catch(err => console.log(err))
+      .then(res => {
+        if (res.data === "Success") {
+          setIsLoggedIn(true)
+        } else if (res.data === "Logged out") {
+          setIsLoggedIn(false)
+        }
+      })
+      .catch(err => console.log(err))
   }, [userLogin])
 
   return (
@@ -69,7 +69,7 @@ const TasksPage = () => {
             <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} />
           </div>
           <div className='rightPanel'>
-            <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} setIsLoggedIn={setIsLoggedIn}/>
+            <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} setIsLoggedIn={setIsLoggedIn} />
           </div>
         </div>
       ) : isLoggedIn === false ? (

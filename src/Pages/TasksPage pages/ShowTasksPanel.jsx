@@ -70,14 +70,14 @@ const ShowTasksPanel = ({ login, actualTask, actualOrderBy, actualOrderType }) =
             const sortedTasks = [...actualTask].sort((task1, task2) => {
                 const task1Value = task1[actualOrderBy];
                 const task2Value = task2[actualOrderBy];
-    
+
                 if (actualOrderType === 'ASC') {
                     return task1Value.toString().localeCompare(task2Value.toString());
                 } else {
                     return task2Value.toString().localeCompare(task1Value.toString());
                 }
             });
-    
+
             const formattedSortedActualTask = sortedTasks.map(task => (
                 Object.entries(task).map(([key, value]) => (
                     key === 'Date' ? `${key}: ${moment(value).format('YYYY-MM-DD')}` : `${key}: ${value}`
