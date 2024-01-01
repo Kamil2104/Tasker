@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import AddTaskPanel from './TasksPage pages/AddTaskPanel';
 import OrderTasksPanel from './TasksPage pages/OrderTasksPanel';
@@ -14,13 +14,23 @@ import { validateFindingTasks } from '../Validation/FindTasksPanelValidation'
 import '../Styles/TasksPageStyle.css';
 
 const TasksPage = () => {
+  const navigate = useNavigate()
+
   const location = useLocation();
   const userLogin = location?.state?.loginText;
+  const isUserLoggedIn = location?.state?.isLoggedIn;
 
+  const [isLoggedIn, setIsLoggedIn] = useState()
   const [actualTask, setActualTask] = useState([]);
 
-  const[actualOrderBy, setActualOrderBy] = useState("Name")
-  const[actualOrderType, setActualOrderType] = useState("ASC")
+  const [actualOrderBy, setActualOrderBy] = useState("Name")
+  const [actualOrderType, setActualOrderType] = useState("ASC")
+
+  useEffect(() => {
+    if (isUserLoggedIn && isLoggedIn !== false) {
+      setIsLoggedIn(true)
+    }
+  }, [isUserLoggedIn, isLoggedIn])
 
   const handleActualTask = (actualTaskParam) => {
     setActualTask(actualTaskParam);
@@ -34,18 +44,35 @@ const TasksPage = () => {
     setActualOrderType(actualOrderTypeParam)
   }
 
+  const handleButtonTakeUserToLoginPage = () => {
+    navigate('/')
+  }
+
   return (
     <div className='tasksPage'>
-      <div className='leftPanel'>
-        <AddTaskPanel validateAddingTask={validateAddingTask} login={userLogin} />
-      </div>
-      <div className='centerPanel'>
-        <OrderTasksPanel handleActualOrderBy={handleActualOrderBy} handleActualOrderType={handleActualOrderType}/>
-        <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType}/>
-      </div>
-      <div className='rightPanel'>
-        <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} />
-      </div>
+      {isLoggedIn === true ? (
+        <div className='tasksPageUserLoggedIn'>
+          <div className='leftPanel'>
+            <AddTaskPanel validateAddingTask={validateAddingTask} login={userLogin} />
+          </div>
+          <div className='centerPanel'>
+            <OrderTasksPanel handleActualOrderBy={handleActualOrderBy} handleActualOrderType={handleActualOrderType} />
+            <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} />
+          </div>
+          <div className='rightPanel'>
+            <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          </div>
+        </div>
+      ) : (
+        <div className='tasksPageUserLoggedOut'>
+          <div className='tasksPageUserLoggedOutHeader'>
+            <h1> You have to log in! </h1>
+          </div>
+          <div className='tasksPageUserLoggedOutGoToLoginPage'>
+            <button onClick={handleButtonTakeUserToLoginPage}> Go to login page </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

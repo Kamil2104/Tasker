@@ -31,7 +31,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/tasksPage', { state: { loginText, isLoggedIn, setIsLoggedIn } });
+      navigate('/tasksPage', { state: { loginText, isLoggedIn } });
     }
   }, [isLoggedIn, loginText, navigate])
 

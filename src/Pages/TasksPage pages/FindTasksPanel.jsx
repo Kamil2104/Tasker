@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualOrderBy, actualOrderType }) => {
+const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualOrderBy, actualOrderType, isLoggedIn, setIsLoggedIn }) => {
 
     const navigate = useNavigate()
 
@@ -22,6 +22,15 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
     const radioButtonNameRef = useState(false)
     const radioButtonDateRef = useState(false)
     const radioButtonPriorityRef = useState(false)
+
+    // useEffect's
+    useEffect(() => {
+        // if (isLoggedIn === false) {
+        //     navigate('/')
+        // }
+
+        console.log(isLoggedIn)
+    }, [isLoggedIn, navigate])
 
     // function's
     function getCurrentDate() {
@@ -150,8 +159,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
     }
 
     const handleButtonLogOut = () => {
-        // handleIsLoggedIn(false)
-        navigate('/')
+        setIsLoggedIn(false)
     }
 
     return (
