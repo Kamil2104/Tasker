@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import AddTaskPanel from './TasksPage pages/AddTaskPanel';
@@ -11,6 +9,8 @@ import FindTasksPanel from './TasksPage pages/FindTasksPanel';
 import { validateAddingTask } from '../Validation/AddTaskPanelValidation'
 import { validateFindingTasks } from '../Validation/FindTasksPanelValidation'
 
+import axios from 'axios';
+
 import '../Styles/TasksPageStyle.css';
 
 const TasksPage = () => {
@@ -18,19 +18,12 @@ const TasksPage = () => {
 
   const location = useLocation();
   const userLogin = location?.state?.loginText;
-  const isUserLoggedIn = location?.state?.isLoggedIn;
 
   const [isLoggedIn, setIsLoggedIn] = useState()
   const [actualTask, setActualTask] = useState([]);
 
   const [actualOrderBy, setActualOrderBy] = useState("Name")
   const [actualOrderType, setActualOrderType] = useState("ASC")
-
-  useEffect(() => {
-    if (isUserLoggedIn && isLoggedIn !== false) {
-      setIsLoggedIn(true)
-    }
-  }, [isUserLoggedIn, isLoggedIn])
 
   const handleActualTask = (actualTaskParam) => {
     setActualTask(actualTaskParam);
@@ -48,6 +41,22 @@ const TasksPage = () => {
     navigate('/')
   }
 
+  useEffect(() => {
+    const values = {
+      login: userLogin
+    }
+
+    axios.post('http://localhost:8081/userIsLoggedIn', values)
+    .then(res => {
+      if (res.data === "Success") {
+        setIsLoggedIn(true)
+      } else if (res.data === "Logged out") {
+        setIsLoggedIn(false)
+      }
+    })
+    .catch(err => console.log(err))
+  }, [userLogin])
+
   return (
     <div className='tasksPage'>
       {isLoggedIn === true ? (
@@ -60,7 +69,7 @@ const TasksPage = () => {
             <ShowTasksPanel login={userLogin} actualTask={actualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} />
           </div>
           <div className='rightPanel'>
-            <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} setIsLoggedIn={setIsLoggedIn}/>
           </div>
         </div>
       ) : (

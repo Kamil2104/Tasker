@@ -27,7 +27,7 @@ app.listen(8081, () => {
 
 // Setting post endpoint for user account creation
 app.post('/createAccount', (req, res) => {
-    const sql = "INSERT INTO users (`Login`, `Password`) values (?, ?)"; // SQL query definition 
+    const sql = "INSERT INTO users (`Login`, `Password`, `Logged`) values (?, ?, true)"; // SQL query definition 
     const values = [ // Value definition (these are comming from JavaScript object named 'values' (it's passed in CreateAccount.jsx next to link))
         req.body.login, // Getting value from input with NAME = "login"
         req.body.password // Getting value from input with NAME = "password"
@@ -244,6 +244,59 @@ app.post('/findTaskByPriority', (req, res) => {
             return res.json(data)
         } else {
             return res.json("No tasks found")
+        }
+    })
+})
+
+// UPDATING WHEN USER IS LOGGED IN
+app.post('/userLoggedIn', (req, res) => {
+    const sql = "UPDATE users SET `Logged` = true WHERE `Login` = ?"
+    const values = [
+        req.body.login
+    ]
+
+    db.query(sql, values, (err) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        return res.json("Success")
+    })
+})
+
+
+// UPDATING WHEN USER IS LOGGED OUT
+app.post('/userLoggedOut', (req, res) => {
+    const sql = "UPDATE users SET `Logged` = false WHERE `Login` = ?"
+    const values = [
+        req.body.login
+    ]
+
+    db.query(sql, values, (err) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        return res.json("Success")
+    })
+})
+
+// CHECKING IF USER IS LOGGED IN
+app.post('/userIsLoggedIn', (req, res) => {
+    const sql = "SELECT * FROM users WHERE `Login` = ? AND `Logged` = true"
+    const values = [
+        req.body.login
+    ]
+
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            return res.json("Error!")
+        }
+
+        if (data.length > 0) {
+            return res.json("Success")
+        } else {
+            return res.json("Logged out")
         }
     })
 })

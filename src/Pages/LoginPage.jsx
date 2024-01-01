@@ -31,7 +31,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/tasksPage', { state: { loginText, isLoggedIn } });
+      navigate('/tasksPage', { state: { loginText } });
     }
   }, [isLoggedIn, loginText, navigate])
 
@@ -59,7 +59,19 @@ const LoginPage = () => {
         axios.post('http://localhost:8081/login', values)
           .then(res => {
             if (res.data === "Success") {
-              setIsLoggedIn(true)
+              const values = {
+                login: loginText
+              }
+              
+              axios.post('http://localhost:8081/userLoggedIn', values)
+                .then(res => {
+                  if (res.data === "Success") {
+                    setIsLoggedIn(true)
+                  } else {
+                    alert("Something went wrong with logging in.")
+                  }
+                })
+                .catch(err => console.log(err))
             } else {
               alert("Incorrect login or password.")
             }
