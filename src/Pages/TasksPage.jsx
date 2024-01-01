@@ -72,7 +72,7 @@ const TasksPage = () => {
             <FindTasksPanel validateFindingTasks={validateFindingTasks} login={userLogin} handleActualTask={handleActualTask} actualOrderBy={actualOrderBy} actualOrderType={actualOrderType} setIsLoggedIn={setIsLoggedIn}/>
           </div>
         </div>
-      ) : (
+      ) : isLoggedIn === false ? (
         <div className='tasksPageUserLoggedOut'>
           <div className='tasksPageUserLoggedOutHeader'>
             <h1> You have to log in! </h1>
@@ -81,7 +81,12 @@ const TasksPage = () => {
             <button onClick={handleButtonTakeUserToLoginPage}> Go to login page </button>
           </div>
         </div>
-      )}
+      ) : (
+        <div className='blankContainer'>
+
+        </div>
+      )
+      }
     </div>
   )
 }
