@@ -3,8 +3,11 @@ import { useState, useRef } from 'react';
 // import { handleIsLoggedIn } from '../LoginPage'
 
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualOrderBy, actualOrderType, setIsLoggedIn}) => {
+
+    const navigate = useNavigate()
 
     // useState's
     const [selectedDate, setSelectedDate] = useState(getCurrentDate());
@@ -154,6 +157,7 @@ const FindTasksPanel = ({ validateFindingTasks, login, handleActualTask, actualO
             .then(res => {
                 if (res.data === "Success") {
                     setIsLoggedIn(false)
+                    navigate('/')
                 } else {
                     alert("Something went wrong with logging out.")
                 }
