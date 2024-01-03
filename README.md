@@ -1,3 +1,5 @@
+# TASKER
+
 Tasker is a task management application with user authentication and task-related functionalities. The application consists of both frontend and backend components.
 
 1. Frontend (React)
